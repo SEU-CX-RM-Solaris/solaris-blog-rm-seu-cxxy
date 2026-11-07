@@ -1,389 +1,90 @@
-![Nayuta banner](public/assets/images/banner.png)
-
 <div align="center">
 
-# Nayuta
+<img src="public/assets/images/avatar.jpg" alt="天钺 Solaris" width="96" />
 
-A responsive, reading-first Astro theme for personal homepages, blogs, and notes.
+# 天钺 Solaris · RoboMaster 技术博客
 
-[![Astro](https://img.shields.io/badge/Astro-7.x-FF5D01?style=flat-square&logo=astro&logoColor=white)](https://astro.build)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Bun](https://img.shields.io/badge/Bun-1.x-FBF0DF?style=flat-square&logo=bun&logoColor=black)](https://bun.sh)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+东南大学成贤学院（SEU-CXXY）天钺（Solaris）RoboMaster 战队的技术博客
 
-[Features](#features) · [Showcase](#showcase) · [Quick start](#quick-start) ·
-[Configuration](#configuration) · [Content](#content) · [Contributing](#contributing)
+**秣陵行胜，共赴千山。**
+
+[在线访问](https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/) ·
+[战队官网](https://seu-cx-rm-solaris.github.io/solaris-rm/) ·
+[开源资源目录](https://seu-cx-rm-solaris.github.io/rm-open-source-leaderboard/)
+
+![Astro](https://img.shields.io/badge/Astro-7.x-FF5D01?style=flat-square&logo=astro&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-6.x-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/内容许可-CC%20BY--NC--SA%204.0-lightgrey?style=flat-square)
 
 </div>
 
-Nayuta combines static site generation with compact monospace UI and a larger
-reading scale. Its responsive layout places navigation and widgets beside the
-content on desktop and makes them available through drawers on smaller screens.
-
-The name comes from **Kani Nayuta** (可児 那由多), the novelist in Yomi Hirasaka's
-_A Sister's All You Need_ (妹さえいればいい。).
-
-## Features
-
-- **Reading-focused typography:** JetBrains Mono and Fira Code, with separate
-  scales for prose and compact interface text.
-- **Responsive layout:** optional side columns, mobile drawers, and keyboard
-  navigation with a no-JavaScript fallback.
-- **Five color palettes:** `nayuta`, `nayuta-aqua`, `midnight-blue`, `oled-dark`,
-  and `sakura-pink`, selected in the site configuration.
-- **Images and lightbox:** lazy loading, theme-colored placeholders, decoded image
-  reveal, and a keyboard/touch image viewer styled for every palette.
-- **Astro content collections:** Markdown/MDX posts, authored Astro pages, and
-  validated metadata.
-- **Automatic reading time:** build-time estimates for CJK and Latin text.
-- **Post and tag archives:** static pagination, tag pages, and sidebar widgets.
-- **Article search:** Pagefind full-text search with highlighted excerpts and paginated
-  results, available in development and static builds.
-- **Custom sidebars and templates:** per-page Astro widgets, an article TOC,
-  personal pages, and friend-link collections.
-
-## Showcase
-
-| Desktop homepage                                                                                     | Mobile homepage                                                                                  |
-| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| <img src="docs/assets/01-home-desktop-1920x1080.png" alt="Nayuta homepage on desktop" width="650" /> | <img src="docs/assets/05-home-mobile-440x956.png" alt="Nayuta homepage on mobile" width="180" /> |
-
-<details>
-<summary>More screenshots: posts, articles, and friends</summary>
-
-| Page    | Desktop                                                                                              | Mobile                                                                                           |
-| ------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Posts   | <img src="docs/assets/02-posts-desktop-1920x1080.png" alt="Post archive on desktop" width="500" />   | <img src="docs/assets/06-posts-mobile-440x956.png" alt="Post archive on mobile" width="150" />   |
-| Article | <img src="docs/assets/03-article-desktop-1920x1080.png" alt="Article on desktop" width="500" />      | <img src="docs/assets/07-article-mobile-440x956.png" alt="Article on mobile" width="150" />      |
-| Friends | <img src="docs/assets/04-friends-desktop-1920x1080.png" alt="Friend links on desktop" width="500" /> | <img src="docs/assets/08-friends-mobile-440x956.png" alt="Friend links on mobile" width="150" /> |
-
-</details>
-
-## Quick Start
-
-Use [Bun 1.x](https://bun.sh) (recommended), or [Node.js](https://nodejs.org)
-as an alternative runtime for Astro.
-
-The following setup uses only Bun; no separate Node.js installation is needed:
-
-```sh
-git clone https://github.com/yuanzui-cf/nayuta.git
-cd nayuta
-bun install
-bun run dev
-```
-
-Open [localhost:4321](http://localhost:4321). To contribute to the theme, follow
-[the fork setup](CONTRIBUTING.md#requirements-and-setup) instead.
-
-| Command                | Purpose                                                         |
-| ---------------------- | --------------------------------------------------------------- |
-| `bun run dev`          | Start the development server with an article search index.      |
-| `bun run check`        | Check Astro templates and TypeScript.                           |
-| `bun run test`         | Run the test suite.                                             |
-| `bun run build`        | Generate the static site and Pagefind article index in `dist/`. |
-| `bun run preview`      | Preview the production build, including search.                 |
-| `bun run format`       | Format source and documentation with Prettier.                  |
-| `bun run format:check` | Check formatting without changing files.                        |
-
-## Configuration
-
-Customize your site profile, metadata, navigation, and theme preset in [`src/config.ts`](./src/config.ts):
-
-```typescript
-import type { Config } from '@type/config';
-
-const config: Config = {
-  title: '✍️ Kani Nayuta',
-  author: 'Kani Nayuta',
-  avatar: '/assets/images/avatar.png',
-  description: 'Genius Light Novelist | Author of "The Landscape Series"',
-  site_url: 'https://nayuta.kani.dev',
-  // Presets: 'nayuta' | 'nayuta-aqua' | 'midnight-blue' | 'oled-dark' | 'sakura-pink'
-  theme: 'nayuta',
-  since: '2024-01-01',
-  postsPerPage: 10,
-  copyright: { enabled: true, license: 'CC BY-NC-SA 4.0' },
-  links: [
-    {
-      text: 'Posts',
-      url: '/posts',
-      icon: { type: 'icon', name: 'fa-solid fa-file-lines' },
-    },
-    {
-      text: 'Friends',
-      url: '/friend',
-      icon: { type: 'icon', name: 'fa-solid fa-users' },
-    },
-  ],
-};
-
-export default config;
-```
-
-The checked-in default is `nayuta`; all five bundled palettes are dark.
-`site_url` must be an absolute HTTP(S) URL. `postsPerPage` controls post and tag
-archives and search results, and defaults to 10 when omitted.
-The checked-in configuration shows a post copyright card using `CC BY-NC-SA 4.0`.
-Set `copyright.enabled` to `false` to hide cards site-wide. When enabled, set
-`copyright.license` to a supported Creative Commons 4.0 license.
-
-## Content
-
-- [Writing posts](#writing-posts)
-- [Images](#images)
-- [Homepage and custom pages](#homepage-and-custom-pages)
-- [Routes and assets](#routes-and-assets)
-- [Page templates](#page-templates)
-- [Search](#search)
-- [Custom sidebars](#custom-sidebars)
-- [Bundled demos](#bundled-demos)
-
-### Writing Posts
-
-Place `.md` or `.mdx` files into `src/content/posts/`. You can author posts as standalone files or folder bundles:
-
-```markdown
----
-title: 'The Architecture of Reading-First Design'
-publishDate: '2026-09-09'
-description: 'Balancing information density and typography.'
-cover: '/assets/images/banner.png' # or './cover.png' in a folder bundle
-tags: ['Astro', 'CSS Grid', 'Typography']
 ---
 
-Article content here...
+## 内容板块
+
+全部文章按系列分类，见[文章目录](https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/)。
+
+| 系列 | 篇数 | 说明 |
+| --- | --- | --- |
+| [同济大学招新培训笔记](https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-overview/) | 5 | 整理自同济大学（SuperPower）战队公开的招新培训课件与视频，机械 / 电控 / 硬件 / 视觉四组 + 总索引，面向入队新生 |
+| [步兵自瞄拆解](https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/autoaim-00-overview/) | 31 | 基于同济 SuperPower `sp_vision_25` 开源项目的逐模块源码拆解：感知流水线、检测 / 分类 / 跟踪、整车 EKF、位姿解算、TinyMPC 轨迹规划、弹道模型、电控通信（CAN / 串口 / IMU）与配套学习笔记 |
+| [STM32 电控入门](https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/stm32-00-overview/) | 9 | 基于波特律动 STM32 学习套件 V3.2 的 26 个例程拆解：GPIO、UART、定时器与 PWM、ADC、I2C/SPI、FreeRTOS 入门教程与 HAL 速查 |
+
+新文章会同步显示在博客首页的「最新文章」板块。
+
+## 技术栈
+
+- [Astro 7](https://astro.build/) 静态站点生成
+- [Nayuta](https://github.com/yuanzui-cf/nayuta) 主题（MIT License）
+- [Pagefind](https://pagefind.app/) 静态全文搜索（中文分词索引）
+- 部署于 GitHub Pages（构建产物推送至 `gh-pages` 分支）
+
+## 本地开发
+
+需要 Node.js 22+。
+
+```bash
+npm install        # 安装依赖
+npm run dev        # 开发服务器（默认 http://localhost:4321/solaris-blog-rm-seu-cxxy/）
+npm run build      # 产出 dist/（自动完成 base 路径后处理）
+npm run preview    # 预览生产构建
 ```
 
-- **Reading time**: Calculated automatically at compile time based on bilingual (CJK + Latin) content.
-- **Folder bundles**: For posts with colocated images, create `src/content/posts/<slug>/index.md` alongside your assets and use relative paths like `cover: './cover.png'`.
-- **MDX components**: Reusable components such as `<Callout />` are available under `src/widgets/article/`.
+说明：
 
-Set `draft: true` to preview a post in development while excluding it from the
-production site. Set `exclude_in_search: true` to keep a published post and its
-archive links while omitting it from the Pagefind index. Tags produce archive
-links at `/tag/<name>`.
+- 站点部署在 `https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/` 子路径下，
+  `npm run build` 末尾会执行 `scripts/apply-base-path.mjs`，为构建产物中的内部链接统一添加 base 前缀。
+- `pagefind` 固定使用 `1.5.2`：搜索索引与运行时需同版本，升级前请同步更新线上部署。
 
-To license an individual post, add `copyright` to its front matter:
+## 部署
 
-```yaml
-copyright:
-  enabled: true
-  license: CC BY-NC-SA 4.0
+GitHub Pages 采用 legacy 模式、从 `gh-pages` 分支部署：
+
+```bash
+npm run build
+git worktree add ../blog-ghpages origin/gh-pages   # 挂出产物分支
+# 用 dist/ 内容替换 ../blog-ghpages 下所有文件（保留 .nojekyll）
+cd ../blog-ghpages && git add -A && git commit -m "Deploy" && git push origin HEAD:gh-pages
 ```
 
-Post fields override the site settings independently: `enabled: false` hides
-the card, and `license` changes the license while retaining the site visibility
-setting. A post can use `enabled: true` with the site license, or specify its own
-license when the site has none. Enabled posts without a license fail the build.
-Supported values are `CC BY 4.0`, `CC BY-SA 4.0`, `CC BY-ND 4.0`, `CC BY-NC 4.0`,
-`CC BY-NC-SA 4.0`, and `CC BY-NC-ND 4.0`.
+## 写作约定
 
-### Images
+- 文章放在 `src/content/posts/<slug>/index.md`，front-matter 需含
+  `title`、`publishDate`、`description`、`category`（用于目录页分组）与 `tags`。
+- 现有分组：`自瞄拆解 · 总索引 / 视觉 / 电控 / OpenCV / YOLO / ROS2 / 学习笔记`、
+  `STM32 电控入门`、`同济大学招新培训笔记`。
+- Markdown 中的表格依赖 GFM，仓库已强制 LF 换行（见 `.gitattributes`）。
 
-Markdown images automatically receive lazy loading and a theme-colored placeholder:
+## 版权与致谢
 
-```markdown
-![A notebook](./assets/notebook.png)
-```
+- 站点文章默认采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可。
+- 「同济大学招新培训笔记」整理自同济大学（SuperPower）战队公开课件与视频，版权归原作者及该战队所有；
+  「STM32 电控入门」基于[波特律动](http://docs.keysking.com/docs/stm32/example/)公开学习套件整理，
+  均仅作学习交流使用，若涉及版权问题请联系我们删除。
+- 感谢 [Nayuta](https://github.com/yuanzui-cf/nayuta) 主题作者与开源社区。
 
-Local dimensions are read during the build. Remote size detection is best effort;
-an unavailable remote image never fails the build. Unknown sizes reserve a 16:9
-area until the browser loads the image and determines its real aspect ratio.
-Images appear with a quick fade after decoding. Failed images retain their space
-and show a red crossed-circle symbol.
+## 联系我们
 
-For MDX or Astro, import the theme's image component:
-
-```mdx
-import Image from '@layouts/components/Image.astro';
-import cover from './assets/cover.png';
-
-<figure>
-  <Image src={cover} alt="A view from the desk" loading="eager" />
-  <figcaption>A quiet afternoon.</figcaption>
-</figure>
-```
-
-Use `loading="eager"` for an important first-screen image; other images default to
-lazy loading. Set `ratio="16 / 9"` for a cropped cover, `lightbox={false}` to exclude
-an image from the viewer, or `originalSrc` to provide a larger original.
-The viewer groups images within the same reading region and supports keyboard
-navigation, touch gestures, and zoom. Existing image links keep their destination.
-Post-list covers use the loading treatment without opening the viewer.
-
-See [the image demo](src/content/pages/demo/images.mdx) and
-[the component contract](docs/develop/components.md#images-and-lightbox) for details.
-
-### Homepage and Custom Pages
-
-Edit the homepage in `src/content/index.mdx`. You can use `index.md` or
-`index.astro` instead; keep exactly one homepage file. The theme supplies the
-page frame, title, sidebars and responsive drawers.
-
-```text
-src/content/
-├── assets/                    # Shared content resources, never routes
-├── index.mdx                  # Homepage: .md / .mdx / .astro
-├── _left.astro                # Default left widgets
-├── _right.astro               # (Optional) Default right widgets
-├── pages/
-│   ├── about.astro            # /about
-│   └── a/b/c/
-│       ├── index.mdx          # /a/b/c
-│       ├── _left.astro        # (Optional) Override the left widgets for this directory
-│       ├── _right.astro       # (Optional) Override the right widgets for this directory
-│       └── assets/            # (Optional) Directory-specific assets, won't be routed
-└── posts/
-    └── hello/
-        ├── world/
-        │   ├── assets/            # (Optional) Directory-specific assets, won't be routed
-        │   └── index.mdx          # /posts/hello/world
-        ├── index.mdx          # /posts/hello
-        ├── _left.astro
-        └── _right.astro       # (Optional) Additional content below the mandatory TOC
-```
-
-Standalone pages accept `.md`, `.mdx` and `.astro`. For Markdown/MDX:
-
-```markdown
----
-title: About Me
-description: A short introduction
-template: default
----
-
-Page content goes here...
-```
-
-An Astro page exports the same metadata as `page` and supplies body content:
-
-```astro
----
-export const page = { title: 'About Me', description: 'A short introduction' };
----
-
-<p>Compose Astro components here. The theme renders the page title.</p>
-```
-
-Astro pages receive `entry` and `headings` props. Their `headings` array is empty;
-automatic heading extraction applies to Markdown/MDX. Article bodies remain
-Markdown/MDX so reading time, drafts, tags and the article TOC retain their normal
-behavior. Astro pages can contain scoped styles and normal Astro scripts, but
-should not include another HTML document or Frame. Dynamic route declarations
-such as `[id].astro` belong in `src/pages`, not in authored content.
-
-### Routes and Assets
-
-Routes follow the path below `content/pages`, without the extension or terminal
-`index`. Thus `a/b/c.md` and `a/b/c/index.mdx` both describe `/a/b/c`; choose one.
-Paths retain filename case. An optional `slug: published/path` overrides the URL
-without changing where the theme finds sidebars or relative assets. Duplicate
-standalone URLs, including different file formats, fail with the source paths.
-The homepage dispatcher and generated system routes take priority over content
-pages: `pages/posts.mdx` cannot replace the archive, and the build reports the
-ignored route without failing. Only URLs actually emitted by system routes win;
-this does not reserve every possible URL below `/posts` or `/tag`.
-
-All `assets/` directories and underscore-prefixed files/directories are excluded
-from page and post discovery. Resource files remain importable, including relative
-Markdown images and MDX/Astro imports. They are not automatically copied to matching
-public URLs; use `public/` for files that need stable, direct download URLs.
-Only the root `index.*`, files under `pages/`, and registered posts are entries;
-other files directly under `content/` do not become routes.
-
-### Page Templates
-
-Pages use `template: default` for ordinary reading content or `template: friend`
-for a friend-link collection. See [the bundled friends page](src/content/pages/friend.mdx)
-for an example of `friends`, `categories`, and `mySite` metadata.
-
-### Search
-
-Enter keywords in the sidebar search field and press Enter. The form opens
-`/search?q=your+keywords`; later pages use `/search?q=your+keywords&page=2`.
-The page title is `Search: your keywords`, and its breadcrumbs are
-`Home > Posts > Search: your keywords`. Results use the shared post list with
-publication dates, reading times, and highlighted excerpts from the article body.
-`postsPerPage` controls the number of results per page.
-
-Omitting `page` or leaving it empty selects page 1. Invalid page numbers and pages
-beyond the result count lead to the site's 404 page. A query with no matches has
-an empty first page with a link to the post archive. Pagination supports direct
-links, refresh, and browser back/forward navigation.
-
-The Pagefind Astro integration generates the index during `bun run build` and
-serves an in-memory index during `bun run dev`. Development indexes rendered
-articles when the server starts and rebuilds on the next index request after
-source changes. Reload the search page to search updated content. No separate
-indexing command or prior production build is required. Deploy all of `dist/`,
-including `dist/pagefind/`.
-
-Search covers post titles and article bodies. `exclude_in_search: true` omits a
-post from the index while keeping its page, archive links, and tags. Drafts are
-searchable in development and excluded from production. The sidebar form uses
-native GET navigation; rendering results requires JavaScript. Without JavaScript,
-the search page provides a link to the post archive.
-
-### Custom Sidebars
-
-Each side resolves independently: a `_left.astro` or `_right.astro` beside the
-content file takes precedence over the corresponding file at `src/content/`.
-There is no search through intermediate ancestor directories. Files in the same
-directory share sidebars; use a folder bundle for independent per-page overrides.
-The profile card and footer remain part of the layout.
-
-For example, place this at `src/content/_right.astro` for a site-wide default,
-or next to a page's `index.mdx` to replace that default for the page:
-
-```astro
----
-import RecentPosts from '@widgets/sidebar/RecentPosts.astro';
-import WebsiteStatus from '@widgets/sidebar/WebsiteStatus.astro';
----
-
-<RecentPosts />
-<WebsiteStatus />
-```
-
-Without a local or root right component, ordinary pages have no right column or
-right drawer. Article detail always renders its TOC first, followed by the chosen
-right component. Article/tag archives and the 404 page use the root defaults.
-
-Both sidebar components receive `entry`, `headings` and `pathname` through
-`Astro.props`. `entry` is absent for system archive/404 pages, so access it with
-optional chaining. Match sidebar links against `pathname`, not a collection ID.
-Sidebars render in both desktop regions and mobile drawers; avoid fixed HTML IDs
-and scope any client behavior to its component instance.
-
-Optional metadata switches are `withLeftSidebar: false` (hide the entire left
-region), `withProfileCard: false` (hide only the profile), and
-`withRightSidebar: false` (hide optional right content). The latter never hides an
-article's TOC. Setting it to `true` does not create an empty right column when no
-right component exists. An empty local component replaces the root content but
-still counts as an existing right component; use the switch to hide the region.
-
-For discovery details and migration from `rightWidgets`, see
-[the sidebar contract](docs/develop/content.md#sidebars).
-
-### Bundled Demos
-
-Open `/demo` (also linked from the homepage) to explore the examples:
-
-| Route                    | Source                                          | Demonstrates                                                               |
-| ------------------------ | ----------------------------------------------- | -------------------------------------------------------------------------- |
-| `/demo/images`           | `src/content/pages/demo/images.mdx`             | Image loading, natural and cropped ratios, captions, and the themed viewer |
-| `/demo/markdown`         | `src/content/pages/demo/markdown.md`            | Root left sidebar, no right sidebar                                        |
-| `/demo/notes/nested`     | `src/content/pages/demo/notes/nested/index.mdx` | Nested routing, local assets, local right sidebar                          |
-| `/demo/studio`           | `src/content/pages/demo/studio/index.astro`     | Astro body and both local sidebars                                         |
-| `/posts/typography-test` | `src/content/posts/typography-test/index.mdx`   | Bundled article, local sidebars, TOC before extra right content            |
-
-## License
-
-[MIT](LICENSE)
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for discussing changes, setting up a fork,
-branch and commit conventions, checks, and submitting pull requests. The
-[development guide](docs/develop/index.md) covers visual design and code conventions.
+- 招新 QQ 群：`1103192008`
+- 战队官网：<https://seu-cx-rm-solaris.github.io/solaris-rm/>
+- GitHub 组织：<https://github.com/SEU-CX-RM-Solaris>
