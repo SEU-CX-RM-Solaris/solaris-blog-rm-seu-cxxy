@@ -3,7 +3,7 @@ import type { Config } from '@type/config';
 const config: Config = {
   title: '天钺 Solaris · RoboMaster 技术博客',
   author: '天钺 Solaris',
-  avatar: '/assets/images/avatar.png',
+  avatar: '/assets/images/avatar.jpg',
   description:
     '东南大学成贤学院（SEU-CXXY）RoboMaster 天钺 Solaris 战队技术博客 —— 建模 · 电控 · 硬件 · 视觉，四个方向的技术沉淀。',
   site_url: 'https://seu-cx-rm-solaris.github.io',

@@ -29,7 +29,6 @@ const summaries = await Promise.all(
         description: post.data.description,
         draft: post.data.draft,
       },
-      cover: post.data.cover,
     };
   }),
 );
@@ -66,8 +65,8 @@ const summaries = await Promise.all(
   <div class="post-list" aria-busy={dynamic ? 'false' : undefined}>
     {page?.total === 0 && <p>No posts yet.</p>}
     {
-      summaries.map(({ item, cover }) => (
-        <PostListItem item={item} cover={cover} />
+      summaries.map(({ item }) => (
+        <PostListItem item={item} />
       ))
     }
   </div>

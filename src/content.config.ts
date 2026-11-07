@@ -17,6 +17,7 @@ const postsCollection = defineCollection({
         .union([z.string().regex(/^(?:\/|https?:\/\/)/i), image()])
         .optional(),
       description: z.string().optional(),
+      category: z.string().optional(),
       draft: z.boolean().default(false),
       exclude_in_search: z.boolean().default(false),
       withLeftSidebar: z.boolean().optional(),

@@ -1,0 +1,163 @@
+---
+import { render } from 'astro:content';
+import { getPosts, sortPosts } from '@assets/utils/posts';
+import { formatReadingTime } from '@assets/utils/reading-time';
+import Frame from '@layouts/frame.astro';
+import Prose from '@layouts/components/Prose.astro';
+
+const posts = sortPosts(await getPosts());
+const withMeta = await Promise.all(
+  posts.map(async (post) => {
+    const { remarkPluginFrontmatter } = await render(post);
+    return {
+      id: post.id,
+      href: `/posts/${post.id}`,
+      title: post.data.title,
+      date: post.data.publishDate,
+      minutes: remarkPluginFrontmatter.readingTimeMinutes,
+      draft: post.data.draft,
+      category: post.data.category ?? '其他',
+    };
+  }),
+);
+
+const CATEGORY_ORDER = [
+  '自瞄拆解 · 总索引',
+  '自瞄拆解 · 视觉',
+  '自瞄拆解 · 电控',
+  '自瞄拆解 · OpenCV',
+  '自瞄拆解 · YOLO',
+  '自瞄拆解 · ROS2',
+  '自瞄拆解 · 学习笔记',
+  'STM32 电控入门',
+  '同济大学招新培训笔记',
+];
+
+const byId = (a: { id: string }, b: { id: string }) => a.id.localeCompare(b.id);
+const groups = CATEGORY_ORDER.map((label) => ({
+  label,
+  items: withMeta.filter((p) => p.category === label).sort(byId),
+})).filter((group) => group.items.length > 0);
+const uncategorized = withMeta
+  .filter((p) => !CATEGORY_ORDER.includes(p.category))
+  .sort(byId);
+if (uncategorized.length > 0) {
+  groups.push({ label: '其他', items: uncategorized });
+}
+---
+
+<Frame
+  title="Posts"
+  breadcrumbs={[
+    { text: 'Home', href: '/' },
+    { text: 'Posts', href: '/posts' },
+  ]}
+>
+  <Prose>
+    <h1 class="page-title">Posts</h1>
+    <p class="directory-note">
+      全部文章按系列分类整理。视觉算法、电控通信、OpenCV / YOLO 工具与学习笔记各自成组，
+      同济大学招新培训笔记在文末。点击标题即可阅读。
+    </p>
+    {
+      groups.map((group) => (
+        <section class="post-group">
+          <h2 class="post-group-title">
+            {group.label}
+            <span class="post-group-count">{group.items.length} 篇</span>
+          </h2>
+          <ul class="post-directory">
+            {group.items.map((item) => (
+              <li class="post-directory-item">
+                <a class="post-directory-link" href={item.href}>
+                  {item.title}
+                  {item.draft && <span class="draft-mark">Draft</span>}
+                </a>
+                <span class="post-directory-meta">
+                  {item.date} · {formatReadingTime(item.minutes)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </Prose>
+</Frame>
+
+<style>
+  .directory-note {
+    color: var(--ny-color-text-muted);
+    font-size: var(--ny-font-size-prose);
+    margin-bottom: var(--ny-space-6);
+  }
+
+  .post-group {
+    margin-bottom: var(--ny-space-6);
+  }
+
+  .post-group-title {
+    display: flex;
+    align-items: baseline;
+    gap: var(--ny-space-3);
+  }
+
+  .post-group-count {
+    font-size: var(--ny-font-size-meta);
+    font-weight: 600;
+    color: var(--ny-color-text-subtle);
+  }
+
+  .post-directory {
+    list-style: none;
+    padding: 0;
+    margin: var(--ny-space-3) 0 0;
+  }
+
+  .post-directory-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--ny-space-4);
+    padding: var(--ny-space-2) 0;
+    border-bottom: 1px solid var(--ny-color-border);
+  }
+
+  .post-directory-item:last-child {
+    border-bottom: none;
+  }
+
+  .post-directory-link {
+    color: var(--ny-color-text);
+    text-decoration: none;
+  }
+
+  .post-directory-link:hover {
+    color: var(--ny-color-outline);
+    text-decoration: underline;
+  }
+
+  .draft-mark {
+    margin-left: var(--ny-space-2);
+    font-size: var(--ny-font-size-meta);
+    color: var(--ny-color-primary);
+  }
+
+  .post-directory-meta {
+    flex-shrink: 0;
+    font-size: var(--ny-font-size-meta);
+    color: var(--ny-color-text-subtle);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .post-directory-item {
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .post-directory-meta {
+      white-space: normal;
+    }
+  }
+</style>

@@ -1,12 +1,73 @@
 ---
-import { getContentPages } from '@assets/utils/pages';
-import Template from '@layouts/template.astro';
+import type { Page } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import config from '~/config';
+import Frame from '@layouts/frame.astro';
+import Prose from '@layouts/components/Prose.astro';
+import PostList from '@layouts/widgets/post-list/PostList.astro';
+import { getContentPages, renderContentPage } from '@assets/utils/pages';
+import { getPosts, sortPosts } from '@assets/utils/posts';
+import { getTemplate } from '@templates/registry';
+import { parseTemplateEntry } from '@templates/define';
+
 const page = (await getContentPages()).find((page) => page.isHome);
 if (!page) {
   throw new Error(
     'Add one homepage at src/content/index.md, index.mdx or index.astro.',
   );
 }
+const definition = getTemplate(
+  page.entry.data.template,
+  page.entry.filePath ?? page.entry.id,
+);
+const entry = parseTemplateEntry(definition, page.entry);
+const { Content, headings } = await renderContentPage(page);
+const { default: HomeTemplate } = await definition.load();
+
+const posts = sortPosts(await getPosts());
+const pageSize = config.postsPerPage ?? 10;
+const shown = posts.slice(0, pageSize);
+const remaining = posts.length - shown.length;
+const summaries = await Promise.all(
+  shown.map(async (post) => {
+    const { remarkPluginFrontmatter } = await render(post);
+    return {
+      item: {
+        href: `/posts/${post.id}`,
+        title: post.data.title,
+        publishDate: post.data.publishDate,
+        readingTimeMinutes: remarkPluginFrontmatter.readingTimeMinutes,
+        description: post.data.description,
+        draft: post.data.draft,
+      },
+    };
+  }),
+);
+const homePage = {
+  data: shown,
+  total: shown.length,
+} as unknown as Page<CollectionEntry<'posts'>>;
 ---
 
-<Template page={page} />
+<Frame
+  entry={entry}
+  headings={headings}
+  isHome={true}
+  breadcrumbs={[{ text: 'Home', href: '/' }]}
+>
+  <HomeTemplate entry={entry} headings={headings} isHome={true}>
+    <Content entry={entry} headings={headings} />
+  </HomeTemplate>
+  <Prose>
+    <h2 id="latest-posts">最新文章</h2>
+    <PostList page={homePage} />
+    {
+      remaining > 0 && (
+        <p>
+          <a href="/posts">查看全部文章 →</a>
+        </p>
+      )
+    }
+  </Prose>
+</Frame>

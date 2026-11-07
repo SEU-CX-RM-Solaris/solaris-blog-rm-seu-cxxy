@@ -32,6 +32,9 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), pagefind()],
   markdown: {
     processor: unified({
+      // Ask for remark-gfm explicitly: with a custom processor configured,
+      // tables / task lists / strikethrough only work when gfm is set here.
+      gfm: true,
       remarkPlugins: [remarkReadingTime],
       rehypePlugins: [rehypeImages],
     }),

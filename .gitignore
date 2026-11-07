@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # zvec-grep generated local file
 .zvec-grep/
+
+# mimosa security scanner local state
+.mimosa/
