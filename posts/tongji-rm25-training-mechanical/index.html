@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-astro-cid-k2pnhk33><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="generator" content="Astro v7.4.2"><link rel="canonical" href="https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical/"><link rel="icon" type="image/png" href="/solaris-blog-rm-seu-cxxy/assets/images/avatar.png"><title>同济大学 RoboMaster 招新培训笔记 · 机械组 - 天钺 Solaris · RoboMaster 技术博客</title><meta name="description" content="机械组 6 讲培训（SW 零件绘制 / 标准件库 / 装配与出图 / 材料与工艺 / 轴系 / 传动与电机）+ 轴系作业说明。"><meta name="author" content="天钺 Solaris"><link rel="sitemap" href="/solaris-blog-rm-seu-cxxy/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="天钺 Solaris · RoboMaster 技术博客 RSS Feed" href="/solaris-blog-rm-seu-cxxy/rss.xml"><!-- Built-in Icon Library (Font Awesome) --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"><style>:root {
+<!DOCTYPE html><html lang="zh-CN" data-astro-cid-k2pnhk33><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="generator" content="Astro v7.4.1"><link rel="canonical" href="https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical/"><link rel="icon" type="image/png" href="/solaris-blog-rm-seu-cxxy/assets/images/avatar.jpg"><title>同济大学 RoboMaster 招新培训笔记 · 机械组 - 天钺 Solaris · RoboMaster 技术博客</title><meta name="description" content="机械组 6 讲培训（SW 零件绘制 / 标准件库 / 装配与出图 / 材料与工艺 / 轴系 / 传动与电机）+ 轴系作业说明。"><meta name="author" content="天钺 Solaris"><link rel="sitemap" href="/solaris-blog-rm-seu-cxxy/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="天钺 Solaris · RoboMaster 技术博客 RSS Feed" href="/solaris-blog-rm-seu-cxxy/rss.xml"><!-- Built-in Icon Library (Font Awesome) --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"><style>:root {
   --ny-color-danger: #f87171;
   --ny-color-bg: #101216;
   --ny-color-surface: #161922;
@@ -22,26 +22,59 @@
       delete document.documentElement.dataset.nyImages;
   }, 8000);
 </script><script type="module">var e=class extends HTMLElement{image;controller;observer;generation=0;connectedCallback(){if(this.controller?.abort(),this.controller=new AbortController,this.image=this.querySelector(`img`)??void 0,!this.image)return;if(!this.querySelector(`.ny-image-placeholder`)){let e=document.createElement(`span`);e.className=`ny-image-placeholder`,e.setAttribute(`aria-hidden`,`true`),this.prepend(e)}let{signal:e}=this.controller;this.image.addEventListener(`load`,()=>void this.reveal(),{signal:e}),this.image.addEventListener(`error`,()=>this.fail(),{signal:e}),this.observer=new MutationObserver(()=>this.reset()),this.observer.observe(this,{subtree:!0,attributes:!0,attributeFilter:[`src`,`srcset`,`sizes`,`media`]}),this.reset()}disconnectedCallback(){this.generation++,this.controller?.abort(),this.observer?.disconnect()}reset(){if(this.generation++,this.dataset.state=`loading`,this.setAttribute(`aria-busy`,`true`),this.querySelector(`.ny-image-error`)?.remove(),!this.dataset.fixedRatio){let e=this.image?.getAttribute(`width`),t=this.image?.getAttribute(`height`);this.style.setProperty(`--ny-image-ratio`,Number(e)>0&&Number(t)>0?`${e} / ${t}`:`16 / 9`),Number(e)>0?this.style.setProperty(`--ny-image-width`,`${e}px`):this.style.removeProperty(`--ny-image-width`)}this.image?.complete&&this.image.getAttribute(`src`)&&(this.image.naturalWidth?this.reveal():this.fail())}async reveal(){let e=this.image,t=++this.generation;if(e){try{await e.decode()}catch{t===this.generation&&this.isConnected&&this.fail();return}if(t===this.generation&&this.isConnected){if(!e.naturalWidth||!e.naturalHeight)return this.fail();this.dataset.fixedRatio||(this.style.setProperty(`--ny-image-ratio`,`${e.naturalWidth} / ${e.naturalHeight}`),e.hasAttribute(`width`)||this.style.setProperty(`--ny-image-width`,`${e.naturalWidth}px`)),e.offsetWidth,this.dataset.state=`ready`,this.setAttribute(`aria-busy`,`false`),this.dispatchEvent(new CustomEvent(`nayuta:image-ready`,{bubbles:!0}))}}}fail(){if(this.generation++,this.dataset.state=`error`,this.setAttribute(`aria-busy`,`false`),this.querySelector(`.ny-image-error`))return;let e=document.createElement(`span`);e.className=`ny-image-error`,e.setAttribute(`role`,`img`),e.setAttribute(`aria-label`,`Image unavailable${this.image?.alt?`: ${this.image.alt}`:``}`),e.innerHTML=`<svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="m7.5 24.5 17-17"/></svg>`,this.append(e)}};customElements.get(`nayuta-image`)||customElements.define(`nayuta-image`,e);var t=class extends HTMLElement{observer;connectedCallback(){this.enhance(),this.observer=new MutationObserver(()=>this.enhance()),this.observer.observe(this,{childList:!0,subtree:!0})}disconnectedCallback(){this.observer?.disconnect()}enhance(){this.querySelectorAll(`img`).forEach(e=>{if(e.closest(`nayuta-image, button`)||e.hasAttribute(`data-image-native`))return;let t=document.createElement(`nayuta-image`);e.dataset.lightbox&&(t.dataset.lightbox=e.dataset.lightbox);let n=e.closest(`picture`)??e;e.loading||=`lazy`,e.decoding=`async`;let r=document.createComment(`image`);n.replaceWith(r),t.append(n),r.replaceWith(t)})}};customElements.get(`nayuta-prose`)||customElements.define(`nayuta-prose`,t);</script><link rel="stylesheet" href="/solaris-blog-rm-seu-cxxy/_astro/frame.Cah-tFAG.css"><link rel="stylesheet" href="/solaris-blog-rm-seu-cxxy/_astro/Prose.BHlFJANg.css"><style>.copyright-card[data-astro-cid-v7t64ykl]{margin-top:var(--ny-space-6);padding:var(--ny-space-4);border:1px solid var(--ny-color-border);border-radius:var(--ny-radius-md);background-color:var(--ny-color-surface);color:var(--ny-color-text-muted);font-size:var(--ny-font-size-ui);line-height:var(--ny-line-height-ui)}.card-title[data-astro-cid-v7t64ykl]{margin:0 0 var(--ny-space-3);color:var(--ny-color-text);font-weight:700}dl[data-astro-cid-v7t64ykl]{column-gap:var(--ny-space-4);row-gap:var(--ny-space-2);grid-template-columns:max-content minmax(0,1fr);display:grid;margin:0!important}dt[data-astro-cid-v7t64ykl]{color:var(--ny-color-text-subtle);margin:0!important}dd[data-astro-cid-v7t64ykl]{overflow-wrap:anywhere;min-width:0;margin:0!important}.prose .page-title[data-astro-cid-ruv7hgo6]{--ny-badge-font-size:var(--ny-font-size-meta);align-items:center;gap:var(--ny-space-2);flex-wrap:wrap;display:flex}.prose .post-meta[data-astro-cid-ruv7hgo6]{color:var(--ny-color-text-subtle);font-size:var(--ny-font-size-meta);line-height:var(--ny-line-height-compact);margin-bottom:var(--ny-space-5)}.post-tags[data-astro-cid-ruv7hgo6]{--ny-tag-font-size:var(--ny-font-size-meta);margin-top:var(--ny-space-6);padding-top:var(--ny-space-4);border-top:1px solid var(--ny-color-border)}.post-tags[data-astro-cid-ruv7hgo6] ul[data-astro-cid-ruv7hgo6]{gap:var(--ny-space-2);flex-wrap:wrap;list-style:none;display:flex}.post-tags[data-astro-cid-ruv7hgo6] li[data-astro-cid-ruv7hgo6]{min-width:0;max-width:100%}.post-cover-container{border-radius:var(--ny-radius-lg);border:1px solid var(--ny-color-border);aspect-ratio:16/9;background-color:var(--ny-color-surface-container);width:100%;box-shadow:0 8px 30px var(--ny-color-shadow);margin:16px 0 28px;overflow:hidden}.post-cover-container nayuta-image{border:none;border-radius:0;width:100%;display:block}.prose .post-cover{object-fit:cover;object-position:top center;border:none;border-radius:0;width:100%;height:100%;display:block}
-</style></head><body data-astro-cid-k2pnhk33><!-- Mobile Sticky Header --><header class="mobile-sticky-header" data-astro-cid-k2pnhk33><div class="header-content" data-astro-cid-k2pnhk33><button class="mobile-menu-btn" id="open-widgets-btn" aria-label="Open Sidebar" aria-controls="widgets-drawer" aria-expanded="false" data-astro-cid-k2pnhk33><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" data-astro-cid-k2pnhk33><line x1="2" y1="3.5" x2="14" y2="3.5" data-astro-cid-k2pnhk33></line><line x1="2" y1="8" x2="14" y2="8" data-astro-cid-k2pnhk33></line><line x1="2" y1="12.5" x2="14" y2="12.5" data-astro-cid-k2pnhk33></line></svg></button><nav class="breadcrumbs" data-astro-cid-k2pnhk33><a href="/solaris-blog-rm-seu-cxxy/" data-astro-cid-k2pnhk33>Home</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-k2pnhk33>Posts</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical" data-astro-cid-k2pnhk33>同济大学 RoboMaster 招新培训笔记 · 机械组</a> &gt; </nav></div></header><div class="layout-container  with-right-sidebar" data-astro-cid-k2pnhk33><aside class="left-region" id="left-sidebar" data-astro-cid-52ajofgm><header class="left-header" data-astro-cid-52ajofgm><div class="profile-card" data-astro-cid-7unzv65d><a class="avatar-link" href="/solaris-blog-rm-seu-cxxy/" aria-label="Go to homepage" data-astro-cid-7unzv65d><img class="avatar" src="/solaris-blog-rm-seu-cxxy/assets/images/avatar.png" alt data-astro-cid-zdxk4546></a><div class="profile-info" data-astro-cid-7unzv65d><h2 class="profile-name" data-astro-cid-7unzv65d>天钺 Solaris</h2><div class="profile-title" data-astro-cid-7unzv65d>东南大学成贤学院（SEU-CXXY）RoboMaster 天钺 Solaris 战队技术博客 —— 建模 · 电控 · 硬件 · 视觉，四个方向的技术沉淀。</div></div><div class="social-buttons" data-astro-cid-7unzv65d><a href="/solaris-blog-rm-seu-cxxy/posts" class="btn" aria-label="Posts" data-astro-cid-wiipzibu="true"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span data-astro-cid-7unzv65d>Posts</span></a><a href="/solaris-blog-rm-seu-cxxy/about" class="btn" aria-label="About" data-astro-cid-wiipzibu="true"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span data-astro-cid-7unzv65d>About</span></a></div></div></header><div class="left-sidebar-content" data-astro-cid-52ajofgm><form class="search-form" role="search" action="/search" method="get" data-astro-cid-wveqnd57><label data-astro-cid-wveqnd57><span class="visually-hidden" data-astro-cid-wveqnd57>Search articles</span><input type="search" class="search-input" name="q" placeholder="Search articles..." data-astro-cid-wveqnd57="true" data-astro-cid-jhpiwqdc></label></form><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Recent Posts</span><a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-ptnqmahq>More &gt;</a></div><div class="post-list" data-astro-cid-aqbmadrt><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 电控组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-hardware" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 硬件组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 机械组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Tags Cloud</span></div><div class="tag-cloud" data-astro-cid-uoks6iaa><a href="/solaris-blog-rm-seu-cxxy/tag/OpenCV" class="tag-item" data-astro-cid-v2grv5g5="true">OpenCV</a><a href="/solaris-blog-rm-seu-cxxy/tag/PID" class="tag-item" data-astro-cid-v2grv5g5="true">PID</a><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a><a href="/solaris-blog-rm-seu-cxxy/tag/STM32" class="tag-item" data-astro-cid-v2grv5g5="true">STM32</a><a href="/solaris-blog-rm-seu-cxxy/tag/SolidWorks" class="tag-item" data-astro-cid-v2grv5g5="true">SolidWorks</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2" class="tag-item" data-astro-cid-v2grv5g5="true">卡尔曼滤波</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84" class="tag-item" data-astro-cid-v2grv5g5="true">学习路径</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%9C%BA%E6%A2%B0%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">机械组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%84%8A%E6%8E%A5" class="tag-item" data-astro-cid-v2grv5g5="true">焊接</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">电控组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1" class="tag-item" data-astro-cid-v2grv5g5="true">电路设计</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A1%AC%E4%BB%B6%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">硬件组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A3%85%E9%85%8D%E5%87%BA%E5%9B%BE" class="tag-item" data-astro-cid-v2grv5g5="true">装配出图</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">视觉组</a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Website Status</span></div><div class="status-list" data-astro-cid-jrjqfdlr><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Posts</span><span class="status-value" data-astro-cid-jrjqfdlr>5</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Running</span><span class="status-value" data-website-status-running data-start-date="2026-10-01T00:00:00.000Z" data-format="days" data-astro-cid-jrjqfdlr>33 days</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Last Updated</span><span class="status-value" data-astro-cid-jrjqfdlr>2026-10-17</span></div></div></div><script type="module">function e(){let e=document.querySelectorAll(`[data-website-status-running]`),t=new Date;e.forEach(e=>{let n=e.getAttribute(`data-start-date`);if(!n)return;let r=new Date(n);if(isNaN(r.getTime()))return;let i=Math.max(0,t.getTime()-r.getTime()),a=e.getAttribute(`data-format`)||`days`,o=Math.floor(i/864e5);e.textContent=a===`detailed`?`${o}d ${Math.floor(i/36e5%24)}h`:`${o} ${o===1?`day`:`days`}`})}e(),setInterval(e,6e4),document.addEventListener(`astro:page-load`,e),document.addEventListener(`astro:after-swap`,e);</script></div><footer class="left-footer"><p>Copyright &copy; 2026 天钺 Solaris.</p><p>Powered by <a href="https://github.com/yuanzui-cf/nayuta">Nayuta</a>. Designed by <a href="https://yzcf.top">Leo Jia</a>.</p></footer></aside><!-- Main Region --><main class="main-region" data-astro-cid-k2pnhk33><nav class="breadcrumbs" data-astro-cid-k2pnhk33><a href="/solaris-blog-rm-seu-cxxy/" data-astro-cid-k2pnhk33>Home</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-k2pnhk33>Posts</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical" data-astro-cid-k2pnhk33>同济大学 RoboMaster 招新培训笔记 · 机械组</a> &gt; </nav><nayuta-prose class="prose" data-astro-cid-l3j6aup5="true"><div data-pagefind-body data-astro-cid-ruv7hgo6><div class="post-cover-container" data-astro-cid-ruv7hgo6><nayuta-image data-fixed-ratio="16 / 9" data-original-src="/solaris-blog-rm-seu-cxxy/assets/images/banner/2.webp" style="--ny-image-ratio:16 / 9;"><div class="ny-image-placeholder" aria-hidden="true"></div><img class="post-cover" loading="eager" data-astro-cid-ruv7hgo6="true" src="/solaris-blog-rm-seu-cxxy/assets/images/banner/2.webp" alt="同济大学 RoboMaster 招新培训笔记 · 机械组" width="1920" height="1080" decoding="async"></nayuta-image></div><h1 class="page-title" data-pagefind-meta="title[data-title]" data-title="同济大学 RoboMaster 招新培训笔记 · 机械组" data-astro-cid-ruv7hgo6>同济大学 RoboMaster 招新培训笔记 · 机械组</h1><p class="post-meta" data-pagefind-ignore data-pagefind-meta="publishDate[data-publish-date], readingTimeMinutes[data-reading-minutes], draft[data-draft]" data-publish-date="2026-10-17" data-reading-minutes="26" data-draft="false" data-astro-cid-ruv7hgo6>Published: 2026-10-17 &nbsp;•&nbsp; Reading Time: 26 mins</p><h1 id="同济大学-robomaster-招新培训笔记--机械组">同济大学 RoboMaster 招新培训笔记 · 机械组</h1>
+</style></head><body data-astro-cid-k2pnhk33><!-- Mobile Sticky Header --><header class="mobile-sticky-header" data-astro-cid-k2pnhk33><div class="header-content" data-astro-cid-k2pnhk33><button class="mobile-menu-btn" id="open-widgets-btn" aria-label="Open Sidebar" aria-controls="widgets-drawer" aria-expanded="false" data-astro-cid-k2pnhk33><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" data-astro-cid-k2pnhk33><line x1="2" y1="3.5" x2="14" y2="3.5" data-astro-cid-k2pnhk33></line><line x1="2" y1="8" x2="14" y2="8" data-astro-cid-k2pnhk33></line><line x1="2" y1="12.5" x2="14" y2="12.5" data-astro-cid-k2pnhk33></line></svg></button><nav class="breadcrumbs" data-astro-cid-k2pnhk33><a href="/solaris-blog-rm-seu-cxxy/" data-astro-cid-k2pnhk33>Home</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-k2pnhk33>Posts</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical" data-astro-cid-k2pnhk33>同济大学 RoboMaster 招新培训笔记 · 机械组</a> &gt; </nav></div></header><div class="layout-container  with-right-sidebar" data-astro-cid-k2pnhk33><aside class="left-region" id="left-sidebar" data-astro-cid-52ajofgm><header class="left-header" data-astro-cid-52ajofgm><div class="profile-card" data-astro-cid-7unzv65d><a class="avatar-link" href="/solaris-blog-rm-seu-cxxy/" aria-label="Go to homepage" data-astro-cid-7unzv65d><img class="avatar" src="/solaris-blog-rm-seu-cxxy/assets/images/avatar.jpg" alt data-astro-cid-zdxk4546></a><div class="profile-info" data-astro-cid-7unzv65d><h2 class="profile-name" data-astro-cid-7unzv65d>天钺 Solaris</h2><div class="profile-title" data-astro-cid-7unzv65d>东南大学成贤学院（SEU-CXXY）RoboMaster 天钺 Solaris 战队技术博客 —— 建模 · 电控 · 硬件 · 视觉，四个方向的技术沉淀。</div></div><div class="social-buttons" data-astro-cid-7unzv65d><a href="/solaris-blog-rm-seu-cxxy/posts" class="btn" aria-label="Posts" data-astro-cid-wiipzibu="true"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span data-astro-cid-7unzv65d>Posts</span></a><a href="/solaris-blog-rm-seu-cxxy/about" class="btn" aria-label="About" data-astro-cid-wiipzibu="true"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span data-astro-cid-7unzv65d>About</span></a></div></div></header><div class="left-sidebar-content" data-astro-cid-52ajofgm><form class="search-form" role="search" action="/search" method="get" data-astro-cid-wveqnd57><label data-astro-cid-wveqnd57><span class="visually-hidden" data-astro-cid-wveqnd57>Search articles</span><input type="search" class="search-input" name="q" placeholder="Search articles..." data-astro-cid-wveqnd57="true" data-astro-cid-jhpiwqdc></label></form><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Recent Posts</span><a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-ptnqmahq>More &gt;</a></div><div class="post-list" data-astro-cid-aqbmadrt><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-00-overview" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>机甲大师步兵自瞄拆解 —— 基于同济 SuperPower sp_vision_25</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-01-perception-pipeline" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>视觉 01 —— 感知流水线总览</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-02-traditional-detector" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>视觉 02 —— 传统装甲板检测器 Detector</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Tags Cloud</span></div><div class="tag-cloud" data-astro-cid-uoks6iaa><a href="/solaris-blog-rm-seu-cxxy/tag/ADC" class="tag-item" data-astro-cid-v2grv5g5="true">ADC</a><a href="/solaris-blog-rm-seu-cxxy/tag/API" class="tag-item" data-astro-cid-v2grv5g5="true">API</a><a href="/solaris-blog-rm-seu-cxxy/tag/C%20%E8%AF%AD%E8%A8%80" class="tag-item" data-astro-cid-v2grv5g5="true">C 语言</a><a href="/solaris-blog-rm-seu-cxxy/tag/C%2B%2B" class="tag-item" data-astro-cid-v2grv5g5="true">C++</a><a href="/solaris-blog-rm-seu-cxxy/tag/CAN" class="tag-item" data-astro-cid-v2grv5g5="true">CAN</a><a href="/solaris-blog-rm-seu-cxxy/tag/CMake" class="tag-item" data-astro-cid-v2grv5g5="true">CMake</a><a href="/solaris-blog-rm-seu-cxxy/tag/CubeMX" class="tag-item" data-astro-cid-v2grv5g5="true">CubeMX</a><a href="/solaris-blog-rm-seu-cxxy/tag/DMA" class="tag-item" data-astro-cid-v2grv5g5="true">DMA</a><a href="/solaris-blog-rm-seu-cxxy/tag/EKF" class="tag-item" data-astro-cid-v2grv5g5="true">EKF</a><a href="/solaris-blog-rm-seu-cxxy/tag/FreeRTOS" class="tag-item" data-astro-cid-v2grv5g5="true">FreeRTOS</a><a href="/solaris-blog-rm-seu-cxxy/tag/GPIO" class="tag-item" data-astro-cid-v2grv5g5="true">GPIO</a><a href="/solaris-blog-rm-seu-cxxy/tag/HAL" class="tag-item" data-astro-cid-v2grv5g5="true">HAL</a><a href="/solaris-blog-rm-seu-cxxy/tag/I2C" class="tag-item" data-astro-cid-v2grv5g5="true">I2C</a><a href="/solaris-blog-rm-seu-cxxy/tag/IMU" class="tag-item" data-astro-cid-v2grv5g5="true">IMU</a><a href="/solaris-blog-rm-seu-cxxy/tag/Linux" class="tag-item" data-astro-cid-v2grv5g5="true">Linux</a><a href="/solaris-blog-rm-seu-cxxy/tag/MPC" class="tag-item" data-astro-cid-v2grv5g5="true">MPC</a><a href="/solaris-blog-rm-seu-cxxy/tag/OpenCV" class="tag-item" data-astro-cid-v2grv5g5="true">OpenCV</a><a href="/solaris-blog-rm-seu-cxxy/tag/OpenVINO" class="tag-item" data-astro-cid-v2grv5g5="true">OpenVINO</a><a href="/solaris-blog-rm-seu-cxxy/tag/PID" class="tag-item" data-astro-cid-v2grv5g5="true">PID</a><a href="/solaris-blog-rm-seu-cxxy/tag/PWM" class="tag-item" data-astro-cid-v2grv5g5="true">PWM</a><a href="/solaris-blog-rm-seu-cxxy/tag/PnP" class="tag-item" data-astro-cid-v2grv5g5="true">PnP</a><a href="/solaris-blog-rm-seu-cxxy/tag/ROS2" class="tag-item" data-astro-cid-v2grv5g5="true">ROS2</a><a href="/solaris-blog-rm-seu-cxxy/tag/RTC" class="tag-item" data-astro-cid-v2grv5g5="true">RTC</a><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a><a href="/solaris-blog-rm-seu-cxxy/tag/SPI" class="tag-item" data-astro-cid-v2grv5g5="true">SPI</a><a href="/solaris-blog-rm-seu-cxxy/tag/STM32" class="tag-item" data-astro-cid-v2grv5g5="true">STM32</a><a href="/solaris-blog-rm-seu-cxxy/tag/SolidWorks" class="tag-item" data-astro-cid-v2grv5g5="true">SolidWorks</a><a href="/solaris-blog-rm-seu-cxxy/tag/UART" class="tag-item" data-astro-cid-v2grv5g5="true">UART</a><a href="/solaris-blog-rm-seu-cxxy/tag/YOLO" class="tag-item" data-astro-cid-v2grv5g5="true">YOLO</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E4%B8%AD%E6%96%AD" class="tag-item" data-astro-cid-v2grv5g5="true">中断</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E4%B8%B2%E5%8F%A3" class="tag-item" data-astro-cid-v2grv5g5="true">串口</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%86%B3%E7%AD%96" class="tag-item" data-astro-cid-v2grv5g5="true">决策</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2" class="tag-item" data-astro-cid-v2grv5g5="true">卡尔曼滤波</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8E%E5%A4%84%E7%90%86" class="tag-item" data-astro-cid-v2grv5g5="true">后处理</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%93%A8%E5%85%B5" class="tag-item" data-astro-cid-v2grv5g5="true">哨兵</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%9D%90%E6%A0%87%E7%B3%BB" class="tag-item" data-astro-cid-v2grv5g5="true">坐标系</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%A4%9A%E4%BB%BB%E5%8A%A1" class="tag-item" data-astro-cid-v2grv5g5="true">多任务</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%A4%9A%E7%BA%BF%E7%A8%8B" class="tag-item" data-astro-cid-v2grv5g5="true">多线程</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84" class="tag-item" data-astro-cid-v2grv5g5="true">学习路径</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF" class="tag-item" data-astro-cid-v2grv5g5="true">学习路线</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AE%9A%E6%97%B6%E5%99%A8" class="tag-item" data-astro-cid-v2grv5g5="true">定时器</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%BC%80%E6%BA%90%E6%8B%86%E8%A7%A3" class="tag-item" data-astro-cid-v2grv5g5="true">开源拆解</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%BC%B9%E9%81%93" class="tag-item" data-astro-cid-v2grv5g5="true">弹道</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8E%A7%E5%88%B6" class="tag-item" data-astro-cid-v2grv5g5="true">控制</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%95%B0%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">数学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%9C%BA%E6%A2%B0%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">机械组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%A0%87%E5%AE%9A" class="tag-item" data-astro-cid-v2grv5g5="true">标定</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%84%8A%E6%8E%A5" class="tag-item" data-astro-cid-v2grv5g5="true">焊接</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7" class="tag-item" data-astro-cid-v2grv5g5="true">电控</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">电控组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1" class="tag-item" data-astro-cid-v2grv5g5="true">电路设计</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B" class="tag-item" data-astro-cid-v2grv5g5="true">相机模型</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A1%AC%E4%BB%B6%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">硬件组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" class="tag-item" data-astro-cid-v2grv5g5="true">神经网络</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%87%AA%E7%9E%84" class="tag-item" data-astro-cid-v2grv5g5="true">自瞄</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A3%85%E9%85%8D%E5%87%BA%E5%9B%BE" class="tag-item" data-astro-cid-v2grv5g5="true">装配出图</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%AE%97%E6%B3%95" class="tag-item" data-astro-cid-v2grv5g5="true">视觉算法</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">视觉组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E9%80%9F%E6%9F%A5" class="tag-item" data-astro-cid-v2grv5g5="true">速查</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E9%83%A8%E7%BD%B2" class="tag-item" data-astro-cid-v2grv5g5="true">部署</a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Website Status</span></div><div class="status-list" data-astro-cid-jrjqfdlr><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Posts</span><span class="status-value" data-astro-cid-jrjqfdlr>45</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Running</span><span class="status-value" data-website-status-running data-start-date="2026-10-01T00:00:00.000Z" data-format="days" data-astro-cid-jrjqfdlr>37 days</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Last Updated</span><span class="status-value" data-astro-cid-jrjqfdlr>2026-11-08</span></div></div></div><script type="module">function e(){let e=document.querySelectorAll(`[data-website-status-running]`),t=new Date;e.forEach(e=>{let n=e.getAttribute(`data-start-date`);if(!n)return;let r=new Date(n);if(isNaN(r.getTime()))return;let i=Math.max(0,t.getTime()-r.getTime()),a=e.getAttribute(`data-format`)||`days`,o=Math.floor(i/864e5);e.textContent=a===`detailed`?`${o}d ${Math.floor(i/36e5%24)}h`:`${o} ${o===1?`day`:`days`}`})}e(),setInterval(e,6e4),document.addEventListener(`astro:page-load`,e),document.addEventListener(`astro:after-swap`,e);</script></div><footer class="left-footer"><p>Copyright &copy; 2026 天钺 Solaris.</p><p>Powered by <a href="https://github.com/yuanzui-cf/nayuta">Nayuta</a>. Designed by <a href="https://yzcf.top">Leo Jia</a>.</p></footer></aside><!-- Main Region --><main class="main-region" data-astro-cid-k2pnhk33><nav class="breadcrumbs" data-astro-cid-k2pnhk33><a href="/solaris-blog-rm-seu-cxxy/" data-astro-cid-k2pnhk33>Home</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-k2pnhk33>Posts</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical" data-astro-cid-k2pnhk33>同济大学 RoboMaster 招新培训笔记 · 机械组</a> &gt; </nav><nayuta-prose class="prose" data-astro-cid-l3j6aup5="true"><div data-pagefind-body data-astro-cid-ruv7hgo6><div class="post-cover-container" data-astro-cid-ruv7hgo6><nayuta-image data-fixed-ratio="16 / 9" data-original-src="/solaris-blog-rm-seu-cxxy/assets/images/banner/2.webp" style="--ny-image-ratio:16 / 9;"><div class="ny-image-placeholder" aria-hidden="true"></div><img class="post-cover" loading="eager" data-astro-cid-ruv7hgo6="true" src="/solaris-blog-rm-seu-cxxy/assets/images/banner/2.webp" alt="同济大学 RoboMaster 招新培训笔记 · 机械组" width="1920" height="1080" decoding="async"></nayuta-image></div><h1 class="page-title" data-pagefind-meta="title[data-title]" data-title="同济大学 RoboMaster 招新培训笔记 · 机械组" data-astro-cid-ruv7hgo6>同济大学 RoboMaster 招新培训笔记 · 机械组</h1><p class="post-meta" data-pagefind-ignore data-pagefind-meta="publishDate[data-publish-date], readingTimeMinutes[data-reading-minutes], draft[data-draft]" data-publish-date="2026-10-17" data-reading-minutes="26" data-draft="false" data-astro-cid-ruv7hgo6>Published: 2026-10-17 &nbsp;•&nbsp; Reading Time: 26 mins</p><h1 id="同济大学-robomaster-招新培训笔记--机械组">同济大学 RoboMaster 招新培训笔记 · 机械组</h1>
 <blockquote>
-<p>来源：同济大学（SuperPower）RoboMaster 战队招新培训课件视频笔记，视频见 B 站空间：<a href="https://space.bilibili.com/651837546">https://space.bilibili.com/651837546</a></p>
-</blockquote>
-<blockquote>
-<p>整理：东南大学成贤学院 Solaris（天钺）战队 ｜ 2026-10-17 ｜ 配图均截取自原课件</p>
-</blockquote>
-<blockquote>
-<p>用途：入队新生复习笔记，供战队学习交流使用</p>
+<p>来源：同济大学（SuperPower）RoboMaster 战队招新培训课件视频笔记，视频见 B 站空间：<a href="https://space.bilibili.com/651837546">https://space.bilibili.com/651837546</a>
+整理：东南大学成贤学院 Solaris（天钺）战队 ｜ 2026-10-17 ｜ 配图均截取自原课件
+用途：入队新生复习笔记，供战队学习交流使用</p>
 </blockquote>
 <h2 id="培训大纲">培训大纲</h2>
-<p>| 讲次 | 课件 | 核心主题 |</p>
-<p>|---|---|---|</p>
-<p>| 第1讲 SW零件绘制 | 1-SP26机械培训 SW零件绘制.pptx | SolidWorks 界面与快捷键、草图绘制与完全定义、拉伸凸台等特征建模、板件/机加工件/打印件画法 |</p>
-<p>| 第2.1讲 标准件及标准件库使用 | 2.1-SP26机械培训 标准件及标准件库使用.pptx | 螺栓/螺母/垫片/铆钉等紧固件、扳手钳子等工具、防松与螺栓长度选择、麦迪标准件库 |</p>
-<p>| 第2.2讲 装配与出图 | 2.2-SP26机械培训 装配与出图.pptx | 自下而上/自上而下设计、标准与机械配合、6 自由度完全定义、干涉检查、工程图视图与公差标注 |</p>
-<p>| 第3讲 材料与工艺 | 3-SP26机械培训 材料与工艺.pptx | 应力与应力集中、玻纤板/碳板/亚克力、PLA/尼龙/TPU/树脂打印件、机加工件与车铣、铝方管/碳管/POM |</p>
-<p>| 第4讲 轴系招新 | 4-SP26机械培训 轴系招新.pptx | 轴向/径向与欧拉角、三类轴承、刚性/挠性联轴器、涨紧套、导电滑环、轴系设计原则与铰链/云台/轮系案例 |</p>
-<p>| 第5讲 传动系统及电机使用 | 5-SP26机械培训 传动系统及电机使用.pptx | 齿轮/带/链/丝杠传动、导向机构、联轴器选型、3508/2006/6020/关节/轮毂电机、电机安装设计 |</p>
-<p>| 附：轴系作业 | 轴系作业.rar | 配合第4讲轴系设计的课后练习（压缩包，不展开） |</p>
+<table>
+<thead>
+<tr>
+<th>讲次</th>
+<th>课件</th>
+<th>核心主题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第1讲 SW零件绘制</td>
+<td>1-SP26机械培训 SW零件绘制.pptx</td>
+<td>SolidWorks 界面与快捷键、草图绘制与完全定义、拉伸凸台等特征建模、板件/机加工件/打印件画法</td>
+</tr>
+<tr>
+<td>第2.1讲 标准件及标准件库使用</td>
+<td>2.1-SP26机械培训 标准件及标准件库使用.pptx</td>
+<td>螺栓/螺母/垫片/铆钉等紧固件、扳手钳子等工具、防松与螺栓长度选择、麦迪标准件库</td>
+</tr>
+<tr>
+<td>第2.2讲 装配与出图</td>
+<td>2.2-SP26机械培训 装配与出图.pptx</td>
+<td>自下而上/自上而下设计、标准与机械配合、6 自由度完全定义、干涉检查、工程图视图与公差标注</td>
+</tr>
+<tr>
+<td>第3讲 材料与工艺</td>
+<td>3-SP26机械培训 材料与工艺.pptx</td>
+<td>应力与应力集中、玻纤板/碳板/亚克力、PLA/尼龙/TPU/树脂打印件、机加工件与车铣、铝方管/碳管/POM</td>
+</tr>
+<tr>
+<td>第4讲 轴系招新</td>
+<td>4-SP26机械培训 轴系招新.pptx</td>
+<td>轴向/径向与欧拉角、三类轴承、刚性/挠性联轴器、涨紧套、导电滑环、轴系设计原则与铰链/云台/轮系案例</td>
+</tr>
+<tr>
+<td>第5讲 传动系统及电机使用</td>
+<td>5-SP26机械培训 传动系统及电机使用.pptx</td>
+<td>齿轮/带/链/丝杠传动、导向机构、联轴器选型、3508/2006/6020/关节/轮毂电机、电机安装设计</td>
+</tr>
+<tr>
+<td>附：轴系作业</td>
+<td>轴系作业.rar</td>
+<td>配合第4讲轴系设计的课后练习（压缩包，不展开）</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>学习主线：机械组在整车流程中处于较高优先级，核心能力是<strong>画图（建模）</strong>；流程为「建模 → 装配 → 联调 → 迭代」，零件来源分机加工、标准件、商品件、3D 打印件等。</p>
 </blockquote>
@@ -53,86 +86,91 @@
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="机械组工作概述：建模→装配→联调→迭代的流程箭头，以及机加工/标准件/商品件/打印件等零件种类" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-01-p02.DweQjj3w_w2qKC.webp"></nayuta-image></div>
 <p>SW 界面三大块：</p>
 <ul>
-<li>
-<p><strong>菜单栏</strong>：新建、打开、保存、重建模型、选项；撤销 <code>Ctrl+Z</code>，恢复 <code>Ctrl+Y</code>。</p>
-</li>
-<li>
-<p><strong>功能选项卡</strong>：切换「草图/特征/装配体/工程图」等选项卡，每个选项卡对应不同命令与快捷键。</p>
-</li>
-<li>
-<p><strong>绘图区</strong>：常用<strong>剖面视图</strong>——选择不同平面作为剖面，用绘图区箭头和两个半圆环调整位置、角度，用来查看外部看不到的内部特征。</p>
-</li>
+<li><strong>菜单栏</strong>：新建、打开、保存、重建模型、选项；撤销 <code>Ctrl+Z</code>，恢复 <code>Ctrl+Y</code>。</li>
+<li><strong>功能选项卡</strong>：切换「草图/特征/装配体/工程图」等选项卡，每个选项卡对应不同命令与快捷键。</li>
+<li><strong>绘图区</strong>：常用<strong>剖面视图</strong>——选择不同平面作为剖面，用绘图区箭头和两个半圆环调整位置、角度，用来查看外部看不到的内部特征。</li>
 </ul>
 <h3 id="12-用快捷键与鼠标笔势提高画图速度">1.2 用快捷键与鼠标笔势提高画图速度</h3>
 <p>建议不要一直点选项卡图标，而是为常用命令绑定快捷键、配合鼠标笔势，形成肌肉记忆。自定义方法：搜索需要的命令 → 点击「快捷特性」→ 直接按下想绑定的键。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="SW 常用快捷键配置：直线 L、圆 C、剪裁 T、异形孔向导 Y、智能尺寸 Z、圆角 Shift+Y、倒角 Shift+D" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-01-p09.DlbrSabW_Z4LT16.webp"></nayuta-image></div>
 <p>课件给出的常用快捷键：</p>
-<p>| 命令 | 快捷键 | 记忆点 |</p>
-<p>|---|---|---|</p>
-<p>| 直线 | <code>L</code> | line |</p>
-<p>| 圆 | <code>C</code> | cycle |</p>
-<p>| 剪裁 | <code>T</code> | 与 CAD 相似 |</p>
-<p>| 异形孔向导 | <code>Y</code> | 「异」yì |</p>
-<p>| 智能尺寸 | <code>Z</code> | 「智」zhì |</p>
-<p>| 圆角 | <code>Shift+Y</code> | Y 已被占用，「圆」yuán |</p>
-<p>| 倒角 | <code>Shift+D</code> | 与圆角设置方法相似 |</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>快捷键</th>
+<th>记忆点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直线</td>
+<td><code>L</code></td>
+<td>line</td>
+</tr>
+<tr>
+<td>圆</td>
+<td><code>C</code></td>
+<td>cycle</td>
+</tr>
+<tr>
+<td>剪裁</td>
+<td><code>T</code></td>
+<td>与 CAD 相似</td>
+</tr>
+<tr>
+<td>异形孔向导</td>
+<td><code>Y</code></td>
+<td>「异」yì</td>
+</tr>
+<tr>
+<td>智能尺寸</td>
+<td><code>Z</code></td>
+<td>「智」zhì</td>
+</tr>
+<tr>
+<td>圆角</td>
+<td><code>Shift+Y</code></td>
+<td>Y 已被占用，「圆」yuán</td>
+</tr>
+<tr>
+<td>倒角</td>
+<td><code>Shift+D</code></td>
+<td>与圆角设置方法相似</td>
+</tr>
+</tbody>
+</table>
 <p><strong>鼠标笔势</strong>：在绘图区按住鼠标右键划出方向触发命令，同样可自定义；快捷键与笔势二选一或结合使用，目标都是减少鼠标移动点击。</p>
 <h3 id="13-建模的根本草图绘制">1.3 建模的根本：草图绘制</h3>
 <p>建模思路：先画一张二维草图，对草图形状施加「拉伸/旋转」等运动得到三维实体，再通过多个实体的交集、并集拼成复杂模型。所以<strong>草图是一切建模的根本</strong>。</p>
 <p>新建草图的常用方法：</p>
 <ol>
-<li>
-<p>右击平面 → 新建草图（自动正视于该平面）；</p>
-</li>
-<li>
-<p>直接用快捷键/鼠标笔势唤起「直线、圆」，再选取绘制平面；</p>
-</li>
-<li>
-<p>在选项卡点「绘制草图」，按提示选择基准面。</p>
-</li>
+<li>右击平面 → 新建草图（自动正视于该平面）；</li>
+<li>直接用快捷键/鼠标笔势唤起「直线、圆」，再选取绘制平面；</li>
+<li>在选项卡点「绘制草图」，按提示选择基准面。</li>
 </ol>
 <p>小技巧：右击平面点「正视于」可把平面转正；通过绘图区左上角小设计树（小三角）也能选择基准面。</p>
 <h3 id="14-草图必须完全定义">1.4 草图必须「完全定义」</h3>
 <ul>
-<li>
-<p><strong>完全定义</strong>：草图必须完全定义。约束不完全时曲线呈<strong>蓝色</strong>、草图名称后带 <code>(-)</code>；完全定义后曲线变<strong>黑色</strong>。不知道哪里没定义时，拖动蓝色线条看哪个方向还能动。</p>
-</li>
-<li>
-<p><strong>属性选项卡</strong>：绘图区左侧始终有属性栏，可调整当前图形的参数、类型；整个 SW（零件、装配体、工程图）里创建的特征都能在这里改参数。</p>
-</li>
+<li><strong>完全定义</strong>：草图必须完全定义。约束不完全时曲线呈<strong>蓝色</strong>、草图名称后带 <code>(-)</code>；完全定义后曲线变<strong>黑色</strong>。不知道哪里没定义时，拖动蓝色线条看哪个方向还能动。</li>
+<li><strong>属性选项卡</strong>：绘图区左侧始终有属性栏，可调整当前图形的参数、类型；整个 SW（零件、装配体、工程图）里创建的特征都能在这里改参数。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="草图预备知识：未完全定义呈蓝色并带(-)，完全定义后呈黑色；左侧属性选项卡可调参数" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-01-p15.BMb_hvtU_ZaG3v.webp"></nayuta-image></div>
 <p><strong>草图约束的目的就是让草图完全定义</strong>，约束分两类：</p>
 <ol>
-<li>
-<p><strong>尺寸约束</strong>：标注长度、直径、角度等数值；</p>
-</li>
-<li>
-<p><strong>几何约束</strong>：水平、竖直、重合、同心、相切、相等、中点等关系。</p>
-</li>
+<li><strong>尺寸约束</strong>：标注长度、直径、角度等数值；</li>
+<li><strong>几何约束</strong>：水平、竖直、重合、同心、相切、相等、中点等关系。</li>
 </ol>
 <h3 id="15-草图各元素的绘制">1.5 草图各元素的绘制</h3>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="草图各元素：直线、圆、矩形、圆弧、多边形、直槽口、剪裁延伸、等距实体、镜像及其约束要点" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-01-p17.F0X8u31Q_ZsRl2l.webp"></nayuta-image></div>
 <p>各元素要点：</p>
 <ul>
-<li>
-<p><strong>直线</strong>：可启用荧屏数字输入长度/角度；注意竖直、水平、中点、重合等几何关系，可转构造线。</p>
-</li>
-<li>
-<p><strong>圆</strong>：内外切、同心、相等、全等，掌握圆的两种定义方式（圆心半径/三点）。</p>
-</li>
-<li>
-<p><strong>矩形</strong>：注意定义方式，可添加构造性直线。</p>
-</li>
-<li>
-<p><strong>圆弧、多边形（可调边数）、直槽口</strong>：图示数字代表绘制时的点击顺序。</p>
-</li>
-<li>
-<p><strong>剪裁、延伸</strong>：在「剪裁实体」图标下方三角里切换。</p>
-</li>
-<li>
-<p><strong>等距实体</strong>：设置等距尺寸与方向；<strong>镜像</strong>用于对称图形。</p>
-</li>
+<li><strong>直线</strong>：可启用荧屏数字输入长度/角度；注意竖直、水平、中点、重合等几何关系，可转构造线。</li>
+<li><strong>圆</strong>：内外切、同心、相等、全等，掌握圆的两种定义方式（圆心半径/三点）。</li>
+<li><strong>矩形</strong>：注意定义方式，可添加构造性直线。</li>
+<li><strong>圆弧、多边形（可调边数）、直槽口</strong>：图示数字代表绘制时的点击顺序。</li>
+<li><strong>剪裁、延伸</strong>：在「剪裁实体」图标下方三角里切换。</li>
+<li><strong>等距实体</strong>：设置等距尺寸与方向；<strong>镜像</strong>用于对称图形。</li>
 </ul>
 <p>进阶设置：<code>选项 → 系统选项 → 草图 → 勾选「在生成实体时启用荧屏上的数字输入」</code>；画图形前勾选左侧属性栏「添加尺寸」。草图元素转构造线用 <code>Alt+C</code>；退出草图可在绘图区右上角或右键菜单操作。</p>
 <p><strong>课堂练习要点</strong>：先找准基准点；先标定形尺寸、后标定位尺寸；优先用辅助线；尽量少标尺寸；避免黄色/红色的过定义尺寸。</p>
@@ -142,33 +180,15 @@
 <p>其他常用特征清单：</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="其他特征：拉伸切除、旋转/旋转切除、异形孔向导、圆角倒角、阵列镜像、扫描、放样、转换实体引用、创建基准面轴" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-01-p22.3uvJ5wN-_1VQfUx.webp"></nayuta-image></div>
 <ol>
-<li>
-<p><strong>拉伸切除</strong>：在实体上切出槽/孔；</p>
-</li>
-<li>
-<p><strong>旋转、旋转切除</strong>：需要旋转轴 + 所选轮廓，适合做回转体（如轴、套）；</p>
-</li>
-<li>
-<p><strong>异形孔向导</strong>：配合辅助定位草图，选类型、大小、终止条件；</p>
-</li>
-<li>
-<p><strong>圆角、倒角</strong>：避免数值过大；</p>
-</li>
-<li>
-<p><strong>阵列、镜像</strong>：批量复制重复特征；</p>
-</li>
-<li>
-<p><strong>扫描、扫描切除</strong>：沿路径走轮廓；</p>
-</li>
-<li>
-<p><strong>放样</strong>：三要素（多个截面轮廓）；</p>
-</li>
-<li>
-<p><strong>转换实体引用</strong>：把已有边线投影到当前草图；</p>
-</li>
-<li>
-<p><strong>创建基准面、轴</strong>：为非默认平面上的特征提供参考。</p>
-</li>
+<li><strong>拉伸切除</strong>：在实体上切出槽/孔；</li>
+<li><strong>旋转、旋转切除</strong>：需要旋转轴 + 所选轮廓，适合做回转体（如轴、套）；</li>
+<li><strong>异形孔向导</strong>：配合辅助定位草图，选类型、大小、终止条件；</li>
+<li><strong>圆角、倒角</strong>：避免数值过大；</li>
+<li><strong>阵列、镜像</strong>：批量复制重复特征；</li>
+<li><strong>扫描、扫描切除</strong>：沿路径走轮廓；</li>
+<li><strong>放样</strong>：三要素（多个截面轮廓）；</li>
+<li><strong>转换实体引用</strong>：把已有边线投影到当前草图；</li>
+<li><strong>创建基准面、轴</strong>：为非默认平面上的特征提供参考。</li>
 </ol>
 <h3 id="17-三类零件的画法差异">1.7 三类零件的画法差异</h3>
 <p><strong>板件</strong>：只涉及一个方向的特征生成，可近似看作二维绘图——在一定厚度的拉伸实体上做切除和形状调整。注意多用辅助线便于改图；孔大小多用「相等」几何约束减少标注；可适当做有限元轻量化。</p>
@@ -185,109 +205,63 @@
 <h3 id="211-零件从哪来电气件--定制件--标准件--商品件">2.1.1 零件从哪来：电气件 / 定制件 / 标准件 / 商品件</h3>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="四类零件：电气件（导线、电机、滑环、裁判系统）、定制件（尺寸定制、自由度高）、标准件（尺寸标准化、可选范围多）、非标标准件/商品件" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-02-p02.DOriDKUa_Z19mLNV.webp"></nayuta-image></div>
 <ul>
-<li>
-<p><strong>电气件</strong>：导线、电机、滑环、大疆官方裁判系统等；</p>
-</li>
-<li>
-<p><strong>定制件</strong>：尺寸自己定、自由度高（即自己建模的零件）；</p>
-</li>
-<li>
-<p><strong>标准件</strong>：尺寸已标准化，但可选规格多（螺栓、螺母、轴承等）；</p>
-</li>
-<li>
-<p><strong>非标标准件/商品件</strong>：国家没有严格标准规格、由企业自由控制参数的配件。</p>
-</li>
+<li><strong>电气件</strong>：导线、电机、滑环、大疆官方裁判系统等；</li>
+<li><strong>定制件</strong>：尺寸自己定、自由度高（即自己建模的零件）；</li>
+<li><strong>标准件</strong>：尺寸已标准化，但可选规格多（螺栓、螺母、轴承等）；</li>
+<li><strong>非标标准件/商品件</strong>：国家没有严格标准规格、由企业自由控制参数的配件。</li>
 </ul>
 <h3 id="212-紧固件螺栓">2.1.2 紧固件：螺栓</h3>
 <p><strong>螺栓头型</strong>（最常用的是杯头内六角）：</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="四种螺栓头型实物：杯头、平头、盘头/圆头、沉头，及各自特点" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-02-p05.DQAWAG6N_ZCItUH.webp"></nayuta-image></div>
 <ul>
-<li>
-<p><strong>杯头</strong>：最常用头型，六角扳手接触深度大、<strong>不易滑丝</strong>（其他头型无此特性）；</p>
-</li>
-<li>
-<p><strong>平头</strong>：凸起较小，但接触平面大；</p>
-</li>
-<li>
-<p><strong>盘头/圆头</strong>：圆形凸起、无尖锐角，转动件附近、容易勾线的地方多用；</p>
-</li>
-<li>
-<p><strong>沉头</strong>：无凸起、接触面积大、强度较高，但需额外打<strong>沉头孔</strong>（注意与平头区别：平头可直接拧在平面上，沉头必须打沉头孔）。</p>
-</li>
+<li><strong>杯头</strong>：最常用头型，六角扳手接触深度大、<strong>不易滑丝</strong>（其他头型无此特性）；</li>
+<li><strong>平头</strong>：凸起较小，但接触平面大；</li>
+<li><strong>盘头/圆头</strong>：圆形凸起、无尖锐角，转动件附近、容易勾线的地方多用；</li>
+<li><strong>沉头</strong>：无凸起、接触面积大、强度较高，但需额外打<strong>沉头孔</strong>（注意与平头区别：平头可直接拧在平面上，沉头必须打沉头孔）。</li>
 </ul>
 <p><strong>常用型号与性能等级</strong>：最常用杯头内六角 <strong>M3</strong>；需要强度的用 M4、M5；与现成模组连接少量用 M2、M2.5。性能等级分 3.6 / 4.6 / 4.8 / 5.6 / 6.8 / 8.8 / 9.8 / 10.9 / 12.9 等十余级，<strong>等级越高抗拉强度越高</strong>；12.9 级表面有氧化层、有基本防锈效果。空间受限时用头部较矮的盘头/沉头（花型仍为内六角）。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="螺栓型号与性能等级：最常用 M3，强度件用 M4/M5；等级 8.8、12.9 越高越强，附弯曲/断裂螺栓反面照片" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-02-p06.nzwHt8iu_Z1bWLxD.webp"></nayuta-image></div>
 <p><strong>两种常用固定方式</strong>：</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="两种螺栓固定：①螺栓+防松螺母（最常用）；②螺栓+弹簧垫圈+普通螺纹（空间受限时）" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-02-p07.DOiwkCzw_Zsbu8c.webp"></nayuta-image></div>
 <ol>
-<li>
-<p><strong>螺栓 + 防松螺母</strong>：最常用。螺栓长度必须略超出螺母内尼龙圈，才能保证防松效果；</p>
-</li>
-<li>
-<p><strong>螺栓 + 弹簧垫圈 + 普通螺纹</strong>：空间放不下防松螺母时用，弹簧垫圈防松效果较差。</p>
-</li>
+<li><strong>螺栓 + 防松螺母</strong>：最常用。螺栓长度必须略超出螺母内尼龙圈，才能保证防松效果；</li>
+<li><strong>螺栓 + 弹簧垫圈 + 普通螺纹</strong>：空间放不下防松螺母时用，弹簧垫圈防松效果较差。</li>
 </ol>
 <p><strong>螺栓长度怎么选</strong>：长度须比「被连接两表面距离 + 螺母厚度（可能再加垫片厚度）」略长。例：M3 防松螺母厚 4mm，两表面距离 24mm，则 $24+4=28\text{ mm}$，向上选市售标准长度 <strong>30mm</strong> 螺栓。先用 SW 测量功能测出两表面距离，再加螺母厚度定型号。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="螺栓长度算例：两表面 24mm + M3 防松螺母 4mm = 28mm → 选 30mm 长螺栓，附测量与选购截图" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-02-p08.Bq6rYi76_1wpCFr.webp"></nayuta-image></div>
 <ul>
-<li>
-<p><strong>螺纹盲孔连接</strong>：另一端是螺纹盲孔时，图纸要确认螺纹孔深度，螺栓长度不可超过孔深；</p>
-</li>
-<li>
-<p><strong>贯穿螺纹孔</strong>：若伸出不与其他结构干涉，可适当伸出 1~2mm。</p>
-</li>
+<li><strong>螺纹盲孔连接</strong>：另一端是螺纹盲孔时，图纸要确认螺纹孔深度，螺栓长度不可超过孔深；</li>
+<li><strong>贯穿螺纹孔</strong>：若伸出不与其他结构干涉，可适当伸出 1~2mm。</li>
 </ul>
 <h3 id="213-螺母垫片与其他紧固件">2.1.3 螺母、垫片与其他紧固件</h3>
 <p><strong>螺母</strong>：</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="三类螺母实物：防松螺母、普通螺母、拉铆螺母" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-02-p10.C0sWKHZO_Z2n7HNu.webp"></nayuta-image></div>
 <ul>
-<li>
-<p><strong>防松螺母</strong>：工程塑料（尼龙圈）附着在螺纹上，拧紧时塑料被挤压产生反作用力、增大摩擦力，使松退力矩始终大于松动力矩；需**开口扳手（卡螺母）配合内六角扳手（拧螺栓头）**使用；</p>
-</li>
-<li>
-<p><strong>普通螺母</strong>：手就能拧动、无防松效果，队里不常用；</p>
-</li>
-<li>
-<p><strong>拉铆螺母</strong>：通常装在铝管上，需要在铝管上装零件但贯穿铝管不便拆装时使用。</p>
-</li>
+<li><strong>防松螺母</strong>：工程塑料（尼龙圈）附着在螺纹上，拧紧时塑料被挤压产生反作用力、增大摩擦力，使松退力矩始终大于松动力矩；需**开口扳手（卡螺母）配合内六角扳手（拧螺栓头）**使用；</li>
+<li><strong>普通螺母</strong>：手就能拧动、无防松效果，队里不常用；</li>
+<li><strong>拉铆螺母</strong>：通常装在铝管上，需要在铝管上装零件但贯穿铝管不便拆装时使用。</li>
 </ul>
 <p><strong>垫片</strong>：</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="垫片实物：弹垫、平垫、尼龙垫柱、尼龙垫片及应用" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-02-p14.DBxwj2Ap_Z2pTNY4.webp"></nayuta-image></div>
 <ul>
-<li>
-<p><strong>弹垫</strong>：与普通螺母搭配防松，按螺栓直径选；</p>
-</li>
-<li>
-<p><strong>平垫</strong>：增大受力面积、补偿轴向距离，或隔开两个相对转动的表面，可选不同外径；</p>
-</li>
-<li>
-<p><strong>尼龙垫</strong>：补偿轴向距离，可买成品或 3D 打印（注意金属轴套抗压缩更好，打印材料易被压坏）。</p>
-</li>
+<li><strong>弹垫</strong>：与普通螺母搭配防松，按螺栓直径选；</li>
+<li><strong>平垫</strong>：增大受力面积、补偿轴向距离，或隔开两个相对转动的表面，可选不同外径；</li>
+<li><strong>尼龙垫</strong>：补偿轴向距离，可买成品或 3D 打印（注意金属轴套抗压缩更好，打印材料易被压坏）。</li>
 </ul>
 <p><strong>其他紧固件</strong>：铆钉（铆钉枪铆接，车架保险杠常用，方便轻量但装上基本不可拆，钢强于铝）、垂直连接件（六面螺母、四孔转接件、合页，淘宝查尺寸自绘）、铝柱/不锈钢柱（铝柱用于垫高，受力选不锈钢柱、同样加弹垫）、铜嵌件（焊台加热嵌入打印件，不在受力大处用）、销（圆柱销定位/短轴传动，螺纹销导向，开口销+销轴轴向限位，弹簧销作不拆定位件）。</p>
 <h3 id="214-工具与什么时候不能用电扳">2.1.4 工具与「什么时候不能用电扳」</h3>
 <p>常用工具：扳手（六角/电动扳手、棘轮扳手、开口扳手）、钳子、拉马、拉铆枪、角磨机、电钻、台虎钳。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="四类钳子：尖嘴钳、针口钳、水口钳、卡簧钳（分内/外）及用途" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-02-p25.BrCoqTCj_Z1lgH5r.webp"></nayuta-image></div>
 <ul>
-<li>
-<p><strong>尖嘴钳</strong>：头尖，伸入狭窄位置，根部有刃可剪切；<strong>针口钳</strong>更尖更深；<strong>水口钳</strong>剪较软物如导线；<strong>卡簧钳</strong>装卡簧，分内卡簧钳（握柄合拢钳口合拢）与外卡簧钳（握柄合拢钳口张开）。</p>
-</li>
-<li>
-<p><strong>拉马</strong>：轴承与轴承座配合很紧时用螺纹压力把轴承拔出，注意垫合适物品分散压强防压坏。</p>
-</li>
+<li><strong>尖嘴钳</strong>：头尖，伸入狭窄位置，根部有刃可剪切；<strong>针口钳</strong>更尖更深；<strong>水口钳</strong>剪较软物如导线；<strong>卡簧钳</strong>装卡簧，分内卡簧钳（握柄合拢钳口合拢）与外卡簧钳（握柄合拢钳口张开）。</li>
+<li><strong>拉马</strong>：轴承与轴承座配合很紧时用螺纹压力把轴承拔出，注意垫合适物品分散压强防压坏。</li>
 </ul>
 <p><strong>某些情况不能使用电扳</strong>（否则容易出事）：</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="禁用电扳的三种情形：压在打印件上、孔未对齐、安装裁判系统/电机/雷达等昂贵件，附电机 7pin 接口照片" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-02-p12.CB9mhXpO_Zz9X9n.webp"></nayuta-image></div>
 <ol>
-<li>
-<p>螺栓头/螺母直接压在<strong>打印件</strong>上：电扳力太大易把打印件压溃；</p>
-</li>
-<li>
-<p><strong>孔没完全对齐</strong>：阻力异常大，电动工具察觉不到，会导致螺栓弯曲、内应力增大，拆除时易断；</p>
-</li>
-<li>
-<p>安装<strong>裁判系统、电机、雷达</strong>等昂贵件：先查说明书明确螺纹孔尺寸深度、选合适长度螺栓，最好不用电动工具。例：去掉减速箱的 3508 电机有个螺纹孔上方是 7pin 线接口，螺栓过长会顶坏接口导致电机报废。</p>
-</li>
+<li>螺栓头/螺母直接压在<strong>打印件</strong>上：电扳力太大易把打印件压溃；</li>
+<li><strong>孔没完全对齐</strong>：阻力异常大，电动工具察觉不到，会导致螺栓弯曲、内应力增大，拆除时易断；</li>
+<li>安装<strong>裁判系统、电机、雷达</strong>等昂贵件：先查说明书明确螺纹孔尺寸深度、选合适长度螺栓，最好不用电动工具。例：去掉减速箱的 3508 电机有个螺纹孔上方是 7pin 线接口，螺栓过长会顶坏接口导致电机报废。</li>
 </ol>
 <p><strong>防松措施</strong>：所有紧固连接都必须防松；除防松螺母、弹垫外还可用点胶螺丝、螺纹胶。防松强度：<strong>红胶 > 蓝胶 > 弹垫</strong>，选胶强度要谨慎。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="防松措施：点胶螺丝、红蓝螺纹胶与实际安装位置标注" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-02-p13.5tjYc90__z62uo.webp"></nayuta-image></div>
@@ -302,12 +276,8 @@
 <h3 id="222-两种设计方法">2.2.2 两种设计方法</h3>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="自下而上（零件→装配体，主要使用）与自上而下（装配体→零件，主要用于打孔）对比及「插入零部件/新零件」菜单" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-03-p07.QZz30BmS_2a1m5w.webp"></nayuta-image></div>
 <ul>
-<li>
-<p><strong>自下而上（零件→装配体）</strong>：传统方法，先设计好零件再插入装配体用配合定位；改零件需单独编辑但改动会反映到装配体。金属器件、皮带轮、电机等<strong>标准件/现售件优先用此法</strong>（形状大小不随设计改）。</p>
-</li>
-<li>
-<p><strong>自上而下（装配体→零件）</strong>：在装配体里直接定义零件的形状、大小、位置，设计更改时变动更少、零件自我更新；本队主要用于<strong>打孔</strong>等关联特征。</p>
-</li>
+<li><strong>自下而上（零件→装配体）</strong>：传统方法，先设计好零件再插入装配体用配合定位；改零件需单独编辑但改动会反映到装配体。金属器件、皮带轮、电机等<strong>标准件/现售件优先用此法</strong>（形状大小不随设计改）。</li>
+<li><strong>自上而下（装配体→零件）</strong>：在装配体里直接定义零件的形状、大小、位置，设计更改时变动更少、零件自我更新；本队主要用于<strong>打孔</strong>等关联特征。</li>
 </ul>
 <h3 id="223-配合标准配合与机械高级配合">2.2.3 配合：标准配合与机械/高级配合</h3>
 <p>配合前把两个零件拖到接近最终位置（左键拖动、右键旋转，更精确用三重轴移动），配合更容易解算、不易报错。</p>
@@ -323,44 +293,26 @@
 <p>其他操作：<strong>随配合复制</strong>（同时复制零件和配合）；线性/圆周/阵列驱动零部件阵列；镜像（第 5 种镜像方式慎用，会生成镜像零部件）。</p>
 <h3 id="225-干涉检查与打包">2.2.5 干涉检查与打包</h3>
 <ul>
-<li>
-<p><strong>目视检查</strong>先看；</p>
-</li>
-<li>
-<p><strong>干涉检查</strong>（评估 → 干涉检查）：选整个子装配体自动查干涉，再逐个按结果排查；</p>
-</li>
-<li>
-<p><strong>间隙检查</strong>（评估 → 间隙验证）：检查给螺栓头尾留的空间和安装空间，建议把每个螺栓都装上（同类只装一个也行）。</p>
-</li>
+<li><strong>目视检查</strong>先看；</li>
+<li><strong>干涉检查</strong>（评估 → 干涉检查）：选整个子装配体自动查干涉，再逐个按结果排查；</li>
+<li><strong>间隙检查</strong>（评估 → 间隙验证）：检查给螺栓头尾留的空间和安装空间，建议把每个螺栓都装上（同类只装一个也行）。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="干涉检查与间隙验证面板：自动计算所选零部件干涉、设定检查间隙范围" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-03-p18.BWrkAD_w_KQNLj.webp"></nayuta-image></div>
 <p><strong>压缩打包</strong>：提前建好树状配合文件夹，零件存对应文件夹，压缩总文件夹后自己先解压确认装配体能正常打开，再上传。</p>
 <h3 id="226-工程图出图">2.2.6 工程图出图</h3>
 <p>核心原则：<strong>加工商看得懂你出的图、能做出你要的东西</strong>。</p>
 <ol>
-<li>
-<p>新建「工程图」，或从零件 <code>文件 → 从零件制作工程图</code>；</p>
-</li>
-<li>
-<p>选择合理视图，一般标准三视图够用；</p>
-</li>
-<li>
-<p>显示样式选<strong>第二种</strong>才有虚线（隐藏轮廓）。</p>
-</li>
+<li>新建「工程图」，或从零件 <code>文件 → 从零件制作工程图</code>；</li>
+<li>选择合理视图，一般标准三视图够用；</li>
+<li>显示样式选<strong>第二种</strong>才有虚线（隐藏轮廓）。</li>
 </ol>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="工程图视图：从零件制作工程图菜单、标准三视图，显示样式选第二个才出虚线" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-03-p20.YPGKJJVv_2cmmLF.webp"></nayuta-image></div>
 <p><strong>尺寸标注：标全，宁可多标也不要少。</strong> 公差标注三类：尺寸公差、形位公差、表面粗糙度；标注对象是除减重孔外的所有特征，尤其安装孔和安装面。尺寸公差常用 <strong>IT7、IT8</strong> 精度等级，公差大小由「精度等级 + 参考长度」查机械设计手册/大工程师。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="尺寸标注面板与公差/精度设置，原则是标全、宁可多标" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-03-p21.B8taPu-3_1nnuQH.webp"></nayuta-image></div>
 <ul>
-<li>
-<p><strong>形位公差</strong>：同轴度（轴、轴承）、位置度（安装孔）、跳动（轴）；</p>
-</li>
-<li>
-<p><strong>表面粗糙度</strong>：常用 <strong>3.2</strong>；</p>
-</li>
-<li>
-<p>补画中心线、中心符号线（遗漏需手动插入），对复杂异形孔做孔标注。</p>
-</li>
+<li><strong>形位公差</strong>：同轴度（轴、轴承）、位置度（安装孔）、跳动（轴）；</li>
+<li><strong>表面粗糙度</strong>：常用 <strong>3.2</strong>；</li>
+<li>补画中心线、中心符号线（遗漏需手动插入），对复杂异形孔做孔标注。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="形位公差、表面粗糙度符号设置与中心符号线/中心线/孔标注示例" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-03-p22.DO_Tk2fm_Z1YG8ey.webp"></nayuta-image></div>
 <h2 id="第3讲-材料与工艺">第3讲 材料与工艺</h2>
@@ -379,18 +331,10 @@
 <p><strong>亚克力</strong>：利用透光性用于相机镜头保护、需要观察内部的保护壳；只能外发加工，另有吹塑工艺可做半球壳/弧形定制。</p>
 <h3 id="34-如何设计一块板件按需设计">3.4 如何设计一块板件（按需设计）</h3>
 <ol>
-<li>
-<p><strong>明确目的</strong>：结构件/连接件/保护壳？与哪些部件连接？哪里受力、多大？刚度强度要求？避免冗余；</p>
-</li>
-<li>
-<p><strong>选厚度</strong>：常备 2/3/4/5mm，绝大多数 2/3mm 足够，校内赛小车推荐不超过 3mm（个别如拨叉需 10mm 保强度）；</p>
-</li>
-<li>
-<p><strong>选连接方式</strong>：两片不在同一平面的玻纤件需六面螺母等标准件/打印件/机加件辅助，也可拼插（注意释放孔）；</p>
-</li>
-<li>
-<p><strong>工艺设计</strong>：孔位留余量、避免角度过小的内部特征、避免直径小于 2mm 的特征。</p>
-</li>
+<li><strong>明确目的</strong>：结构件/连接件/保护壳？与哪些部件连接？哪里受力、多大？刚度强度要求？避免冗余；</li>
+<li><strong>选厚度</strong>：常备 2/3/4/5mm，绝大多数 2/3mm 足够，校内赛小车推荐不超过 3mm（个别如拨叉需 10mm 保强度）；</li>
+<li><strong>选连接方式</strong>：两片不在同一平面的玻纤件需六面螺母等标准件/打印件/机加件辅助，也可拼插（注意释放孔）；</li>
+<li><strong>工艺设计</strong>：孔位留余量、避免角度过小的内部特征、避免直径小于 2mm 的特征。</li>
 </ol>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="工艺设计三条：孔位留余量、避免过小内角、避免小于2mm的特征，附尖角与小孔示例" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-04-p14.DWqHjh1d_1PPpzl.webp"></nayuta-image></div>
 <p><strong>玻纤板镂空</strong>的原因：必要结构（避干涉/装零件）、减重轻量化、方便走线、便于装配（镂空让扳手伸入不拆外结构即可修内部）、便于观察内部元件。</p>
@@ -404,18 +348,10 @@
 <p><strong>打印件设计注意</strong>：</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="打印件设计：壁厚不宜小于2mm、孔留约0.4mm余量（M3 孔≥3.4mm）、注意打印方向与层间强度、可塞圆柱销加强" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-04-p24._mmq1PnA_1n3f1b.webp"></nayuta-image></div>
 <ul>
-<li>
-<p><strong>壁厚不要太薄</strong>：一般不宜小于 2mm，否则力学更差且易打印失败；</p>
-</li>
-<li>
-<p><strong>孔留余量</strong>：冷却后孔会缩小，一般留 0.4mm，如穿 M3 螺栓的孔直径至少 3.4mm；</p>
-</li>
-<li>
-<p><strong>注意打印方向</strong>：垂直打印方向形成纹理，需光滑表面（弹链）注意纹理方向；层间结合弱，把孔等削弱特征放在垂直堆层方向可减少强度损失；</p>
-</li>
-<li>
-<p>强度不足可把<strong>圆柱销</strong>塞入打印件加强；层间强度低于垂直层向，受大沿层剪力会破，最好让打印件受垂直层向压力（故常用打印件做垫块），并考虑支撑易拆除。</p>
-</li>
+<li><strong>壁厚不要太薄</strong>：一般不宜小于 2mm，否则力学更差且易打印失败；</li>
+<li><strong>孔留余量</strong>：冷却后孔会缩小，一般留 0.4mm，如穿 M3 螺栓的孔直径至少 3.4mm；</li>
+<li><strong>注意打印方向</strong>：垂直打印方向形成纹理，需光滑表面（弹链）注意纹理方向；层间结合弱，把孔等削弱特征放在垂直堆层方向可减少强度损失；</li>
+<li>强度不足可把<strong>圆柱销</strong>塞入打印件加强；层间强度低于垂直层向，受大沿层剪力会破，最好让打印件受垂直层向压力（故常用打印件做垫块），并考虑支撑易拆除。</li>
 </ul>
 <h3 id="36-机加工件与其他结构材料">3.6 机加工件与其他结构材料</h3>
 <p><strong>机加工件</strong>：车、铣等去除材料得到，考虑重量一般选 <strong>6061 铝合金</strong>；只能外发、价格昂贵需少用，但精度最高、表面质量与力学性能最好，适合高精度/高表面质量/高强度件，可直接加工螺纹孔（善用此点简化结构），<strong>外发图纸一定要标明公差</strong>，孔位不留余量但要注公差。</p>
@@ -431,15 +367,9 @@
 <p>学习路径：认识轴系零件 → 理解设计原则 → 读懂一个轴系 → 设计合理轴系，目标是设计合理的传动结构。</p>
 <h3 id="41-基础概念轴向径向欧拉角法兰">4.1 基础概念：轴向、径向、欧拉角、法兰</h3>
 <ul>
-<li>
-<p><strong>轴向</strong>：圆柱体旋转中心轴的方向（沿轴）；</p>
-</li>
-<li>
-<p><strong>径向</strong>：沿轴截面、理论上过轴心的方向（类似半径/直径）；</p>
-</li>
-<li>
-<p><strong>欧拉角</strong>：Pitch 绕 x 轴（俯仰角，点头）、Yaw 绕 y 轴（偏航角，摇头）、Roll 绕 z 轴（翻滚角，前进方向旋转）。</p>
-</li>
+<li><strong>轴向</strong>：圆柱体旋转中心轴的方向（沿轴）；</li>
+<li><strong>径向</strong>：沿轴截面、理论上过轴心的方向（类似半径/直径）；</li>
+<li><strong>欧拉角</strong>：Pitch 绕 x 轴（俯仰角，点头）、Yaw 绕 y 轴（偏航角，摇头）、Roll 绕 z 轴（翻滚角，前进方向旋转）。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="欧拉角飞机示意：Pitch 点头（绕x）、Yaw 摇头（绕y）、Roll 前进旋转（绕z）与 XYZ 坐标系" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/mech-05-p05.K2K0tTP7_rTiXo.webp"></nayuta-image></div>
 <ul>
@@ -476,18 +406,10 @@
 <p>其他小零件：**卡簧（挡圈/扣环）**装在轴槽/孔槽中防止零件轴向位移。</p>
 <h3 id="44-轴系设计基本原则">4.4 轴系设计基本原则</h3>
 <ol>
-<li>
-<p>选用合适轴系零件，在有限空间内保障结构强度；</p>
-</li>
-<li>
-<p><strong>径向和轴向完全定位，不发生窜动</strong>；</p>
-</li>
-<li>
-<p><strong>分清相对运动的物体，不发生干磨</strong>；</p>
-</li>
-<li>
-<p>考虑可装配性和可加工性。</p>
-</li>
+<li>选用合适轴系零件，在有限空间内保障结构强度；</li>
+<li><strong>径向和轴向完全定位，不发生窜动</strong>；</li>
+<li><strong>分清相对运动的物体，不发生干磨</strong>；</li>
+<li>考虑可装配性和可加工性。</li>
 </ol>
 <h3 id="45-案例分析">4.5 案例分析</h3>
 <p><strong>案例一：铰链结构（双法兰）</strong>。套筒补偿轴向距离把零件固定在所需位置，打印件 PLA 套筒强度低需保证厚度；塞打螺钉的螺栓头不能接触轴承外圈（否则干磨），有接触可加垫片；注意塞打螺栓长度。</p>
@@ -508,21 +430,11 @@
 <h3 id="52-齿轮传动">5.2 齿轮传动</h3>
 <p><strong>齿轮</strong>是轮缘有齿、能连续啮合传递运动和动力的机械元件；齿廓为渐开线。基本参数：</p>
 <ul>
-<li>
-<p><strong>模数 $m$</strong>：决定齿大小的基本参数；</p>
-</li>
-<li>
-<p><strong>齿数 $z$</strong>：齿的个数（大于 17）；</p>
-</li>
-<li>
-<p><strong>齿厚 $b$</strong>：齿轮厚度；</p>
-</li>
-<li>
-<p><strong>压力角 $\alpha$</strong>：一般为 $20^\circ$；</p>
-</li>
-<li>
-<p><strong>分度圆</strong>：保证一对齿轮正常啮合的重要尺寸。</p>
-</li>
+<li><strong>模数 $m$</strong>：决定齿大小的基本参数；</li>
+<li><strong>齿数 $z$</strong>：齿的个数（大于 17）；</li>
+<li><strong>齿厚 $b$</strong>：齿轮厚度；</li>
+<li><strong>压力角 $\alpha$</strong>：一般为 $20^\circ$；</li>
+<li><strong>分度圆</strong>：保证一对齿轮正常啮合的重要尺寸。</li>
 </ul>
 <p>核心公式：</p>
 <p>$$d = m \cdot z \quad\text{（分度圆直径）}$$</p>
@@ -530,29 +442,38 @@
 <p>$$D = \frac{d_1+d_2}{2} \quad\text{（中心距）}$$</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1921 / 1080;--ny-image-width:1921px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="齿轮基本参数与啮合图：模数m、齿数z、压力角20°，分度圆/齿顶圆/中心距公式" loading="lazy" decoding="async" width="1921" height="1080" src="/solaris-blog-rm-seu-cxxy/_astro/mech-06-p07.dawPSjMk_6BB3X.webp"></nayuta-image></div>
 <p><strong>圆柱齿轮</strong>对比：</p>
-<p>| 类型 | 优点 | 缺点 |</p>
-<p>|---|---|---|</p>
-<p>| 直齿轮 | 成本低、无螺旋角加工方便（2 模以上可用雕铣机加工）；传动效率高、传动比大（传动力 1~8） | 噪音大、重合度低 |</p>
-<p>| 斜齿轮 | 重合度高、啮合平稳、噪音小、更适合高速传动（啮合长度长） | 会产生轴向力（有螺旋角） |</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直齿轮</td>
+<td>成本低、无螺旋角加工方便（2 模以上可用雕铣机加工）；传动效率高、传动比大（传动力 1~8）</td>
+<td>噪音大、重合度低</td>
+</tr>
+<tr>
+<td>斜齿轮</td>
+<td>重合度高、啮合平稳、噪音小、更适合高速传动（啮合长度长）</td>
+<td>会产生轴向力（有螺旋角）</td>
+</tr>
+</tbody>
+</table>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1921 / 1080;--ny-image-width:1921px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="直齿轮与斜齿轮实物及优缺点对比" loading="lazy" decoding="async" width="1921" height="1080" src="/solaris-blog-rm-seu-cxxy/_astro/mech-06-p09.D5pnFANn_KwwjI.webp"></nayuta-image></div>
 <p><strong>圆锥齿轮</strong>：圆锥直齿轮可实现交错轴传动（传动比 1~8），但安装精度要求高、轴承承载轴向+径向、轴系复杂；圆锥螺旋齿轮为商品件，重合度高但需很高刚度与安装精度。</p>
 <h3 id="53-直线传动">5.3 直线传动</h3>
 <ul>
-<li>
-<p><strong>齿轮齿条</strong>：齿轮齿条啮合实现直线运动，传动精度高、承载力大、速度快、结构紧凑平稳耐用，适合连续、大负载直线场合。</p>
-</li>
-<li>
-<p><strong>啮合型同步带</strong>：带与带轮啮合传动力，主动轮带从动轮转或用压板实现直线；传动比准确、结构紧凑，但对中心距和尺寸稳定性要求高、可能跳齿；<strong>必须张紧</strong>，张紧方式为改变中心距（设计时加张紧轮）。</p>
-</li>
+<li><strong>齿轮齿条</strong>：齿轮齿条啮合实现直线运动，传动精度高、承载力大、速度快、结构紧凑平稳耐用，适合连续、大负载直线场合。</li>
+<li><strong>啮合型同步带</strong>：带与带轮啮合传动力，主动轮带从动轮转或用压板实现直线；传动比准确、结构紧凑，但对中心距和尺寸稳定性要求高、可能跳齿；<strong>必须张紧</strong>，张紧方式为改变中心距（设计时加张紧轮）。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1921 / 1080;--ny-image-width:1921px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="啮合型同步带：Z 轴升降结构实例、原理与张紧（改中心距/加张紧轮）" loading="lazy" decoding="async" width="1921" height="1080" src="/solaris-blog-rm-seu-cxxy/_astro/mech-06-p14.BYFlL2d7_ZE9Jnc.webp"></nayuta-image></div>
 <ul>
-<li>
-<p><strong>链传动</strong>：链条链轮啮合，适合高载荷、高可靠场景；可承高负载、可长距离，但效率低、需定期张紧（改链长或链轮中心距，加涨紧轮/楔形块）。</p>
-</li>
-<li>
-<p><strong>螺旋（梯形丝杠）</strong>：螺纹副螺旋运动实现直线，高精度大负载；有自锁、可固定位置、承受大轴向力，但摩擦阻力大、效率低。<strong>自锁条件</strong>：螺纹升角小于静摩擦角。设静摩擦系数为 $f$，则 $\tan\alpha=f$，$\alpha=\arctan(f)$ 即静摩擦角，梯形丝杠因此自带自锁。</p>
-</li>
+<li><strong>链传动</strong>：链条链轮啮合，适合高载荷、高可靠场景；可承高负载、可长距离，但效率低、需定期张紧（改链长或链轮中心距，加涨紧轮/楔形块）。</li>
+<li><strong>螺旋（梯形丝杠）</strong>：螺纹副螺旋运动实现直线，高精度大负载；有自锁、可固定位置、承受大轴向力，但摩擦阻力大、效率低。<strong>自锁条件</strong>：螺纹升角小于静摩擦角。设静摩擦系数为 $f$，则 $\tan\alpha=f$，$\alpha=\arctan(f)$ 即静摩擦角，梯形丝杠因此自带自锁。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1921 / 1080;--ny-image-width:1921px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="梯形丝杠：打印机 Z 轴实例、自锁原理（升角小于静摩擦角）与 tanα=f、α=arctan(f)" loading="lazy" decoding="async" width="1921" height="1080" src="/solaris-blog-rm-seu-cxxy/_astro/mech-06-p16.BRAEPilx_Z299fTM.webp"></nayuta-image></div>
 <ul>
@@ -560,22 +481,53 @@
 </ul>
 <p><strong>导向机构</strong>四种对比（配合直线传动使用）：</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1921 / 1080;--ny-image-width:1921px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="导向机构对比表：滑轨滑块、抽屉滑轨、光轴、型铝滑车的使用环境/优点/缺点/注意事项" loading="lazy" decoding="async" width="1921" height="1080" src="/solaris-blog-rm-seu-cxxy/_astro/mech-06-p18.DPakqvSV_26pye6.webp"></nayuta-image></div>
-<p>| 种类 | 使用环境 | 优点 | 缺点 | 注意事项 |</p>
-<p>|---|---|---|---|---|</p>
-<p>| 滑轨滑块 | 活动空间在滑轨内，组合可伸出 | 阻力均匀、精度高 | 需定制、价格高、重 | 搭配滑块；不受反向力、受较小侧向力 |</p>
-<p>| 抽屉滑轨 | 需要水平伸出的机构 | 便宜、载荷大 | 较重、阻力不均、有虚位 | 注意预留孔位、侧向安装 |</p>
-<p>| 光轴 | 精度要求高、高速运动 | 便宜、精度高、阻力均匀 | 重、不易安装固定 | 配导向座+直线轴承，至少两组光轴 |</p>
-<p>| 型铝滑车 | 设计空间大、行程长 | 便宜、精度高 | 占空间大、商品件需测绘难定位 | 一侧滑轮用偏心螺母调松紧 |</p>
+<table>
+<thead>
+<tr>
+<th>种类</th>
+<th>使用环境</th>
+<th>优点</th>
+<th>缺点</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>滑轨滑块</td>
+<td>活动空间在滑轨内，组合可伸出</td>
+<td>阻力均匀、精度高</td>
+<td>需定制、价格高、重</td>
+<td>搭配滑块；不受反向力、受较小侧向力</td>
+</tr>
+<tr>
+<td>抽屉滑轨</td>
+<td>需要水平伸出的机构</td>
+<td>便宜、载荷大</td>
+<td>较重、阻力不均、有虚位</td>
+<td>注意预留孔位、侧向安装</td>
+</tr>
+<tr>
+<td>光轴</td>
+<td>精度要求高、高速运动</td>
+<td>便宜、精度高、阻力均匀</td>
+<td>重、不易安装固定</td>
+<td>配导向座+直线轴承，至少两组光轴</td>
+</tr>
+<tr>
+<td>型铝滑车</td>
+<td>设计空间大、行程长</td>
+<td>便宜、精度高</td>
+<td>占空间大、商品件需测绘难定位</td>
+<td>一侧滑轮用偏心螺母调松紧</td>
+</tr>
+</tbody>
+</table>
 <h3 id="54-转动连接联轴器选型轴与轴--轴与回转件">5.4 转动连接：联轴器选型（轴与轴 / 轴与回转件）</h3>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1921 / 1080;--ny-image-width:1921px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="联轴器对比表：刚性/法兰/膜片/分体夹紧法兰/弹性/胀紧套/梅花/万向节的特征与注意事项" loading="lazy" decoding="async" width="1921" height="1080" src="/solaris-blog-rm-seu-cxxy/_astro/mech-06-p19.llsuQpEz_uR4jy.webp"></nayuta-image></div>
 <p>两个关键「为什么」：</p>
 <ul>
-<li>
-<p><strong>为什么用弹性联轴器而不用刚性</strong>：弹性联轴器可补偿轴向、径向、角向偏差，吸收震动冲击保护电机，便于安装；</p>
-</li>
-<li>
-<p><strong>为什么用夹紧式而不用顶丝固定</strong>：顶丝孔易滑、顶丝拧不出；顶丝不如夹紧牢固；夹紧式更便于装拆。</p>
-</li>
+<li><strong>为什么用弹性联轴器而不用刚性</strong>：弹性联轴器可补偿轴向、径向、角向偏差，吸收震动冲击保护电机，便于安装；</li>
+<li><strong>为什么用夹紧式而不用顶丝固定</strong>：顶丝孔易滑、顶丝拧不出；顶丝不如夹紧牢固；夹紧式更便于装拆。</li>
 </ul>
 <p>转动环节其他注意：齿轮设计时分度圆相切；同步带加张紧轮张紧；链条加涨紧轮/楔形块张紧；连杆尽量设计平行四边形、设计前多计算。</p>
 <p><strong>如何选择传动方式</strong>，综合权衡 7 项：空间布置、载荷、减速比、重量、传动间距、成本、其他特殊需求（如自锁）。</p>
@@ -588,11 +540,36 @@
 <p><strong>舵机</strong>：程序控制下在一定角度内连续改变输出轴角度并保持，只支持固定角度范围转动、不能按圈转，用于机器人关节、转向；控制精度一般、扭矩小，过载会烧坏，注意标注的转角范围。</p>
 <p>队内三款常用对比：</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1921 / 1080;--ny-image-width:1921px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="2006 / 3508 / 6020 电机对比表：类别、特点、使用场景、注意事项（电调/减速比）" loading="lazy" decoding="async" width="1921" height="1080" src="/solaris-blog-rm-seu-cxxy/_astro/mech-06-p26.CBrvT8xr_ZRmCeY.webp"></nayuta-image></div>
-<p>| 名称 | 类别 | 使用场景 | 注意事项 |</p>
-<p>|---|---|---|---|</p>
-<p>| 2006 | 减速电机（无刷+减速器集成，高扭矩、精确调速） | 17mm 拨弹盘、小机械臂末端、空间小不需大扭矩处 | 配 C610 电调，36 减速比 |</p>
-<p>| 3508 | 减速电机 | 42mm 拨弹盘、工程 Z 轴、空间大需大扭矩；拆减速箱作摩擦轮电机 | 配 C620 电调，3591/187 减速比；不能固定在打印件上 |</p>
-<p>| 6020（GM6020） | 云台电机（多方向精确运动控制） | 舵轮底盘舵向、云台 yaw/pitch 轴 | 内置电调、无减速箱，额定扭矩与 2006 相差无几 |</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类别</th>
+<th>使用场景</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2006</td>
+<td>减速电机（无刷+减速器集成，高扭矩、精确调速）</td>
+<td>17mm 拨弹盘、小机械臂末端、空间小不需大扭矩处</td>
+<td>配 C610 电调，36 减速比</td>
+</tr>
+<tr>
+<td>3508</td>
+<td>减速电机</td>
+<td>42mm 拨弹盘、工程 Z 轴、空间大需大扭矩；拆减速箱作摩擦轮电机</td>
+<td>配 C620 电调，3591/187 减速比；不能固定在打印件上</td>
+</tr>
+<tr>
+<td>6020（GM6020）</td>
+<td>云台电机（多方向精确运动控制）</td>
+<td>舵轮底盘舵向、云台 yaw/pitch 轴</td>
+<td>内置电调、无减速箱，额定扭矩与 2006 相差无几</td>
+</tr>
+</tbody>
+</table>
 <p><strong>关节电机</strong>：高精度、高扭矩密度、法兰输出，做精确位置控制与重复运动。队内三款：CyberGear（额定 4N·m/最大 12N·m、240rpm，英雄云台 pitch）、DM-J8009-2EC（额定 20/最大 40N·m、120rpm，轮腿平衡步兵）、DM-J4310-2EC（额定 3/最大 7N·m、120rpm，17mm 云台 pitch 及工程小臂）。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1921 / 1080;--ny-image-width:1921px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="三款关节电机参数卡：CyberGear、DM-J8009-2EC、DM-J4310-2EC 的额定/最大扭矩、转速与现用途" loading="lazy" decoding="async" width="1921" height="1080" src="/solaris-blog-rm-seu-cxxy/_astro/mech-06-p27.CK5kVwtg_1n2AyV.webp"></nayuta-image></div>
 <p>另有<strong>轮毂电机</strong>（转子直接连车轮，如 MF9025V2 驱动板凳平衡步兵）、<strong>无人机动力电机</strong>（高效紧凑高转速，如 DJI E2000、好盈 X6plus）。</p>
@@ -605,18 +582,10 @@
 <p><strong>电机基本知识</strong>：</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1921 / 1080;--ny-image-width:1921px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="电机基本知识：电调、闭环/开环接线、CAN/PWM 信号线、选额定扭矩转速、预留电调位置走线" loading="lazy" decoding="async" width="1921" height="1080" src="/solaris-blog-rm-seu-cxxy/_astro/mech-06-p33.B4nu_NXj_Ip2Ti.webp"></nayuta-image></div>
 <ul>
-<li>
-<p>所有无刷电机都需电子调速器（电调）驱动，没接电调的是内置电调；</p>
-</li>
-<li>
-<p>闭环控制电机与电调间一般一组三相线 + 一组排线，开环只有一组三相线；</p>
-</li>
-<li>
-<p>接电调的是一组电源线 + 一组信号线，信号线一般是细红黑 CAN 线，少数是三线（红黄棕 S/+/-）或两线（白黑 S/-）PWM 线；</p>
-</li>
-<li>
-<p>选电机看额定扭矩、转速，以及位置是否需要归 0；设计时预留电调安装位置与走线孔位。</p>
-</li>
+<li>所有无刷电机都需电子调速器（电调）驱动，没接电调的是内置电调；</li>
+<li>闭环控制电机与电调间一般一组三相线 + 一组排线，开环只有一组三相线；</li>
+<li>接电调的是一组电源线 + 一组信号线，信号线一般是细红黑 CAN 线，少数是三线（红黄棕 S/+/-）或两线（白黑 S/-）PWM 线；</li>
+<li>选电机看额定扭矩、转速，以及位置是否需要归 0；设计时预留电调安装位置与走线孔位。</li>
 </ul>
 <h2 id="附轴系作业">附：轴系作业</h2>
-<p><code>轴系作业.rar</code> 为第4讲轴系设计配套的课后练习（含运动参考视频），按文档要求完成一个轴系结构的建模与装配即可，本笔记不展开。</p></div><aside class="copyright-card" aria-label="Article copyright and license" data-astro-cid-v7t64ykl><p class="card-title" data-astro-cid-v7t64ykl>&copy; Copyright</p><dl data-astro-cid-v7t64ykl><dt data-astro-cid-v7t64ykl>Article</dt><dd data-astro-cid-v7t64ykl>同济大学 RoboMaster 招新培训笔记 · 机械组</dd><dt data-astro-cid-v7t64ykl>Author</dt><dd data-astro-cid-v7t64ykl>天钺 Solaris</dd><dt data-astro-cid-v7t64ykl>Link</dt><dd data-astro-cid-v7t64ykl><a href="https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical/" data-astro-cid-v7t64ykl>https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical/</a></dd><dt data-astro-cid-v7t64ykl>License</dt><dd data-astro-cid-v7t64ykl><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license" data-astro-cid-v7t64ykl>CC BY-NC-SA 4.0</a></dd></dl></aside></nayuta-prose><nav class="post-tags" aria-label="Post tags" data-astro-cid-ruv7hgo6><ul data-astro-cid-ruv7hgo6><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%9C%BA%E6%A2%B0%E7%BB%84" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">机械组</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/SolidWorks" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">SolidWorks</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A3%85%E9%85%8D%E5%87%BA%E5%9B%BE" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">装配出图</a></li></ul></nav><!-- Mobile Footer (Shown in normal flow only on mobile) --><footer class="mobile-footer"><p>Copyright &copy; 2026 天钺 Solaris.</p><p>Powered by <a href="https://github.com/yuanzui-cf/nayuta">Nayuta</a>. Designed by <a href="https://yzcf.top">Leo Jia</a>.</p></footer></main><aside class="right-region" id="right-sidebar" data-astro-cid-clhfnexa><div class="right-sidebar-content" data-astro-cid-clhfnexa><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Table of Contents</span></div><div class="widget-content-simple" data-astro-cid-6itfjkzp><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#培训大纲" class="toc-link" data-astro-cid-6itfjkzp>培训大纲</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第1讲-solidworks-零件绘制" class="toc-link" data-astro-cid-6itfjkzp>第1讲 SolidWorks 零件绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#11-机械组工作概述与-sw-界面" class="toc-link" data-astro-cid-6itfjkzp>1.1 机械组工作概述与 SW 界面</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#12-用快捷键与鼠标笔势提高画图速度" class="toc-link" data-astro-cid-6itfjkzp>1.2 用快捷键与鼠标笔势提高画图速度</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#13-建模的根本草图绘制" class="toc-link" data-astro-cid-6itfjkzp>1.3 建模的根本：草图绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#14-草图必须完全定义" class="toc-link" data-astro-cid-6itfjkzp>1.4 草图必须「完全定义」</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#15-草图各元素的绘制" class="toc-link" data-astro-cid-6itfjkzp>1.5 草图各元素的绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#16-从草图到实体特征建模" class="toc-link" data-astro-cid-6itfjkzp>1.6 从草图到实体：特征建模</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#17-三类零件的画法差异" class="toc-link" data-astro-cid-6itfjkzp>1.7 三类零件的画法差异</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第21讲-标准件及标准件库使用" class="toc-link" data-astro-cid-6itfjkzp>第2.1讲 标准件及标准件库使用</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#211-零件从哪来电气件--定制件--标准件--商品件" class="toc-link" data-astro-cid-6itfjkzp>2.1.1 零件从哪来：电气件 / 定制件 / 标准件 / 商品件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#212-紧固件螺栓" class="toc-link" data-astro-cid-6itfjkzp>2.1.2 紧固件：螺栓</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#213-螺母垫片与其他紧固件" class="toc-link" data-astro-cid-6itfjkzp>2.1.3 螺母、垫片与其他紧固件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#214-工具与什么时候不能用电扳" class="toc-link" data-astro-cid-6itfjkzp>2.1.4 工具与「什么时候不能用电扳」</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#215-标准件库麦迪插件--通用零件库" class="toc-link" data-astro-cid-6itfjkzp>2.1.5 标准件库（麦迪插件 / 通用零件库）</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第22讲-装配与出图" class="toc-link" data-astro-cid-6itfjkzp>第2.2讲 装配与出图</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#221-建立装配体插入零部件" class="toc-link" data-astro-cid-6itfjkzp>2.2.1 建立装配体：插入零部件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#222-两种设计方法" class="toc-link" data-astro-cid-6itfjkzp>2.2.2 两种设计方法</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#223-配合标准配合与机械高级配合" class="toc-link" data-astro-cid-6itfjkzp>2.2.3 配合：标准配合与机械/高级配合</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#224-完全定义避免过定义" class="toc-link" data-astro-cid-6itfjkzp>2.2.4 完全定义，避免过定义</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#225-干涉检查与打包" class="toc-link" data-astro-cid-6itfjkzp>2.2.5 干涉检查与打包</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#226-工程图出图" class="toc-link" data-astro-cid-6itfjkzp>2.2.6 工程图出图</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第3讲-材料与工艺" class="toc-link" data-astro-cid-6itfjkzp>第3讲 材料与工艺</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#31-材料力学简介受力应力与应力集中" class="toc-link" data-astro-cid-6itfjkzp>3.1 材料力学简介：受力、应力与应力集中</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#32-板件fr-4-玻纤板" class="toc-link" data-astro-cid-6itfjkzp>3.2 板件：FR-4 玻纤板</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#33-碳纤维板与亚克力" class="toc-link" data-astro-cid-6itfjkzp>3.3 碳纤维板与亚克力</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#34-如何设计一块板件按需设计" class="toc-link" data-astro-cid-6itfjkzp>3.4 如何设计一块板件（按需设计）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#35-3d-打印件材料" class="toc-link" data-astro-cid-6itfjkzp>3.5 3D 打印件材料</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#36-机加工件与其他结构材料" class="toc-link" data-astro-cid-6itfjkzp>3.6 机加工件与其他结构材料</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第4讲-轴系招新轴系基础" class="toc-link" data-astro-cid-6itfjkzp>第4讲 轴系招新（轴系基础）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#41-基础概念轴向径向欧拉角法兰" class="toc-link" data-astro-cid-6itfjkzp>4.1 基础概念：轴向、径向、欧拉角、法兰</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#42-轴承结构与分类" class="toc-link" data-astro-cid-6itfjkzp>4.2 轴承：结构与分类</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#43-联轴器与导电滑环" class="toc-link" data-astro-cid-6itfjkzp>4.3 联轴器与导电滑环</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#44-轴系设计基本原则" class="toc-link" data-astro-cid-6itfjkzp>4.4 轴系设计基本原则</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#45-案例分析" class="toc-link" data-astro-cid-6itfjkzp>4.5 案例分析</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第5讲-传动系统及电机使用" class="toc-link" data-astro-cid-6itfjkzp>第5讲 传动系统及电机使用</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#51-机械系统的组成" class="toc-link" data-astro-cid-6itfjkzp>5.1 机械系统的组成</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#52-齿轮传动" class="toc-link" data-astro-cid-6itfjkzp>5.2 齿轮传动</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#53-直线传动" class="toc-link" data-astro-cid-6itfjkzp>5.3 直线传动</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#54-转动连接联轴器选型轴与轴--轴与回转件" class="toc-link" data-astro-cid-6itfjkzp>5.4 转动连接：联轴器选型（轴与轴 / 轴与回转件）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#55-电机种类与队内常用电机" class="toc-link" data-astro-cid-6itfjkzp>5.5 电机种类与队内常用电机</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#56-电机安装设计" class="toc-link" data-astro-cid-6itfjkzp>5.6 电机安装设计</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#附轴系作业" class="toc-link" data-astro-cid-6itfjkzp>附：轴系作业</a></div></div></div></div></aside></div><!-- Mobile Drawer Elements --><div class="drawer-backdrop" id="drawer-backdrop" data-astro-cid-k2pnhk33></div><!-- Left Drawer (Widgets) --><div class="drawer" id="widgets-drawer" role="dialog" aria-modal="true" aria-label="Sidebar" aria-hidden="true" inert data-astro-cid-k2pnhk33><button class="drawer-close" id="close-widgets-btn" data-astro-cid-k2pnhk33>[Close]</button><div style="margin-top: 20px;" data-astro-cid-k2pnhk33><form class="search-form" role="search" action="/search" method="get" data-astro-cid-wveqnd57><label data-astro-cid-wveqnd57><span class="visually-hidden" data-astro-cid-wveqnd57>Search articles</span><input type="search" class="search-input" name="q" placeholder="Search articles..." data-astro-cid-wveqnd57="true" data-astro-cid-jhpiwqdc></label></form><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Recent Posts</span><a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-ptnqmahq>More &gt;</a></div><div class="post-list" data-astro-cid-aqbmadrt><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 电控组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-hardware" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 硬件组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 机械组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Tags Cloud</span></div><div class="tag-cloud" data-astro-cid-uoks6iaa><a href="/solaris-blog-rm-seu-cxxy/tag/OpenCV" class="tag-item" data-astro-cid-v2grv5g5="true">OpenCV</a><a href="/solaris-blog-rm-seu-cxxy/tag/PID" class="tag-item" data-astro-cid-v2grv5g5="true">PID</a><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a><a href="/solaris-blog-rm-seu-cxxy/tag/STM32" class="tag-item" data-astro-cid-v2grv5g5="true">STM32</a><a href="/solaris-blog-rm-seu-cxxy/tag/SolidWorks" class="tag-item" data-astro-cid-v2grv5g5="true">SolidWorks</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2" class="tag-item" data-astro-cid-v2grv5g5="true">卡尔曼滤波</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84" class="tag-item" data-astro-cid-v2grv5g5="true">学习路径</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%9C%BA%E6%A2%B0%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">机械组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%84%8A%E6%8E%A5" class="tag-item" data-astro-cid-v2grv5g5="true">焊接</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">电控组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1" class="tag-item" data-astro-cid-v2grv5g5="true">电路设计</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A1%AC%E4%BB%B6%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">硬件组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A3%85%E9%85%8D%E5%87%BA%E5%9B%BE" class="tag-item" data-astro-cid-v2grv5g5="true">装配出图</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">视觉组</a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Website Status</span></div><div class="status-list" data-astro-cid-jrjqfdlr><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Posts</span><span class="status-value" data-astro-cid-jrjqfdlr>5</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Running</span><span class="status-value" data-website-status-running data-start-date="2026-10-01T00:00:00.000Z" data-format="days" data-astro-cid-jrjqfdlr>33 days</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Last Updated</span><span class="status-value" data-astro-cid-jrjqfdlr>2026-10-17</span></div></div></div></div></div><!-- Right Drawer (Context) --><div class="drawer drawer-right" id="context-drawer" role="dialog" aria-modal="true" aria-label="Table of Contents" aria-hidden="true" inert data-astro-cid-k2pnhk33><button class="drawer-close" id="close-context-btn" data-astro-cid-k2pnhk33>[Close]</button><div style="margin-top: 20px;" data-astro-cid-k2pnhk33><div class="right-sidebar-content right-sidebar-content-drawer" data-astro-cid-clhfnexa><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Table of Contents</span></div><div class="widget-content-simple" data-astro-cid-6itfjkzp><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#培训大纲" class="toc-link" data-astro-cid-6itfjkzp>培训大纲</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第1讲-solidworks-零件绘制" class="toc-link" data-astro-cid-6itfjkzp>第1讲 SolidWorks 零件绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#11-机械组工作概述与-sw-界面" class="toc-link" data-astro-cid-6itfjkzp>1.1 机械组工作概述与 SW 界面</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#12-用快捷键与鼠标笔势提高画图速度" class="toc-link" data-astro-cid-6itfjkzp>1.2 用快捷键与鼠标笔势提高画图速度</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#13-建模的根本草图绘制" class="toc-link" data-astro-cid-6itfjkzp>1.3 建模的根本：草图绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#14-草图必须完全定义" class="toc-link" data-astro-cid-6itfjkzp>1.4 草图必须「完全定义」</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#15-草图各元素的绘制" class="toc-link" data-astro-cid-6itfjkzp>1.5 草图各元素的绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#16-从草图到实体特征建模" class="toc-link" data-astro-cid-6itfjkzp>1.6 从草图到实体：特征建模</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#17-三类零件的画法差异" class="toc-link" data-astro-cid-6itfjkzp>1.7 三类零件的画法差异</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第21讲-标准件及标准件库使用" class="toc-link" data-astro-cid-6itfjkzp>第2.1讲 标准件及标准件库使用</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#211-零件从哪来电气件--定制件--标准件--商品件" class="toc-link" data-astro-cid-6itfjkzp>2.1.1 零件从哪来：电气件 / 定制件 / 标准件 / 商品件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#212-紧固件螺栓" class="toc-link" data-astro-cid-6itfjkzp>2.1.2 紧固件：螺栓</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#213-螺母垫片与其他紧固件" class="toc-link" data-astro-cid-6itfjkzp>2.1.3 螺母、垫片与其他紧固件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#214-工具与什么时候不能用电扳" class="toc-link" data-astro-cid-6itfjkzp>2.1.4 工具与「什么时候不能用电扳」</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#215-标准件库麦迪插件--通用零件库" class="toc-link" data-astro-cid-6itfjkzp>2.1.5 标准件库（麦迪插件 / 通用零件库）</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第22讲-装配与出图" class="toc-link" data-astro-cid-6itfjkzp>第2.2讲 装配与出图</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#221-建立装配体插入零部件" class="toc-link" data-astro-cid-6itfjkzp>2.2.1 建立装配体：插入零部件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#222-两种设计方法" class="toc-link" data-astro-cid-6itfjkzp>2.2.2 两种设计方法</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#223-配合标准配合与机械高级配合" class="toc-link" data-astro-cid-6itfjkzp>2.2.3 配合：标准配合与机械/高级配合</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#224-完全定义避免过定义" class="toc-link" data-astro-cid-6itfjkzp>2.2.4 完全定义，避免过定义</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#225-干涉检查与打包" class="toc-link" data-astro-cid-6itfjkzp>2.2.5 干涉检查与打包</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#226-工程图出图" class="toc-link" data-astro-cid-6itfjkzp>2.2.6 工程图出图</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第3讲-材料与工艺" class="toc-link" data-astro-cid-6itfjkzp>第3讲 材料与工艺</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#31-材料力学简介受力应力与应力集中" class="toc-link" data-astro-cid-6itfjkzp>3.1 材料力学简介：受力、应力与应力集中</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#32-板件fr-4-玻纤板" class="toc-link" data-astro-cid-6itfjkzp>3.2 板件：FR-4 玻纤板</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#33-碳纤维板与亚克力" class="toc-link" data-astro-cid-6itfjkzp>3.3 碳纤维板与亚克力</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#34-如何设计一块板件按需设计" class="toc-link" data-astro-cid-6itfjkzp>3.4 如何设计一块板件（按需设计）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#35-3d-打印件材料" class="toc-link" data-astro-cid-6itfjkzp>3.5 3D 打印件材料</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#36-机加工件与其他结构材料" class="toc-link" data-astro-cid-6itfjkzp>3.6 机加工件与其他结构材料</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第4讲-轴系招新轴系基础" class="toc-link" data-astro-cid-6itfjkzp>第4讲 轴系招新（轴系基础）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#41-基础概念轴向径向欧拉角法兰" class="toc-link" data-astro-cid-6itfjkzp>4.1 基础概念：轴向、径向、欧拉角、法兰</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#42-轴承结构与分类" class="toc-link" data-astro-cid-6itfjkzp>4.2 轴承：结构与分类</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#43-联轴器与导电滑环" class="toc-link" data-astro-cid-6itfjkzp>4.3 联轴器与导电滑环</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#44-轴系设计基本原则" class="toc-link" data-astro-cid-6itfjkzp>4.4 轴系设计基本原则</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#45-案例分析" class="toc-link" data-astro-cid-6itfjkzp>4.5 案例分析</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第5讲-传动系统及电机使用" class="toc-link" data-astro-cid-6itfjkzp>第5讲 传动系统及电机使用</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#51-机械系统的组成" class="toc-link" data-astro-cid-6itfjkzp>5.1 机械系统的组成</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#52-齿轮传动" class="toc-link" data-astro-cid-6itfjkzp>5.2 齿轮传动</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#53-直线传动" class="toc-link" data-astro-cid-6itfjkzp>5.3 直线传动</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#54-转动连接联轴器选型轴与轴--轴与回转件" class="toc-link" data-astro-cid-6itfjkzp>5.4 转动连接：联轴器选型（轴与轴 / 轴与回转件）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#55-电机种类与队内常用电机" class="toc-link" data-astro-cid-6itfjkzp>5.5 电机种类与队内常用电机</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#56-电机安装设计" class="toc-link" data-astro-cid-6itfjkzp>5.6 电机安装设计</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#附轴系作业" class="toc-link" data-astro-cid-6itfjkzp>附：轴系作业</a></div></div></div></div></div></div><!-- Mobile Floating Action Button for Right Sidebar (TOC / Context) --><button class="mobile-floating-btn" id="open-context-btn" aria-label="Open Table of Contents" aria-controls="context-drawer" aria-expanded="false" data-astro-cid-k2pnhk33><span class="btn-bracket" data-astro-cid-k2pnhk33>[</span><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" data-astro-cid-k2pnhk33><line x1="2" y1="3.5" x2="14" y2="3.5" data-astro-cid-k2pnhk33></line><line x1="2" y1="8" x2="10" y2="8" data-astro-cid-k2pnhk33></line><line x1="2" y1="12.5" x2="14" y2="12.5" data-astro-cid-k2pnhk33></line></svg><span class="btn-text" data-astro-cid-k2pnhk33>TOC</span><span class="btn-bracket" data-astro-cid-k2pnhk33>]</span></button><nayuta-lightbox hidden="true"></nayuta-lightbox><script type="module" src="/solaris-blog-rm-seu-cxxy/_astro/ImageLightbox.astro_astro_type_script_index_0_lang.JlxwWwBR.js"></script><!-- Pure JS for drawer transitions (Progressive Enhancement) --><script type="module">var e;function t(){e?.abort(),e=new AbortController;let{signal:t}=e,n=document.getElementById(`drawer-backdrop`),r=[[`open-widgets-btn`,`widgets-drawer`],[`open-context-btn`,`context-drawer`]].flatMap(([e,t])=>{let n=document.getElementById(e),r=document.getElementById(t);return n&&r?[{button:n,drawer:r}]:[]}),i,a=[document.querySelector(`.layout-container`),document.querySelector(`.mobile-sticky-header`),document.getElementById(`open-context-btn`)];function o(e=!0){if(!i)return;let{button:t,drawer:r}=i;r.classList.remove(`open`),r.inert=!0,r.setAttribute(`aria-hidden`,`true`),t.setAttribute(`aria-expanded`,`false`),n?.classList.remove(`open`),a.forEach(e=>{e&&(e.inert=!1)}),i=void 0,e&&t.focus()}for(let e of r)e.button.addEventListener(`click`,()=>{o(!1),i=e,e.drawer.inert=!1,e.drawer.setAttribute(`aria-hidden`,`false`),e.drawer.classList.add(`open`),e.button.setAttribute(`aria-expanded`,`true`),n?.classList.add(`open`),a.forEach(e=>{e&&(e.inert=!0)}),e.drawer.querySelector(`.drawer-close`)?.focus()},{signal:t}),e.drawer.querySelector(`.drawer-close`)?.addEventListener(`click`,()=>o(),{signal:t});n?.addEventListener(`click`,()=>o(),{signal:t}),document.addEventListener(`keydown`,e=>{if(i){if(e.key===`Escape`)e.preventDefault(),o();else if(e.key===`Tab`){let t=[...i.drawer.querySelectorAll(`a[href], button, input, select, textarea, [tabindex]`)].filter(e=>e.tabIndex>=0&&!e.matches(`:disabled`)&&e.getClientRects().length),n=t[0],r=t.at(-1);e.shiftKey&&document.activeElement===n?(e.preventDefault(),r?.focus()):!e.shiftKey&&document.activeElement===r&&(e.preventDefault(),n?.focus())}}},{signal:t}),window.addEventListener(`resize`,()=>{i&&!i.button.getClientRects().length&&o(!1)},{signal:t}),document.documentElement.dataset.drawersReady=``}t(),document.addEventListener(`astro:after-swap`,t);</script></body></html>
+<p><code>轴系作业.rar</code> 为第4讲轴系设计配套的课后练习（含运动参考视频），按文档要求完成一个轴系结构的建模与装配即可，本笔记不展开。</p></div><aside class="copyright-card" aria-label="Article copyright and license" data-astro-cid-v7t64ykl><p class="card-title" data-astro-cid-v7t64ykl>&copy; Copyright</p><dl data-astro-cid-v7t64ykl><dt data-astro-cid-v7t64ykl>Article</dt><dd data-astro-cid-v7t64ykl>同济大学 RoboMaster 招新培训笔记 · 机械组</dd><dt data-astro-cid-v7t64ykl>Author</dt><dd data-astro-cid-v7t64ykl>天钺 Solaris</dd><dt data-astro-cid-v7t64ykl>Link</dt><dd data-astro-cid-v7t64ykl><a href="https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical/" data-astro-cid-v7t64ykl>https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical/</a></dd><dt data-astro-cid-v7t64ykl>License</dt><dd data-astro-cid-v7t64ykl><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license" data-astro-cid-v7t64ykl>CC BY-NC-SA 4.0</a></dd></dl></aside></nayuta-prose><nav class="post-tags" aria-label="Post tags" data-astro-cid-ruv7hgo6><ul data-astro-cid-ruv7hgo6><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%9C%BA%E6%A2%B0%E7%BB%84" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">机械组</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/SolidWorks" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">SolidWorks</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A3%85%E9%85%8D%E5%87%BA%E5%9B%BE" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">装配出图</a></li></ul></nav><!-- Mobile Footer (Shown in normal flow only on mobile) --><footer class="mobile-footer"><p>Copyright &copy; 2026 天钺 Solaris.</p><p>Powered by <a href="https://github.com/yuanzui-cf/nayuta">Nayuta</a>. Designed by <a href="https://yzcf.top">Leo Jia</a>.</p></footer></main><aside class="right-region" id="right-sidebar" data-astro-cid-clhfnexa><div class="right-sidebar-content" data-astro-cid-clhfnexa><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Table of Contents</span></div><div class="widget-content-simple" data-astro-cid-6itfjkzp><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#培训大纲" class="toc-link" data-astro-cid-6itfjkzp>培训大纲</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第1讲-solidworks-零件绘制" class="toc-link" data-astro-cid-6itfjkzp>第1讲 SolidWorks 零件绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#11-机械组工作概述与-sw-界面" class="toc-link" data-astro-cid-6itfjkzp>1.1 机械组工作概述与 SW 界面</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#12-用快捷键与鼠标笔势提高画图速度" class="toc-link" data-astro-cid-6itfjkzp>1.2 用快捷键与鼠标笔势提高画图速度</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#13-建模的根本草图绘制" class="toc-link" data-astro-cid-6itfjkzp>1.3 建模的根本：草图绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#14-草图必须完全定义" class="toc-link" data-astro-cid-6itfjkzp>1.4 草图必须「完全定义」</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#15-草图各元素的绘制" class="toc-link" data-astro-cid-6itfjkzp>1.5 草图各元素的绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#16-从草图到实体特征建模" class="toc-link" data-astro-cid-6itfjkzp>1.6 从草图到实体：特征建模</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#17-三类零件的画法差异" class="toc-link" data-astro-cid-6itfjkzp>1.7 三类零件的画法差异</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第21讲-标准件及标准件库使用" class="toc-link" data-astro-cid-6itfjkzp>第2.1讲 标准件及标准件库使用</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#211-零件从哪来电气件--定制件--标准件--商品件" class="toc-link" data-astro-cid-6itfjkzp>2.1.1 零件从哪来：电气件 / 定制件 / 标准件 / 商品件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#212-紧固件螺栓" class="toc-link" data-astro-cid-6itfjkzp>2.1.2 紧固件：螺栓</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#213-螺母垫片与其他紧固件" class="toc-link" data-astro-cid-6itfjkzp>2.1.3 螺母、垫片与其他紧固件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#214-工具与什么时候不能用电扳" class="toc-link" data-astro-cid-6itfjkzp>2.1.4 工具与「什么时候不能用电扳」</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#215-标准件库麦迪插件--通用零件库" class="toc-link" data-astro-cid-6itfjkzp>2.1.5 标准件库（麦迪插件 / 通用零件库）</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第22讲-装配与出图" class="toc-link" data-astro-cid-6itfjkzp>第2.2讲 装配与出图</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#221-建立装配体插入零部件" class="toc-link" data-astro-cid-6itfjkzp>2.2.1 建立装配体：插入零部件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#222-两种设计方法" class="toc-link" data-astro-cid-6itfjkzp>2.2.2 两种设计方法</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#223-配合标准配合与机械高级配合" class="toc-link" data-astro-cid-6itfjkzp>2.2.3 配合：标准配合与机械/高级配合</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#224-完全定义避免过定义" class="toc-link" data-astro-cid-6itfjkzp>2.2.4 完全定义，避免过定义</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#225-干涉检查与打包" class="toc-link" data-astro-cid-6itfjkzp>2.2.5 干涉检查与打包</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#226-工程图出图" class="toc-link" data-astro-cid-6itfjkzp>2.2.6 工程图出图</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第3讲-材料与工艺" class="toc-link" data-astro-cid-6itfjkzp>第3讲 材料与工艺</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#31-材料力学简介受力应力与应力集中" class="toc-link" data-astro-cid-6itfjkzp>3.1 材料力学简介：受力、应力与应力集中</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#32-板件fr-4-玻纤板" class="toc-link" data-astro-cid-6itfjkzp>3.2 板件：FR-4 玻纤板</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#33-碳纤维板与亚克力" class="toc-link" data-astro-cid-6itfjkzp>3.3 碳纤维板与亚克力</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#34-如何设计一块板件按需设计" class="toc-link" data-astro-cid-6itfjkzp>3.4 如何设计一块板件（按需设计）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#35-3d-打印件材料" class="toc-link" data-astro-cid-6itfjkzp>3.5 3D 打印件材料</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#36-机加工件与其他结构材料" class="toc-link" data-astro-cid-6itfjkzp>3.6 机加工件与其他结构材料</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第4讲-轴系招新轴系基础" class="toc-link" data-astro-cid-6itfjkzp>第4讲 轴系招新（轴系基础）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#41-基础概念轴向径向欧拉角法兰" class="toc-link" data-astro-cid-6itfjkzp>4.1 基础概念：轴向、径向、欧拉角、法兰</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#42-轴承结构与分类" class="toc-link" data-astro-cid-6itfjkzp>4.2 轴承：结构与分类</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#43-联轴器与导电滑环" class="toc-link" data-astro-cid-6itfjkzp>4.3 联轴器与导电滑环</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#44-轴系设计基本原则" class="toc-link" data-astro-cid-6itfjkzp>4.4 轴系设计基本原则</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#45-案例分析" class="toc-link" data-astro-cid-6itfjkzp>4.5 案例分析</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第5讲-传动系统及电机使用" class="toc-link" data-astro-cid-6itfjkzp>第5讲 传动系统及电机使用</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#51-机械系统的组成" class="toc-link" data-astro-cid-6itfjkzp>5.1 机械系统的组成</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#52-齿轮传动" class="toc-link" data-astro-cid-6itfjkzp>5.2 齿轮传动</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#53-直线传动" class="toc-link" data-astro-cid-6itfjkzp>5.3 直线传动</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#54-转动连接联轴器选型轴与轴--轴与回转件" class="toc-link" data-astro-cid-6itfjkzp>5.4 转动连接：联轴器选型（轴与轴 / 轴与回转件）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#55-电机种类与队内常用电机" class="toc-link" data-astro-cid-6itfjkzp>5.5 电机种类与队内常用电机</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#56-电机安装设计" class="toc-link" data-astro-cid-6itfjkzp>5.6 电机安装设计</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#附轴系作业" class="toc-link" data-astro-cid-6itfjkzp>附：轴系作业</a></div></div></div></div></aside></div><!-- Mobile Drawer Elements --><div class="drawer-backdrop" id="drawer-backdrop" data-astro-cid-k2pnhk33></div><!-- Left Drawer (Widgets) --><div class="drawer" id="widgets-drawer" role="dialog" aria-modal="true" aria-label="Sidebar" aria-hidden="true" inert data-astro-cid-k2pnhk33><button class="drawer-close" id="close-widgets-btn" data-astro-cid-k2pnhk33>[Close]</button><div style="margin-top: 20px;" data-astro-cid-k2pnhk33><form class="search-form" role="search" action="/search" method="get" data-astro-cid-wveqnd57><label data-astro-cid-wveqnd57><span class="visually-hidden" data-astro-cid-wveqnd57>Search articles</span><input type="search" class="search-input" name="q" placeholder="Search articles..." data-astro-cid-wveqnd57="true" data-astro-cid-jhpiwqdc></label></form><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Recent Posts</span><a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-ptnqmahq>More &gt;</a></div><div class="post-list" data-astro-cid-aqbmadrt><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-00-overview" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>机甲大师步兵自瞄拆解 —— 基于同济 SuperPower sp_vision_25</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-01-perception-pipeline" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>视觉 01 —— 感知流水线总览</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-02-traditional-detector" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>视觉 02 —— 传统装甲板检测器 Detector</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Tags Cloud</span></div><div class="tag-cloud" data-astro-cid-uoks6iaa><a href="/solaris-blog-rm-seu-cxxy/tag/ADC" class="tag-item" data-astro-cid-v2grv5g5="true">ADC</a><a href="/solaris-blog-rm-seu-cxxy/tag/API" class="tag-item" data-astro-cid-v2grv5g5="true">API</a><a href="/solaris-blog-rm-seu-cxxy/tag/C%20%E8%AF%AD%E8%A8%80" class="tag-item" data-astro-cid-v2grv5g5="true">C 语言</a><a href="/solaris-blog-rm-seu-cxxy/tag/C%2B%2B" class="tag-item" data-astro-cid-v2grv5g5="true">C++</a><a href="/solaris-blog-rm-seu-cxxy/tag/CAN" class="tag-item" data-astro-cid-v2grv5g5="true">CAN</a><a href="/solaris-blog-rm-seu-cxxy/tag/CMake" class="tag-item" data-astro-cid-v2grv5g5="true">CMake</a><a href="/solaris-blog-rm-seu-cxxy/tag/CubeMX" class="tag-item" data-astro-cid-v2grv5g5="true">CubeMX</a><a href="/solaris-blog-rm-seu-cxxy/tag/DMA" class="tag-item" data-astro-cid-v2grv5g5="true">DMA</a><a href="/solaris-blog-rm-seu-cxxy/tag/EKF" class="tag-item" data-astro-cid-v2grv5g5="true">EKF</a><a href="/solaris-blog-rm-seu-cxxy/tag/FreeRTOS" class="tag-item" data-astro-cid-v2grv5g5="true">FreeRTOS</a><a href="/solaris-blog-rm-seu-cxxy/tag/GPIO" class="tag-item" data-astro-cid-v2grv5g5="true">GPIO</a><a href="/solaris-blog-rm-seu-cxxy/tag/HAL" class="tag-item" data-astro-cid-v2grv5g5="true">HAL</a><a href="/solaris-blog-rm-seu-cxxy/tag/I2C" class="tag-item" data-astro-cid-v2grv5g5="true">I2C</a><a href="/solaris-blog-rm-seu-cxxy/tag/IMU" class="tag-item" data-astro-cid-v2grv5g5="true">IMU</a><a href="/solaris-blog-rm-seu-cxxy/tag/Linux" class="tag-item" data-astro-cid-v2grv5g5="true">Linux</a><a href="/solaris-blog-rm-seu-cxxy/tag/MPC" class="tag-item" data-astro-cid-v2grv5g5="true">MPC</a><a href="/solaris-blog-rm-seu-cxxy/tag/OpenCV" class="tag-item" data-astro-cid-v2grv5g5="true">OpenCV</a><a href="/solaris-blog-rm-seu-cxxy/tag/OpenVINO" class="tag-item" data-astro-cid-v2grv5g5="true">OpenVINO</a><a href="/solaris-blog-rm-seu-cxxy/tag/PID" class="tag-item" data-astro-cid-v2grv5g5="true">PID</a><a href="/solaris-blog-rm-seu-cxxy/tag/PWM" class="tag-item" data-astro-cid-v2grv5g5="true">PWM</a><a href="/solaris-blog-rm-seu-cxxy/tag/PnP" class="tag-item" data-astro-cid-v2grv5g5="true">PnP</a><a href="/solaris-blog-rm-seu-cxxy/tag/ROS2" class="tag-item" data-astro-cid-v2grv5g5="true">ROS2</a><a href="/solaris-blog-rm-seu-cxxy/tag/RTC" class="tag-item" data-astro-cid-v2grv5g5="true">RTC</a><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a><a href="/solaris-blog-rm-seu-cxxy/tag/SPI" class="tag-item" data-astro-cid-v2grv5g5="true">SPI</a><a href="/solaris-blog-rm-seu-cxxy/tag/STM32" class="tag-item" data-astro-cid-v2grv5g5="true">STM32</a><a href="/solaris-blog-rm-seu-cxxy/tag/SolidWorks" class="tag-item" data-astro-cid-v2grv5g5="true">SolidWorks</a><a href="/solaris-blog-rm-seu-cxxy/tag/UART" class="tag-item" data-astro-cid-v2grv5g5="true">UART</a><a href="/solaris-blog-rm-seu-cxxy/tag/YOLO" class="tag-item" data-astro-cid-v2grv5g5="true">YOLO</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E4%B8%AD%E6%96%AD" class="tag-item" data-astro-cid-v2grv5g5="true">中断</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E4%B8%B2%E5%8F%A3" class="tag-item" data-astro-cid-v2grv5g5="true">串口</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%86%B3%E7%AD%96" class="tag-item" data-astro-cid-v2grv5g5="true">决策</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2" class="tag-item" data-astro-cid-v2grv5g5="true">卡尔曼滤波</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8E%E5%A4%84%E7%90%86" class="tag-item" data-astro-cid-v2grv5g5="true">后处理</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%93%A8%E5%85%B5" class="tag-item" data-astro-cid-v2grv5g5="true">哨兵</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%9D%90%E6%A0%87%E7%B3%BB" class="tag-item" data-astro-cid-v2grv5g5="true">坐标系</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%A4%9A%E4%BB%BB%E5%8A%A1" class="tag-item" data-astro-cid-v2grv5g5="true">多任务</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%A4%9A%E7%BA%BF%E7%A8%8B" class="tag-item" data-astro-cid-v2grv5g5="true">多线程</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84" class="tag-item" data-astro-cid-v2grv5g5="true">学习路径</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF" class="tag-item" data-astro-cid-v2grv5g5="true">学习路线</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AE%9A%E6%97%B6%E5%99%A8" class="tag-item" data-astro-cid-v2grv5g5="true">定时器</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%BC%80%E6%BA%90%E6%8B%86%E8%A7%A3" class="tag-item" data-astro-cid-v2grv5g5="true">开源拆解</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%BC%B9%E9%81%93" class="tag-item" data-astro-cid-v2grv5g5="true">弹道</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8E%A7%E5%88%B6" class="tag-item" data-astro-cid-v2grv5g5="true">控制</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%95%B0%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">数学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%9C%BA%E6%A2%B0%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">机械组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%A0%87%E5%AE%9A" class="tag-item" data-astro-cid-v2grv5g5="true">标定</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%84%8A%E6%8E%A5" class="tag-item" data-astro-cid-v2grv5g5="true">焊接</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7" class="tag-item" data-astro-cid-v2grv5g5="true">电控</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">电控组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1" class="tag-item" data-astro-cid-v2grv5g5="true">电路设计</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B" class="tag-item" data-astro-cid-v2grv5g5="true">相机模型</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A1%AC%E4%BB%B6%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">硬件组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" class="tag-item" data-astro-cid-v2grv5g5="true">神经网络</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%87%AA%E7%9E%84" class="tag-item" data-astro-cid-v2grv5g5="true">自瞄</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A3%85%E9%85%8D%E5%87%BA%E5%9B%BE" class="tag-item" data-astro-cid-v2grv5g5="true">装配出图</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%AE%97%E6%B3%95" class="tag-item" data-astro-cid-v2grv5g5="true">视觉算法</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">视觉组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E9%80%9F%E6%9F%A5" class="tag-item" data-astro-cid-v2grv5g5="true">速查</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E9%83%A8%E7%BD%B2" class="tag-item" data-astro-cid-v2grv5g5="true">部署</a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Website Status</span></div><div class="status-list" data-astro-cid-jrjqfdlr><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Posts</span><span class="status-value" data-astro-cid-jrjqfdlr>45</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Running</span><span class="status-value" data-website-status-running data-start-date="2026-10-01T00:00:00.000Z" data-format="days" data-astro-cid-jrjqfdlr>37 days</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Last Updated</span><span class="status-value" data-astro-cid-jrjqfdlr>2026-11-08</span></div></div></div></div></div><!-- Right Drawer (Context) --><div class="drawer drawer-right" id="context-drawer" role="dialog" aria-modal="true" aria-label="Table of Contents" aria-hidden="true" inert data-astro-cid-k2pnhk33><button class="drawer-close" id="close-context-btn" data-astro-cid-k2pnhk33>[Close]</button><div style="margin-top: 20px;" data-astro-cid-k2pnhk33><div class="right-sidebar-content right-sidebar-content-drawer" data-astro-cid-clhfnexa><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Table of Contents</span></div><div class="widget-content-simple" data-astro-cid-6itfjkzp><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#培训大纲" class="toc-link" data-astro-cid-6itfjkzp>培训大纲</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第1讲-solidworks-零件绘制" class="toc-link" data-astro-cid-6itfjkzp>第1讲 SolidWorks 零件绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#11-机械组工作概述与-sw-界面" class="toc-link" data-astro-cid-6itfjkzp>1.1 机械组工作概述与 SW 界面</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#12-用快捷键与鼠标笔势提高画图速度" class="toc-link" data-astro-cid-6itfjkzp>1.2 用快捷键与鼠标笔势提高画图速度</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#13-建模的根本草图绘制" class="toc-link" data-astro-cid-6itfjkzp>1.3 建模的根本：草图绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#14-草图必须完全定义" class="toc-link" data-astro-cid-6itfjkzp>1.4 草图必须「完全定义」</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#15-草图各元素的绘制" class="toc-link" data-astro-cid-6itfjkzp>1.5 草图各元素的绘制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#16-从草图到实体特征建模" class="toc-link" data-astro-cid-6itfjkzp>1.6 从草图到实体：特征建模</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#17-三类零件的画法差异" class="toc-link" data-astro-cid-6itfjkzp>1.7 三类零件的画法差异</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第21讲-标准件及标准件库使用" class="toc-link" data-astro-cid-6itfjkzp>第2.1讲 标准件及标准件库使用</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#211-零件从哪来电气件--定制件--标准件--商品件" class="toc-link" data-astro-cid-6itfjkzp>2.1.1 零件从哪来：电气件 / 定制件 / 标准件 / 商品件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#212-紧固件螺栓" class="toc-link" data-astro-cid-6itfjkzp>2.1.2 紧固件：螺栓</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#213-螺母垫片与其他紧固件" class="toc-link" data-astro-cid-6itfjkzp>2.1.3 螺母、垫片与其他紧固件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#214-工具与什么时候不能用电扳" class="toc-link" data-astro-cid-6itfjkzp>2.1.4 工具与「什么时候不能用电扳」</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#215-标准件库麦迪插件--通用零件库" class="toc-link" data-astro-cid-6itfjkzp>2.1.5 标准件库（麦迪插件 / 通用零件库）</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第22讲-装配与出图" class="toc-link" data-astro-cid-6itfjkzp>第2.2讲 装配与出图</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#221-建立装配体插入零部件" class="toc-link" data-astro-cid-6itfjkzp>2.2.1 建立装配体：插入零部件</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#222-两种设计方法" class="toc-link" data-astro-cid-6itfjkzp>2.2.2 两种设计方法</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#223-配合标准配合与机械高级配合" class="toc-link" data-astro-cid-6itfjkzp>2.2.3 配合：标准配合与机械/高级配合</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#224-完全定义避免过定义" class="toc-link" data-astro-cid-6itfjkzp>2.2.4 完全定义，避免过定义</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#225-干涉检查与打包" class="toc-link" data-astro-cid-6itfjkzp>2.2.5 干涉检查与打包</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#226-工程图出图" class="toc-link" data-astro-cid-6itfjkzp>2.2.6 工程图出图</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第3讲-材料与工艺" class="toc-link" data-astro-cid-6itfjkzp>第3讲 材料与工艺</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#31-材料力学简介受力应力与应力集中" class="toc-link" data-astro-cid-6itfjkzp>3.1 材料力学简介：受力、应力与应力集中</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#32-板件fr-4-玻纤板" class="toc-link" data-astro-cid-6itfjkzp>3.2 板件：FR-4 玻纤板</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#33-碳纤维板与亚克力" class="toc-link" data-astro-cid-6itfjkzp>3.3 碳纤维板与亚克力</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#34-如何设计一块板件按需设计" class="toc-link" data-astro-cid-6itfjkzp>3.4 如何设计一块板件（按需设计）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#35-3d-打印件材料" class="toc-link" data-astro-cid-6itfjkzp>3.5 3D 打印件材料</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#36-机加工件与其他结构材料" class="toc-link" data-astro-cid-6itfjkzp>3.6 机加工件与其他结构材料</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第4讲-轴系招新轴系基础" class="toc-link" data-astro-cid-6itfjkzp>第4讲 轴系招新（轴系基础）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#41-基础概念轴向径向欧拉角法兰" class="toc-link" data-astro-cid-6itfjkzp>4.1 基础概念：轴向、径向、欧拉角、法兰</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#42-轴承结构与分类" class="toc-link" data-astro-cid-6itfjkzp>4.2 轴承：结构与分类</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#43-联轴器与导电滑环" class="toc-link" data-astro-cid-6itfjkzp>4.3 联轴器与导电滑环</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#44-轴系设计基本原则" class="toc-link" data-astro-cid-6itfjkzp>4.4 轴系设计基本原则</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#45-案例分析" class="toc-link" data-astro-cid-6itfjkzp>4.5 案例分析</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第5讲-传动系统及电机使用" class="toc-link" data-astro-cid-6itfjkzp>第5讲 传动系统及电机使用</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#51-机械系统的组成" class="toc-link" data-astro-cid-6itfjkzp>5.1 机械系统的组成</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#52-齿轮传动" class="toc-link" data-astro-cid-6itfjkzp>5.2 齿轮传动</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#53-直线传动" class="toc-link" data-astro-cid-6itfjkzp>5.3 直线传动</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#54-转动连接联轴器选型轴与轴--轴与回转件" class="toc-link" data-astro-cid-6itfjkzp>5.4 转动连接：联轴器选型（轴与轴 / 轴与回转件）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#55-电机种类与队内常用电机" class="toc-link" data-astro-cid-6itfjkzp>5.5 电机种类与队内常用电机</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#56-电机安装设计" class="toc-link" data-astro-cid-6itfjkzp>5.6 电机安装设计</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#附轴系作业" class="toc-link" data-astro-cid-6itfjkzp>附：轴系作业</a></div></div></div></div></div></div><!-- Mobile Floating Action Button for Right Sidebar (TOC / Context) --><button class="mobile-floating-btn" id="open-context-btn" aria-label="Open Table of Contents" aria-controls="context-drawer" aria-expanded="false" data-astro-cid-k2pnhk33><span class="btn-bracket" data-astro-cid-k2pnhk33>[</span><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" data-astro-cid-k2pnhk33><line x1="2" y1="3.5" x2="14" y2="3.5" data-astro-cid-k2pnhk33></line><line x1="2" y1="8" x2="10" y2="8" data-astro-cid-k2pnhk33></line><line x1="2" y1="12.5" x2="14" y2="12.5" data-astro-cid-k2pnhk33></line></svg><span class="btn-text" data-astro-cid-k2pnhk33>TOC</span><span class="btn-bracket" data-astro-cid-k2pnhk33>]</span></button><nayuta-lightbox hidden="true"></nayuta-lightbox><script type="module" src="/solaris-blog-rm-seu-cxxy/_astro/ImageLightbox.astro_astro_type_script_index_0_lang.CA-MdnxW.js"></script><!-- Pure JS for drawer transitions (Progressive Enhancement) --><script type="module">var e;function t(){e?.abort(),e=new AbortController;let{signal:t}=e,n=document.getElementById(`drawer-backdrop`),r=[[`open-widgets-btn`,`widgets-drawer`],[`open-context-btn`,`context-drawer`]].flatMap(([e,t])=>{let n=document.getElementById(e),r=document.getElementById(t);return n&&r?[{button:n,drawer:r}]:[]}),i,a=[document.querySelector(`.layout-container`),document.querySelector(`.mobile-sticky-header`),document.getElementById(`open-context-btn`)];function o(e=!0){if(!i)return;let{button:t,drawer:r}=i;r.classList.remove(`open`),r.inert=!0,r.setAttribute(`aria-hidden`,`true`),t.setAttribute(`aria-expanded`,`false`),n?.classList.remove(`open`),a.forEach(e=>{e&&(e.inert=!1)}),i=void 0,e&&t.focus()}for(let e of r)e.button.addEventListener(`click`,()=>{o(!1),i=e,e.drawer.inert=!1,e.drawer.setAttribute(`aria-hidden`,`false`),e.drawer.classList.add(`open`),e.button.setAttribute(`aria-expanded`,`true`),n?.classList.add(`open`),a.forEach(e=>{e&&(e.inert=!0)}),e.drawer.querySelector(`.drawer-close`)?.focus()},{signal:t}),e.drawer.querySelector(`.drawer-close`)?.addEventListener(`click`,()=>o(),{signal:t});n?.addEventListener(`click`,()=>o(),{signal:t}),document.addEventListener(`keydown`,e=>{if(i){if(e.key===`Escape`)e.preventDefault(),o();else if(e.key===`Tab`){let t=[...i.drawer.querySelectorAll(`a[href], button, input, select, textarea, [tabindex]`)].filter(e=>e.tabIndex>=0&&!e.matches(`:disabled`)&&e.getClientRects().length),n=t[0],r=t.at(-1);e.shiftKey&&document.activeElement===n?(e.preventDefault(),r?.focus()):!e.shiftKey&&document.activeElement===r&&(e.preventDefault(),n?.focus())}}},{signal:t}),window.addEventListener(`resize`,()=>{i&&!i.button.getClientRects().length&&o(!1)},{signal:t}),document.documentElement.dataset.drawersReady=``}t(),document.addEventListener(`astro:after-swap`,t);</script></body></html>

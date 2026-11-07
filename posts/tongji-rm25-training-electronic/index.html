@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-astro-cid-k2pnhk33><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="generator" content="Astro v7.4.2"><link rel="canonical" href="https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic/"><link rel="icon" type="image/png" href="/solaris-blog-rm-seu-cxxy/assets/images/avatar.png"><title>同济大学 RoboMaster 招新培训笔记 · 电控组 - 天钺 Solaris · RoboMaster 技术博客</title><meta name="description" content="电控组 4 讲（电控导论 / STM32CubeMX / 电机控制·UART·CAN / PID 控制电机）+ 大作业要求。"><meta name="author" content="天钺 Solaris"><link rel="sitemap" href="/solaris-blog-rm-seu-cxxy/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="天钺 Solaris · RoboMaster 技术博客 RSS Feed" href="/solaris-blog-rm-seu-cxxy/rss.xml"><!-- Built-in Icon Library (Font Awesome) --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"><style>:root {
+<!DOCTYPE html><html lang="zh-CN" data-astro-cid-k2pnhk33><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="generator" content="Astro v7.4.1"><link rel="canonical" href="https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic/"><link rel="icon" type="image/png" href="/solaris-blog-rm-seu-cxxy/assets/images/avatar.jpg"><title>同济大学 RoboMaster 招新培训笔记 · 电控组 - 天钺 Solaris · RoboMaster 技术博客</title><meta name="description" content="电控组 4 讲（电控导论 / STM32CubeMX / 电机控制·UART·CAN / PID 控制电机）+ 大作业要求。"><meta name="author" content="天钺 Solaris"><link rel="sitemap" href="/solaris-blog-rm-seu-cxxy/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="天钺 Solaris · RoboMaster 技术博客 RSS Feed" href="/solaris-blog-rm-seu-cxxy/rss.xml"><!-- Built-in Icon Library (Font Awesome) --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"><style>:root {
   --ny-color-danger: #f87171;
   --ny-color-bg: #101216;
   --ny-color-surface: #161922;
@@ -22,24 +22,49 @@
       delete document.documentElement.dataset.nyImages;
   }, 8000);
 </script><script type="module">var e=class extends HTMLElement{image;controller;observer;generation=0;connectedCallback(){if(this.controller?.abort(),this.controller=new AbortController,this.image=this.querySelector(`img`)??void 0,!this.image)return;if(!this.querySelector(`.ny-image-placeholder`)){let e=document.createElement(`span`);e.className=`ny-image-placeholder`,e.setAttribute(`aria-hidden`,`true`),this.prepend(e)}let{signal:e}=this.controller;this.image.addEventListener(`load`,()=>void this.reveal(),{signal:e}),this.image.addEventListener(`error`,()=>this.fail(),{signal:e}),this.observer=new MutationObserver(()=>this.reset()),this.observer.observe(this,{subtree:!0,attributes:!0,attributeFilter:[`src`,`srcset`,`sizes`,`media`]}),this.reset()}disconnectedCallback(){this.generation++,this.controller?.abort(),this.observer?.disconnect()}reset(){if(this.generation++,this.dataset.state=`loading`,this.setAttribute(`aria-busy`,`true`),this.querySelector(`.ny-image-error`)?.remove(),!this.dataset.fixedRatio){let e=this.image?.getAttribute(`width`),t=this.image?.getAttribute(`height`);this.style.setProperty(`--ny-image-ratio`,Number(e)>0&&Number(t)>0?`${e} / ${t}`:`16 / 9`),Number(e)>0?this.style.setProperty(`--ny-image-width`,`${e}px`):this.style.removeProperty(`--ny-image-width`)}this.image?.complete&&this.image.getAttribute(`src`)&&(this.image.naturalWidth?this.reveal():this.fail())}async reveal(){let e=this.image,t=++this.generation;if(e){try{await e.decode()}catch{t===this.generation&&this.isConnected&&this.fail();return}if(t===this.generation&&this.isConnected){if(!e.naturalWidth||!e.naturalHeight)return this.fail();this.dataset.fixedRatio||(this.style.setProperty(`--ny-image-ratio`,`${e.naturalWidth} / ${e.naturalHeight}`),e.hasAttribute(`width`)||this.style.setProperty(`--ny-image-width`,`${e.naturalWidth}px`)),e.offsetWidth,this.dataset.state=`ready`,this.setAttribute(`aria-busy`,`false`),this.dispatchEvent(new CustomEvent(`nayuta:image-ready`,{bubbles:!0}))}}}fail(){if(this.generation++,this.dataset.state=`error`,this.setAttribute(`aria-busy`,`false`),this.querySelector(`.ny-image-error`))return;let e=document.createElement(`span`);e.className=`ny-image-error`,e.setAttribute(`role`,`img`),e.setAttribute(`aria-label`,`Image unavailable${this.image?.alt?`: ${this.image.alt}`:``}`),e.innerHTML=`<svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="m7.5 24.5 17-17"/></svg>`,this.append(e)}};customElements.get(`nayuta-image`)||customElements.define(`nayuta-image`,e);var t=class extends HTMLElement{observer;connectedCallback(){this.enhance(),this.observer=new MutationObserver(()=>this.enhance()),this.observer.observe(this,{childList:!0,subtree:!0})}disconnectedCallback(){this.observer?.disconnect()}enhance(){this.querySelectorAll(`img`).forEach(e=>{if(e.closest(`nayuta-image, button`)||e.hasAttribute(`data-image-native`))return;let t=document.createElement(`nayuta-image`);e.dataset.lightbox&&(t.dataset.lightbox=e.dataset.lightbox);let n=e.closest(`picture`)??e;e.loading||=`lazy`,e.decoding=`async`;let r=document.createComment(`image`);n.replaceWith(r),t.append(n),r.replaceWith(t)})}};customElements.get(`nayuta-prose`)||customElements.define(`nayuta-prose`,t);</script><link rel="stylesheet" href="/solaris-blog-rm-seu-cxxy/_astro/frame.Cah-tFAG.css"><link rel="stylesheet" href="/solaris-blog-rm-seu-cxxy/_astro/Prose.BHlFJANg.css"><style>.copyright-card[data-astro-cid-v7t64ykl]{margin-top:var(--ny-space-6);padding:var(--ny-space-4);border:1px solid var(--ny-color-border);border-radius:var(--ny-radius-md);background-color:var(--ny-color-surface);color:var(--ny-color-text-muted);font-size:var(--ny-font-size-ui);line-height:var(--ny-line-height-ui)}.card-title[data-astro-cid-v7t64ykl]{margin:0 0 var(--ny-space-3);color:var(--ny-color-text);font-weight:700}dl[data-astro-cid-v7t64ykl]{column-gap:var(--ny-space-4);row-gap:var(--ny-space-2);grid-template-columns:max-content minmax(0,1fr);display:grid;margin:0!important}dt[data-astro-cid-v7t64ykl]{color:var(--ny-color-text-subtle);margin:0!important}dd[data-astro-cid-v7t64ykl]{overflow-wrap:anywhere;min-width:0;margin:0!important}.prose .page-title[data-astro-cid-ruv7hgo6]{--ny-badge-font-size:var(--ny-font-size-meta);align-items:center;gap:var(--ny-space-2);flex-wrap:wrap;display:flex}.prose .post-meta[data-astro-cid-ruv7hgo6]{color:var(--ny-color-text-subtle);font-size:var(--ny-font-size-meta);line-height:var(--ny-line-height-compact);margin-bottom:var(--ny-space-5)}.post-tags[data-astro-cid-ruv7hgo6]{--ny-tag-font-size:var(--ny-font-size-meta);margin-top:var(--ny-space-6);padding-top:var(--ny-space-4);border-top:1px solid var(--ny-color-border)}.post-tags[data-astro-cid-ruv7hgo6] ul[data-astro-cid-ruv7hgo6]{gap:var(--ny-space-2);flex-wrap:wrap;list-style:none;display:flex}.post-tags[data-astro-cid-ruv7hgo6] li[data-astro-cid-ruv7hgo6]{min-width:0;max-width:100%}.post-cover-container{border-radius:var(--ny-radius-lg);border:1px solid var(--ny-color-border);aspect-ratio:16/9;background-color:var(--ny-color-surface-container);width:100%;box-shadow:0 8px 30px var(--ny-color-shadow);margin:16px 0 28px;overflow:hidden}.post-cover-container nayuta-image{border:none;border-radius:0;width:100%;display:block}.prose .post-cover{object-fit:cover;object-position:top center;border:none;border-radius:0;width:100%;height:100%;display:block}
-</style></head><body data-astro-cid-k2pnhk33><!-- Mobile Sticky Header --><header class="mobile-sticky-header" data-astro-cid-k2pnhk33><div class="header-content" data-astro-cid-k2pnhk33><button class="mobile-menu-btn" id="open-widgets-btn" aria-label="Open Sidebar" aria-controls="widgets-drawer" aria-expanded="false" data-astro-cid-k2pnhk33><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" data-astro-cid-k2pnhk33><line x1="2" y1="3.5" x2="14" y2="3.5" data-astro-cid-k2pnhk33></line><line x1="2" y1="8" x2="14" y2="8" data-astro-cid-k2pnhk33></line><line x1="2" y1="12.5" x2="14" y2="12.5" data-astro-cid-k2pnhk33></line></svg></button><nav class="breadcrumbs" data-astro-cid-k2pnhk33><a href="/solaris-blog-rm-seu-cxxy/" data-astro-cid-k2pnhk33>Home</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-k2pnhk33>Posts</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic" data-astro-cid-k2pnhk33>同济大学 RoboMaster 招新培训笔记 · 电控组</a> &gt; </nav></div></header><div class="layout-container  with-right-sidebar" data-astro-cid-k2pnhk33><aside class="left-region" id="left-sidebar" data-astro-cid-52ajofgm><header class="left-header" data-astro-cid-52ajofgm><div class="profile-card" data-astro-cid-7unzv65d><a class="avatar-link" href="/solaris-blog-rm-seu-cxxy/" aria-label="Go to homepage" data-astro-cid-7unzv65d><img class="avatar" src="/solaris-blog-rm-seu-cxxy/assets/images/avatar.png" alt data-astro-cid-zdxk4546></a><div class="profile-info" data-astro-cid-7unzv65d><h2 class="profile-name" data-astro-cid-7unzv65d>天钺 Solaris</h2><div class="profile-title" data-astro-cid-7unzv65d>东南大学成贤学院（SEU-CXXY）RoboMaster 天钺 Solaris 战队技术博客 —— 建模 · 电控 · 硬件 · 视觉，四个方向的技术沉淀。</div></div><div class="social-buttons" data-astro-cid-7unzv65d><a href="/solaris-blog-rm-seu-cxxy/posts" class="btn" aria-label="Posts" data-astro-cid-wiipzibu="true"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span data-astro-cid-7unzv65d>Posts</span></a><a href="/solaris-blog-rm-seu-cxxy/about" class="btn" aria-label="About" data-astro-cid-wiipzibu="true"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span data-astro-cid-7unzv65d>About</span></a></div></div></header><div class="left-sidebar-content" data-astro-cid-52ajofgm><form class="search-form" role="search" action="/search" method="get" data-astro-cid-wveqnd57><label data-astro-cid-wveqnd57><span class="visually-hidden" data-astro-cid-wveqnd57>Search articles</span><input type="search" class="search-input" name="q" placeholder="Search articles..." data-astro-cid-wveqnd57="true" data-astro-cid-jhpiwqdc></label></form><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Recent Posts</span><a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-ptnqmahq>More &gt;</a></div><div class="post-list" data-astro-cid-aqbmadrt><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 电控组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-hardware" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 硬件组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 机械组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Tags Cloud</span></div><div class="tag-cloud" data-astro-cid-uoks6iaa><a href="/solaris-blog-rm-seu-cxxy/tag/OpenCV" class="tag-item" data-astro-cid-v2grv5g5="true">OpenCV</a><a href="/solaris-blog-rm-seu-cxxy/tag/PID" class="tag-item" data-astro-cid-v2grv5g5="true">PID</a><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a><a href="/solaris-blog-rm-seu-cxxy/tag/STM32" class="tag-item" data-astro-cid-v2grv5g5="true">STM32</a><a href="/solaris-blog-rm-seu-cxxy/tag/SolidWorks" class="tag-item" data-astro-cid-v2grv5g5="true">SolidWorks</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2" class="tag-item" data-astro-cid-v2grv5g5="true">卡尔曼滤波</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84" class="tag-item" data-astro-cid-v2grv5g5="true">学习路径</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%9C%BA%E6%A2%B0%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">机械组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%84%8A%E6%8E%A5" class="tag-item" data-astro-cid-v2grv5g5="true">焊接</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">电控组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1" class="tag-item" data-astro-cid-v2grv5g5="true">电路设计</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A1%AC%E4%BB%B6%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">硬件组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A3%85%E9%85%8D%E5%87%BA%E5%9B%BE" class="tag-item" data-astro-cid-v2grv5g5="true">装配出图</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">视觉组</a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Website Status</span></div><div class="status-list" data-astro-cid-jrjqfdlr><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Posts</span><span class="status-value" data-astro-cid-jrjqfdlr>5</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Running</span><span class="status-value" data-website-status-running data-start-date="2026-10-01T00:00:00.000Z" data-format="days" data-astro-cid-jrjqfdlr>33 days</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Last Updated</span><span class="status-value" data-astro-cid-jrjqfdlr>2026-10-17</span></div></div></div><script type="module">function e(){let e=document.querySelectorAll(`[data-website-status-running]`),t=new Date;e.forEach(e=>{let n=e.getAttribute(`data-start-date`);if(!n)return;let r=new Date(n);if(isNaN(r.getTime()))return;let i=Math.max(0,t.getTime()-r.getTime()),a=e.getAttribute(`data-format`)||`days`,o=Math.floor(i/864e5);e.textContent=a===`detailed`?`${o}d ${Math.floor(i/36e5%24)}h`:`${o} ${o===1?`day`:`days`}`})}e(),setInterval(e,6e4),document.addEventListener(`astro:page-load`,e),document.addEventListener(`astro:after-swap`,e);</script></div><footer class="left-footer"><p>Copyright &copy; 2026 天钺 Solaris.</p><p>Powered by <a href="https://github.com/yuanzui-cf/nayuta">Nayuta</a>. Designed by <a href="https://yzcf.top">Leo Jia</a>.</p></footer></aside><!-- Main Region --><main class="main-region" data-astro-cid-k2pnhk33><nav class="breadcrumbs" data-astro-cid-k2pnhk33><a href="/solaris-blog-rm-seu-cxxy/" data-astro-cid-k2pnhk33>Home</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-k2pnhk33>Posts</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic" data-astro-cid-k2pnhk33>同济大学 RoboMaster 招新培训笔记 · 电控组</a> &gt; </nav><nayuta-prose class="prose" data-astro-cid-l3j6aup5="true"><div data-pagefind-body data-astro-cid-ruv7hgo6><div class="post-cover-container" data-astro-cid-ruv7hgo6><nayuta-image data-fixed-ratio="16 / 9" data-original-src="/solaris-blog-rm-seu-cxxy/assets/images/banner/3.webp" style="--ny-image-ratio:16 / 9;"><div class="ny-image-placeholder" aria-hidden="true"></div><img class="post-cover" loading="eager" data-astro-cid-ruv7hgo6="true" src="/solaris-blog-rm-seu-cxxy/assets/images/banner/3.webp" alt="同济大学 RoboMaster 招新培训笔记 · 电控组" width="1920" height="1080" decoding="async"></nayuta-image></div><h1 class="page-title" data-pagefind-meta="title[data-title]" data-title="同济大学 RoboMaster 招新培训笔记 · 电控组" data-astro-cid-ruv7hgo6>同济大学 RoboMaster 招新培训笔记 · 电控组</h1><p class="post-meta" data-pagefind-ignore data-pagefind-meta="publishDate[data-publish-date], readingTimeMinutes[data-reading-minutes], draft[data-draft]" data-publish-date="2026-10-17" data-reading-minutes="20" data-draft="false" data-astro-cid-ruv7hgo6>Published: 2026-10-17 &nbsp;•&nbsp; Reading Time: 20 mins</p><h1 id="同济大学-robomaster-招新培训笔记--电控组">同济大学 RoboMaster 招新培训笔记 · 电控组</h1>
+</style></head><body data-astro-cid-k2pnhk33><!-- Mobile Sticky Header --><header class="mobile-sticky-header" data-astro-cid-k2pnhk33><div class="header-content" data-astro-cid-k2pnhk33><button class="mobile-menu-btn" id="open-widgets-btn" aria-label="Open Sidebar" aria-controls="widgets-drawer" aria-expanded="false" data-astro-cid-k2pnhk33><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" data-astro-cid-k2pnhk33><line x1="2" y1="3.5" x2="14" y2="3.5" data-astro-cid-k2pnhk33></line><line x1="2" y1="8" x2="14" y2="8" data-astro-cid-k2pnhk33></line><line x1="2" y1="12.5" x2="14" y2="12.5" data-astro-cid-k2pnhk33></line></svg></button><nav class="breadcrumbs" data-astro-cid-k2pnhk33><a href="/solaris-blog-rm-seu-cxxy/" data-astro-cid-k2pnhk33>Home</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-k2pnhk33>Posts</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic" data-astro-cid-k2pnhk33>同济大学 RoboMaster 招新培训笔记 · 电控组</a> &gt; </nav></div></header><div class="layout-container  with-right-sidebar" data-astro-cid-k2pnhk33><aside class="left-region" id="left-sidebar" data-astro-cid-52ajofgm><header class="left-header" data-astro-cid-52ajofgm><div class="profile-card" data-astro-cid-7unzv65d><a class="avatar-link" href="/solaris-blog-rm-seu-cxxy/" aria-label="Go to homepage" data-astro-cid-7unzv65d><img class="avatar" src="/solaris-blog-rm-seu-cxxy/assets/images/avatar.jpg" alt data-astro-cid-zdxk4546></a><div class="profile-info" data-astro-cid-7unzv65d><h2 class="profile-name" data-astro-cid-7unzv65d>天钺 Solaris</h2><div class="profile-title" data-astro-cid-7unzv65d>东南大学成贤学院（SEU-CXXY）RoboMaster 天钺 Solaris 战队技术博客 —— 建模 · 电控 · 硬件 · 视觉，四个方向的技术沉淀。</div></div><div class="social-buttons" data-astro-cid-7unzv65d><a href="/solaris-blog-rm-seu-cxxy/posts" class="btn" aria-label="Posts" data-astro-cid-wiipzibu="true"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span data-astro-cid-7unzv65d>Posts</span></a><a href="/solaris-blog-rm-seu-cxxy/about" class="btn" aria-label="About" data-astro-cid-wiipzibu="true"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span data-astro-cid-7unzv65d>About</span></a></div></div></header><div class="left-sidebar-content" data-astro-cid-52ajofgm><form class="search-form" role="search" action="/search" method="get" data-astro-cid-wveqnd57><label data-astro-cid-wveqnd57><span class="visually-hidden" data-astro-cid-wveqnd57>Search articles</span><input type="search" class="search-input" name="q" placeholder="Search articles..." data-astro-cid-wveqnd57="true" data-astro-cid-jhpiwqdc></label></form><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Recent Posts</span><a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-ptnqmahq>More &gt;</a></div><div class="post-list" data-astro-cid-aqbmadrt><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-00-overview" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>机甲大师步兵自瞄拆解 —— 基于同济 SuperPower sp_vision_25</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-01-perception-pipeline" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>视觉 01 —— 感知流水线总览</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-02-traditional-detector" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>视觉 02 —— 传统装甲板检测器 Detector</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Tags Cloud</span></div><div class="tag-cloud" data-astro-cid-uoks6iaa><a href="/solaris-blog-rm-seu-cxxy/tag/ADC" class="tag-item" data-astro-cid-v2grv5g5="true">ADC</a><a href="/solaris-blog-rm-seu-cxxy/tag/API" class="tag-item" data-astro-cid-v2grv5g5="true">API</a><a href="/solaris-blog-rm-seu-cxxy/tag/C%20%E8%AF%AD%E8%A8%80" class="tag-item" data-astro-cid-v2grv5g5="true">C 语言</a><a href="/solaris-blog-rm-seu-cxxy/tag/C%2B%2B" class="tag-item" data-astro-cid-v2grv5g5="true">C++</a><a href="/solaris-blog-rm-seu-cxxy/tag/CAN" class="tag-item" data-astro-cid-v2grv5g5="true">CAN</a><a href="/solaris-blog-rm-seu-cxxy/tag/CMake" class="tag-item" data-astro-cid-v2grv5g5="true">CMake</a><a href="/solaris-blog-rm-seu-cxxy/tag/CubeMX" class="tag-item" data-astro-cid-v2grv5g5="true">CubeMX</a><a href="/solaris-blog-rm-seu-cxxy/tag/DMA" class="tag-item" data-astro-cid-v2grv5g5="true">DMA</a><a href="/solaris-blog-rm-seu-cxxy/tag/EKF" class="tag-item" data-astro-cid-v2grv5g5="true">EKF</a><a href="/solaris-blog-rm-seu-cxxy/tag/FreeRTOS" class="tag-item" data-astro-cid-v2grv5g5="true">FreeRTOS</a><a href="/solaris-blog-rm-seu-cxxy/tag/GPIO" class="tag-item" data-astro-cid-v2grv5g5="true">GPIO</a><a href="/solaris-blog-rm-seu-cxxy/tag/HAL" class="tag-item" data-astro-cid-v2grv5g5="true">HAL</a><a href="/solaris-blog-rm-seu-cxxy/tag/I2C" class="tag-item" data-astro-cid-v2grv5g5="true">I2C</a><a href="/solaris-blog-rm-seu-cxxy/tag/IMU" class="tag-item" data-astro-cid-v2grv5g5="true">IMU</a><a href="/solaris-blog-rm-seu-cxxy/tag/Linux" class="tag-item" data-astro-cid-v2grv5g5="true">Linux</a><a href="/solaris-blog-rm-seu-cxxy/tag/MPC" class="tag-item" data-astro-cid-v2grv5g5="true">MPC</a><a href="/solaris-blog-rm-seu-cxxy/tag/OpenCV" class="tag-item" data-astro-cid-v2grv5g5="true">OpenCV</a><a href="/solaris-blog-rm-seu-cxxy/tag/OpenVINO" class="tag-item" data-astro-cid-v2grv5g5="true">OpenVINO</a><a href="/solaris-blog-rm-seu-cxxy/tag/PID" class="tag-item" data-astro-cid-v2grv5g5="true">PID</a><a href="/solaris-blog-rm-seu-cxxy/tag/PWM" class="tag-item" data-astro-cid-v2grv5g5="true">PWM</a><a href="/solaris-blog-rm-seu-cxxy/tag/PnP" class="tag-item" data-astro-cid-v2grv5g5="true">PnP</a><a href="/solaris-blog-rm-seu-cxxy/tag/ROS2" class="tag-item" data-astro-cid-v2grv5g5="true">ROS2</a><a href="/solaris-blog-rm-seu-cxxy/tag/RTC" class="tag-item" data-astro-cid-v2grv5g5="true">RTC</a><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a><a href="/solaris-blog-rm-seu-cxxy/tag/SPI" class="tag-item" data-astro-cid-v2grv5g5="true">SPI</a><a href="/solaris-blog-rm-seu-cxxy/tag/STM32" class="tag-item" data-astro-cid-v2grv5g5="true">STM32</a><a href="/solaris-blog-rm-seu-cxxy/tag/SolidWorks" class="tag-item" data-astro-cid-v2grv5g5="true">SolidWorks</a><a href="/solaris-blog-rm-seu-cxxy/tag/UART" class="tag-item" data-astro-cid-v2grv5g5="true">UART</a><a href="/solaris-blog-rm-seu-cxxy/tag/YOLO" class="tag-item" data-astro-cid-v2grv5g5="true">YOLO</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E4%B8%AD%E6%96%AD" class="tag-item" data-astro-cid-v2grv5g5="true">中断</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E4%B8%B2%E5%8F%A3" class="tag-item" data-astro-cid-v2grv5g5="true">串口</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%86%B3%E7%AD%96" class="tag-item" data-astro-cid-v2grv5g5="true">决策</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2" class="tag-item" data-astro-cid-v2grv5g5="true">卡尔曼滤波</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8E%E5%A4%84%E7%90%86" class="tag-item" data-astro-cid-v2grv5g5="true">后处理</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%93%A8%E5%85%B5" class="tag-item" data-astro-cid-v2grv5g5="true">哨兵</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%9D%90%E6%A0%87%E7%B3%BB" class="tag-item" data-astro-cid-v2grv5g5="true">坐标系</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%A4%9A%E4%BB%BB%E5%8A%A1" class="tag-item" data-astro-cid-v2grv5g5="true">多任务</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%A4%9A%E7%BA%BF%E7%A8%8B" class="tag-item" data-astro-cid-v2grv5g5="true">多线程</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84" class="tag-item" data-astro-cid-v2grv5g5="true">学习路径</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF" class="tag-item" data-astro-cid-v2grv5g5="true">学习路线</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AE%9A%E6%97%B6%E5%99%A8" class="tag-item" data-astro-cid-v2grv5g5="true">定时器</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%BC%80%E6%BA%90%E6%8B%86%E8%A7%A3" class="tag-item" data-astro-cid-v2grv5g5="true">开源拆解</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%BC%B9%E9%81%93" class="tag-item" data-astro-cid-v2grv5g5="true">弹道</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8E%A7%E5%88%B6" class="tag-item" data-astro-cid-v2grv5g5="true">控制</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%95%B0%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">数学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%9C%BA%E6%A2%B0%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">机械组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%A0%87%E5%AE%9A" class="tag-item" data-astro-cid-v2grv5g5="true">标定</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%84%8A%E6%8E%A5" class="tag-item" data-astro-cid-v2grv5g5="true">焊接</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7" class="tag-item" data-astro-cid-v2grv5g5="true">电控</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">电控组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1" class="tag-item" data-astro-cid-v2grv5g5="true">电路设计</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B" class="tag-item" data-astro-cid-v2grv5g5="true">相机模型</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A1%AC%E4%BB%B6%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">硬件组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" class="tag-item" data-astro-cid-v2grv5g5="true">神经网络</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%87%AA%E7%9E%84" class="tag-item" data-astro-cid-v2grv5g5="true">自瞄</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A3%85%E9%85%8D%E5%87%BA%E5%9B%BE" class="tag-item" data-astro-cid-v2grv5g5="true">装配出图</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%AE%97%E6%B3%95" class="tag-item" data-astro-cid-v2grv5g5="true">视觉算法</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">视觉组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E9%80%9F%E6%9F%A5" class="tag-item" data-astro-cid-v2grv5g5="true">速查</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E9%83%A8%E7%BD%B2" class="tag-item" data-astro-cid-v2grv5g5="true">部署</a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Website Status</span></div><div class="status-list" data-astro-cid-jrjqfdlr><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Posts</span><span class="status-value" data-astro-cid-jrjqfdlr>45</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Running</span><span class="status-value" data-website-status-running data-start-date="2026-10-01T00:00:00.000Z" data-format="days" data-astro-cid-jrjqfdlr>37 days</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Last Updated</span><span class="status-value" data-astro-cid-jrjqfdlr>2026-11-08</span></div></div></div><script type="module">function e(){let e=document.querySelectorAll(`[data-website-status-running]`),t=new Date;e.forEach(e=>{let n=e.getAttribute(`data-start-date`);if(!n)return;let r=new Date(n);if(isNaN(r.getTime()))return;let i=Math.max(0,t.getTime()-r.getTime()),a=e.getAttribute(`data-format`)||`days`,o=Math.floor(i/864e5);e.textContent=a===`detailed`?`${o}d ${Math.floor(i/36e5%24)}h`:`${o} ${o===1?`day`:`days`}`})}e(),setInterval(e,6e4),document.addEventListener(`astro:page-load`,e),document.addEventListener(`astro:after-swap`,e);</script></div><footer class="left-footer"><p>Copyright &copy; 2026 天钺 Solaris.</p><p>Powered by <a href="https://github.com/yuanzui-cf/nayuta">Nayuta</a>. Designed by <a href="https://yzcf.top">Leo Jia</a>.</p></footer></aside><!-- Main Region --><main class="main-region" data-astro-cid-k2pnhk33><nav class="breadcrumbs" data-astro-cid-k2pnhk33><a href="/solaris-blog-rm-seu-cxxy/" data-astro-cid-k2pnhk33>Home</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-k2pnhk33>Posts</a> &gt; <a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic" data-astro-cid-k2pnhk33>同济大学 RoboMaster 招新培训笔记 · 电控组</a> &gt; </nav><nayuta-prose class="prose" data-astro-cid-l3j6aup5="true"><div data-pagefind-body data-astro-cid-ruv7hgo6><div class="post-cover-container" data-astro-cid-ruv7hgo6><nayuta-image data-fixed-ratio="16 / 9" data-original-src="/solaris-blog-rm-seu-cxxy/assets/images/banner/3.webp" style="--ny-image-ratio:16 / 9;"><div class="ny-image-placeholder" aria-hidden="true"></div><img class="post-cover" loading="eager" data-astro-cid-ruv7hgo6="true" src="/solaris-blog-rm-seu-cxxy/assets/images/banner/3.webp" alt="同济大学 RoboMaster 招新培训笔记 · 电控组" width="1920" height="1080" decoding="async"></nayuta-image></div><h1 class="page-title" data-pagefind-meta="title[data-title]" data-title="同济大学 RoboMaster 招新培训笔记 · 电控组" data-astro-cid-ruv7hgo6>同济大学 RoboMaster 招新培训笔记 · 电控组</h1><p class="post-meta" data-pagefind-ignore data-pagefind-meta="publishDate[data-publish-date], readingTimeMinutes[data-reading-minutes], draft[data-draft]" data-publish-date="2026-10-17" data-reading-minutes="20" data-draft="false" data-astro-cid-ruv7hgo6>Published: 2026-10-17 &nbsp;•&nbsp; Reading Time: 20 mins</p><h1 id="同济大学-robomaster-招新培训笔记--电控组">同济大学 RoboMaster 招新培训笔记 · 电控组</h1>
 <blockquote>
-<p>来源：同济大学（SuperPower）RoboMaster 战队招新培训课件视频笔记，视频见 B 站空间：<a href="https://space.bilibili.com/651837546">https://space.bilibili.com/651837546</a></p>
-</blockquote>
-<blockquote>
-<p>整理：东南大学成贤学院 Solaris（天钺）战队 ｜ 2026-10-17 ｜ 配图均截取自原课件</p>
-</blockquote>
-<blockquote>
-<p>用途：入队新生复习笔记，供战队学习交流使用</p>
+<p>来源：同济大学（SuperPower）RoboMaster 战队招新培训课件视频笔记，视频见 B 站空间：<a href="https://space.bilibili.com/651837546">https://space.bilibili.com/651837546</a>
+整理：东南大学成贤学院 Solaris（天钺）战队 ｜ 2026-10-17 ｜ 配图均截取自原课件
+用途：入队新生复习笔记，供战队学习交流使用</p>
 </blockquote>
 <h2 id="培训大纲">培训大纲</h2>
-<p>| 讲次 | 课件 | 核心主题 |</p>
-<p>|---|---|---|</p>
-<p>| 第一讲 电控导论 | 电控组第一讲：电控导论.pptx | 电控职责定位、C 型板与电机等硬件、软件开发工作流与工具链、学习方法与提问、安全规范、C++ 面向对象铺垫 |</p>
-<p>| 第二讲 STM32CubeMX基础 | 电控组第二讲：STM32CubeMX基础.pptx | 单片机/MCU 概念、CubeMX 工程生成、时钟与时钟树、GPIO 八种模式、定时器 PSC/CNT/ARR、PWM 输出与呼吸灯 |</p>
-<p>| 第四讲 电机控制（1） | 电控组第四讲：电机控制（1）.pptx | 通信三层模型、UART 串口接线与 DMA、比特率/波特率、CAN 接线与终端电阻、CAN ID 仲裁、收发代码流程 |</p>
-<p>| 第五讲 PID控制电机 | 电控组第五讲：PID控制电机.pptx | 开环/闭环控制、P/I/D 各自作用、梯形积分/动态积分/微分先行、双环串级 PID、现场调试经验 |</p>
-<p>| 附：电控组大作业 | SP_26赛季招新——电控组大作业.pdf | 蜂鸣器、LED 流水灯、舵机、麦轮底盘运动与功率控制、GitHub commit 规范、入队流程 |</p>
+<table>
+<thead>
+<tr>
+<th>讲次</th>
+<th>课件</th>
+<th>核心主题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一讲 电控导论</td>
+<td>电控组第一讲：电控导论.pptx</td>
+<td>电控职责定位、C 型板与电机等硬件、软件开发工作流与工具链、学习方法与提问、安全规范、C++ 面向对象铺垫</td>
+</tr>
+<tr>
+<td>第二讲 STM32CubeMX基础</td>
+<td>电控组第二讲：STM32CubeMX基础.pptx</td>
+<td>单片机/MCU 概念、CubeMX 工程生成、时钟与时钟树、GPIO 八种模式、定时器 PSC/CNT/ARR、PWM 输出与呼吸灯</td>
+</tr>
+<tr>
+<td>第四讲 电机控制（1）</td>
+<td>电控组第四讲：电机控制（1）.pptx</td>
+<td>通信三层模型、UART 串口接线与 DMA、比特率/波特率、CAN 接线与终端电阻、CAN ID 仲裁、收发代码流程</td>
+</tr>
+<tr>
+<td>第五讲 PID控制电机</td>
+<td>电控组第五讲：PID控制电机.pptx</td>
+<td>开环/闭环控制、P/I/D 各自作用、梯形积分/动态积分/微分先行、双环串级 PID、现场调试经验</td>
+</tr>
+<tr>
+<td>附：电控组大作业</td>
+<td>SP_26赛季招新——电控组大作业.pdf</td>
+<td>蜂鸣器、LED 流水灯、舵机、麦轮底盘运动与功率控制、GitHub commit 规范、入队流程</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>说明：第四讲课件文件名为「电机控制（1）」，实际授课内容为电机与开发板之间的 <strong>UART 与 CAN 通信</strong>，电机 PID 控制放在第五讲。</p>
 </blockquote>
@@ -49,15 +74,9 @@
 <h3 id="11-电控职责我们是谁">1.1 电控职责：我们是谁</h3>
 <p>RoboMaster 比赛中，一台战车要完成<strong>移动、射击、识别</strong>三类动作。队伍分工可以类比人体：</p>
 <ul>
-<li>
-<p><strong>机械 = 骨骼</strong>，负责结构与外形；</p>
-</li>
-<li>
-<p><strong>电控 = 大脑和神经系统</strong>，又分为<strong>软件</strong>与<strong>硬件</strong>两部分；</p>
-</li>
-<li>
-<p>电控的目标一句话：<strong>听指令 → 正确行动 → 稳定可靠</strong>，最终「赋予一辆战车生命」。</p>
-</li>
+<li><strong>机械 = 骨骼</strong>，负责结构与外形；</li>
+<li><strong>电控 = 大脑和神经系统</strong>，又分为<strong>软件</strong>与<strong>硬件</strong>两部分；</li>
+<li>电控的目标一句话：<strong>听指令 → 正确行动 → 稳定可靠</strong>，最终「赋予一辆战车生命」。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="分工类比：机械对应骨骼，电控对应大脑和神经系统（含软件、硬件），总目标是听指令→正确行动→稳定可靠" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-01-p07.zTMI56vh_Z2h9rdb.webp"></nayuta-image></div>
 <h3 id="12-硬件介绍我们要和哪些物品打交道">1.2 硬件介绍：我们要和哪些物品打交道</h3>
@@ -66,61 +85,65 @@
 <h3 id="13-软件开发工作流">1.3 软件开发工作流</h3>
 <p>软件相关工作可以拆成一条流水线。以「完成麦轮移动」这个功能为例：遥控器输入 → C 板解算 → 电机按解算速度转动。拆成环节就是：</p>
 <ol>
-<li>
-<p><strong>明确功能</strong>（要做什么，如麦轮移动）；</p>
-</li>
-<li>
-<p><strong>配置芯片</strong>：单片机基本配置，例如遥控器通信配置、CAN 总线配置；</p>
-</li>
-<li>
-<p><strong>敲代码</strong>：收发数据、解算；</p>
-</li>
-<li>
-<p><strong>编译</strong>：把代码编译成二进制文件；</p>
-</li>
-<li>
-<p><strong>烧录</strong>：把二进制文件下载到 C 板中；</p>
-</li>
-<li>
-<p><strong>调试</strong>：让移动性能更好，发现问题、解决问题，再回到前面的环节迭代；最后<strong>交付</strong>并做代码版本管理。</p>
-</li>
+<li><strong>明确功能</strong>（要做什么，如麦轮移动）；</li>
+<li><strong>配置芯片</strong>：单片机基本配置，例如遥控器通信配置、CAN 总线配置；</li>
+<li><strong>敲代码</strong>：收发数据、解算；</li>
+<li><strong>编译</strong>：把代码编译成二进制文件；</li>
+<li><strong>烧录</strong>：把二进制文件下载到 C 板中；</li>
+<li><strong>调试</strong>：让移动性能更好，发现问题、解决问题，再回到前面的环节迭代；最后<strong>交付</strong>并做代码版本管理。</li>
 </ol>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="软件开发工作流：明确功能→配置芯片→敲代码→编译→烧录→调试→交付，调试后可回流迭代" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-01-p18.CKjuV6xQ_ZpEwnS.webp"></nayuta-image></div>
 <h3 id="14-工具链用什么工具完成工作">1.4 工具链：用什么工具完成工作</h3>
 <p>队内新工具链的各软件正好落在工作流的对应位置：</p>
-<p>| 工作流环节 | 工具 |</p>
-<p>|---|---|</p>
-<p>| 配置芯片 | STM32CubeMX |</p>
-<p>| 敲代码 | VSCode + C/C++ 扩展 |</p>
-<p>| 编译 | VSCode 的 CMakeTools 扩展 |</p>
-<p>| 烧录 / 调试 | Cortex-Debug 扩展 |</p>
-<p>| 看数据曲线（调试） | SerialPlot |</p>
-<p>| 交付 / 版本管理 | Git + GitHub |</p>
+<table>
+<thead>
+<tr>
+<th>工作流环节</th>
+<th>工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置芯片</td>
+<td>STM32CubeMX</td>
+</tr>
+<tr>
+<td>敲代码</td>
+<td>VSCode + C/C++ 扩展</td>
+</tr>
+<tr>
+<td>编译</td>
+<td>VSCode 的 CMakeTools 扩展</td>
+</tr>
+<tr>
+<td>烧录 / 调试</td>
+<td>Cortex-Debug 扩展</td>
+</tr>
+<tr>
+<td>看数据曲线（调试）</td>
+<td>SerialPlot</td>
+</tr>
+<tr>
+<td>交付 / 版本管理</td>
+<td>Git + GitHub</td>
+</tr>
+</tbody>
+</table>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="新工具链在工作流上的位置：CubeMX 配置芯片，VSCode(C/C++) 敲代码，CMakeTools 编译，Cortex-Debug 烧录调试，SerialPlot 观测，Git/GitHub 交付" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-01-p20.CYmZy5s9_Z1cfKUG.webp"></nayuta-image></div>
 <h3 id="15-学习方法搜集信息与学会提问">1.5 学习方法：搜集信息与学会提问</h3>
 <p>三种能力并行培养：<strong>搜集信息</strong>（B 站其他战队培训视频、各技术官方第一手文档、RoboMaster 官网及论坛、问学长、实践出真知）、<strong>工程能力</strong>、<strong>提问能力</strong>。</p>
 <p>重点是<strong>学会提问</strong>：</p>
 <ul>
-<li>
-<p><strong>提问前</strong>：先想清楚疑问点和提问目标；</p>
-</li>
-<li>
-<p><strong>提问时</strong>核心是<strong>提供足够多的信息</strong>：描述问题背景、自己试过的方法、报错信息截图、一切存在有效信息的资料。</p>
-</li>
+<li><strong>提问前</strong>：先想清楚疑问点和提问目标；</li>
+<li><strong>提问时</strong>核心是<strong>提供足够多的信息</strong>：描述问题背景、自己试过的方法、报错信息截图、一切存在有效信息的资料。</li>
 </ul>
 <p>反面教材就是「有大佬在吗，我想问个问题」「我的代码出错了，有人能帮帮我吗」——没有背景、没有报错，别人无法回答。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="学会提问：提问前明确疑问点与目标，提问时给出背景、试过的方法、报错截图等足够信息，拒绝空泛提问" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-01-p23.BVafFhVw_1sYTVL.webp"></nayuta-image></div>
 <h3 id="16-安全规范">1.6 安全规范</h3>
 <ul>
-<li>
-<p><strong>电池</strong>：离开实验室前确保机器人（或板子）电源关闭；电池放入防爆柜充电；电池若有破损不要再使用。</p>
-</li>
-<li>
-<p><strong>接线</strong>：尽量不要热插拔（带电插拔线材）；使用别人物品前先检查是否存在缺陷。</p>
-</li>
-<li>
-<p><strong>调试</strong>：调试机器人之前先确保遥控器可以正常使电机失能；注意周围人员安全；调 PID 时注意电机可能震荡。</p>
-</li>
+<li><strong>电池</strong>：离开实验室前确保机器人（或板子）电源关闭；电池放入防爆柜充电；电池若有破损不要再使用。</li>
+<li><strong>接线</strong>：尽量不要热插拔（带电插拔线材）；使用别人物品前先检查是否存在缺陷。</li>
+<li><strong>调试</strong>：调试机器人之前先确保遥控器可以正常使电机失能；注意周围人员安全；调 PID 时注意电机可能震荡。</li>
 </ul>
 <h3 id="17-c-面向对象铺垫">1.7 C++ 面向对象铺垫</h3>
 <p>为什么要用面向对象？以「养一只哈基米（猫）」为例：饲养者只关心如何喂养、外观、性格，不关心它的生理结构——这就是<strong>封装带来的使用方便</strong>。</p>
@@ -131,127 +154,189 @@
 <h3 id="21-什么是单片机和-stm32">2.1 什么是单片机和 STM32</h3>
 <p>先区分几个处理器名词：</p>
 <ul>
-<li>
-<p><strong>CPU</strong>（Central Processing Unit，中央处理器）：解释指令、处理软件数据；</p>
-</li>
-<li>
-<p><strong>GPU</strong>（Graphics Processing Unit，图形处理器）：专做绘图运算；</p>
-</li>
-<li>
-<p><strong>NPU</strong>（Neural Processing Unit，神经处理器）：专用于 AI 硬件加速；</p>
-</li>
-<li>
-<p><strong>MCU</strong>（Microcontroller Unit，微控制器）：本讲主角。</p>
-</li>
+<li><strong>CPU</strong>（Central Processing Unit，中央处理器）：解释指令、处理软件数据；</li>
+<li><strong>GPU</strong>（Graphics Processing Unit，图形处理器）：专做绘图运算；</li>
+<li><strong>NPU</strong>（Neural Processing Unit，神经处理器）：专用于 AI 硬件加速；</li>
+<li><strong>MCU</strong>（Microcontroller Unit，微控制器）：本讲主角。</li>
 </ul>
 <p>**单片机（Single-chip Microcomputer）**把中央处理器、存储器、定时/计数器、各种输入输出接口都集成在一块芯片上。优点：便宜、电路简单、体积小、耗电低；缺点（特性）：功能专一、运行频率低。按寄存器位数，4 位用于简单家电，8/16 位用于一般控制领域，32 位用于网络、多媒体等复杂场合。</p>
 <p>队内主要使用两种开发板：</p>
-<p>| 开发板 | MCU 型号 |</p>
-<p>|---|---|</p>
-<p>| RoboMaster 开发板 C 型 | STM32F407IGH6 |</p>
-<p>| 达妙科技 DM-MC02 | STM32F723VGT6 |</p>
+<table>
+<thead>
+<tr>
+<th>开发板</th>
+<th>MCU 型号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RoboMaster 开发板 C 型</td>
+<td>STM32F407IGH6</td>
+</tr>
+<tr>
+<td>达妙科技 DM-MC02</td>
+<td>STM32F723VGT6</td>
+</tr>
+</tbody>
+</table>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="STM32 型号命名规则图解（家族/功能/闪存/封装/版本等字段），并标注队内两块板的 MCU：STM32F407IGH6 与 STM32F723VGT6" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-02-p07.DMHsHKBf_1GO8mV.webp"></nayuta-image></div>
 <p><strong>拿到开发板第一件事：找开发板原理图或 PCB（Printed Circuit Board）图。</strong> 硬件上 PCB 把芯片引脚与各种外设（Peripheral）连接；软件上要根据硬件引脚配置来设置芯片引脚功能，才能写程序。</p>
 <h3 id="22-编译烧录与开发流程">2.2 编译、烧录与开发流程</h3>
 <p>Python、C、C++ 等高级语言不能直接在单片机执行，需要<strong>编译</strong>成机器语言可执行文件——C 语言执行效率高、代码精简，是最适合单片机开发的高级语言。编译得到的可执行文件存在电脑上，再<strong>烧录</strong>到单片机；烧录分有线和无线，队内一般用正点原子烧录器无线烧录。</p>
 <p>电控开发循环六步：</p>
 <ol>
-<li>
-<p>提出某项功能或改进；</p>
-</li>
-<li>
-<p>根据原理图进行引脚配置；</p>
-</li>
-<li>
-<p>使用 C 或 C++ 编写代码；</p>
-</li>
-<li>
-<p>编译，把代码转换为二进制可执行文件；</p>
-</li>
-<li>
-<p>烧录，将二进制文件传输到单片机上；</p>
-</li>
-<li>
-<p>调试，观察预期功能是否实现，寻找改进空间（回到第 1 步迭代）。</p>
-</li>
+<li>提出某项功能或改进；</li>
+<li>根据原理图进行引脚配置；</li>
+<li>使用 C 或 C++ 编写代码；</li>
+<li>编译，把代码转换为二进制可执行文件；</li>
+<li>烧录，将二进制文件传输到单片机上；</li>
+<li>调试，观察预期功能是否实现，寻找改进空间（回到第 1 步迭代）。</li>
 </ol>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="电控开发六步闭环：提出功能→按原理图配置引脚→写代码→编译二进制→烧录→调试，调试后回流改进" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-02-p10.Ctd5x6m4_Z12JYp3.webp"></nayuta-image></div>
 <p>原理图上常见简写（接线时用，有印象即可）：</p>
-<p>| 简写 | 含义 | 说明 |</p>
-<p>|---|---|---|</p>
-<p>| GND | ground | 地线，默认 0V |</p>
-<p>| RST | reset | 复位电平，拉高/拉低使设备复位 |</p>
-<p>| CLK | clock | 时钟信号，像人的心跳脉搏，频率越高工作越快 |</p>
-<p>| Peripheral | 外部设备 | 除 MCU 外基本都叫外设，如各种传感器 |</p>
-<p>| VCC | 电路工作高电压 | c = circuit / collector |</p>
-<p>| VDD | 器件工作高电压 | d = device / drain |</p>
-<p>| VEE | 器件工作低/负电压 | e = electronic / emitter |</p>
-<p>| VSS | 公共低电压（一般 0V） | s = series / source |</p>
+<table>
+<thead>
+<tr>
+<th>简写</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GND</td>
+<td>ground</td>
+<td>地线，默认 0V</td>
+</tr>
+<tr>
+<td>RST</td>
+<td>reset</td>
+<td>复位电平，拉高/拉低使设备复位</td>
+</tr>
+<tr>
+<td>CLK</td>
+<td>clock</td>
+<td>时钟信号，像人的心跳脉搏，频率越高工作越快</td>
+</tr>
+<tr>
+<td>Peripheral</td>
+<td>外部设备</td>
+<td>除 MCU 外基本都叫外设，如各种传感器</td>
+</tr>
+<tr>
+<td>VCC</td>
+<td>电路工作高电压</td>
+<td>c = circuit / collector</td>
+</tr>
+<tr>
+<td>VDD</td>
+<td>器件工作高电压</td>
+<td>d = device / drain</td>
+</tr>
+<tr>
+<td>VEE</td>
+<td>器件工作低/负电压</td>
+<td>e = electronic / emitter</td>
+</tr>
+<tr>
+<td>VSS</td>
+<td>公共低电压（一般 0V）</td>
+<td>s = series / source</td>
+</tr>
+</tbody>
+</table>
 <h3 id="23-stm32cubemx图形化配置并生成工程">2.3 STM32CubeMX：图形化配置并生成工程</h3>
 <p>引脚配置重复性强，<strong>STM32CubeMX</strong> 专门用于 STM32 芯片的引脚配置，可以帮我们生成基本的 C 代码项目工程，之后只在这个工程上开发。流程：初始界面 → 选择芯片 → 工程配置界面 → 配置时钟树 → 项目生成（Toolchain 选 CMake）。</p>
 <h3 id="24-理论一时钟与时序">2.4 理论一：时钟与时序</h3>
 <ul>
-<li>
-<p><strong>时钟是什么</strong>：固定时间周期的信号，程序运行需要先后顺序（时序），时钟用来提供时序，相当于人的心脏和脉搏；单片机每收到一个时钟信号就运算一次，<strong>时钟频率决定运行性能</strong>。</p>
-</li>
-<li>
-<p><strong>时钟从哪里来</strong>：石英晶体做成的**晶振（Crystal/ceramic resonator）**受激励产生周期电信号；内部 RC 振荡电路也能提供时钟（时序不稳定、容易出错）；还有 Bypass clock source（旁路，由外部设备主动给出，不经内部驱动）。</p>
-</li>
-<li>
-<p><strong>分类</strong>：按源在芯片内/外分内部 I / 外部 E；按频率分高速 HS（给定时器、UART、ADC 等外设）与低速 LS（给实时时钟 RTC 等）。</p>
-</li>
-<li>
-<p><strong>时钟树</strong>：基本时钟信号经 MCU 内部倍频、分频得到不同频率的子时钟，分别供给不同设备；按需配置，一般性能拉满。</p>
-</li>
+<li><strong>时钟是什么</strong>：固定时间周期的信号，程序运行需要先后顺序（时序），时钟用来提供时序，相当于人的心脏和脉搏；单片机每收到一个时钟信号就运算一次，<strong>时钟频率决定运行性能</strong>。</li>
+<li><strong>时钟从哪里来</strong>：石英晶体做成的**晶振（Crystal/ceramic resonator）**受激励产生周期电信号；内部 RC 振荡电路也能提供时钟（时序不稳定、容易出错）；还有 Bypass clock source（旁路，由外部设备主动给出，不经内部驱动）。</li>
+<li><strong>分类</strong>：按源在芯片内/外分内部 I / 外部 E；按频率分高速 HS（给定时器、UART、ADC 等外设）与低速 LS（给实时时钟 RTC 等）。</li>
+<li><strong>时钟树</strong>：基本时钟信号经 MCU 内部倍频、分频得到不同频率的子时钟，分别供给不同设备；按需配置，一般性能拉满。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="CubeMX 时钟树配置界面：HSE 经 Main PLL 倍频分频得到 SYSCLK 168MHz，再分发到 AHB/APB 各总线外设时钟" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-02-p17.CaSKTX5a_1mjQDz.webp"></nayuta-image></div>
 <h3 id="25-理论二gpio-八种模式">2.5 理论二：GPIO 八种模式</h3>
 <p><strong>GPIO</strong>（General Purpose Input Output，通用输入输出端口）是 MCU 与外部元件沟通的接触点，一般沟通电压信息；芯片上大部分引脚都是 GPIO，工作模式和电压高低都可编程控制。共 8 种模式：</p>
 <p><strong>四种输入模式</strong>：</p>
-<p>| 模式 | 特点 | 无输入时读到的电平 |</p>
-<p>|---|---|---|</p>
-<p>| 上拉输入 | 内部等效接一个大电阻到高电平 | 高电平 |</p>
-<p>| 下拉输入 | 内部等效接一个大电阻到低电平 | 低电平 |</p>
-<p>| 浮空输入 | 不接上拉/下拉电阻，电平悬而不定 | 0~3.3V 之间任意值 |</p>
-<p>| 模拟输入 | 读取连续时间连续值的模拟信号（经 ADC 转成离散数字量） | — |</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>特点</th>
+<th>无输入时读到的电平</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上拉输入</td>
+<td>内部等效接一个大电阻到高电平</td>
+<td>高电平</td>
+</tr>
+<tr>
+<td>下拉输入</td>
+<td>内部等效接一个大电阻到低电平</td>
+<td>低电平</td>
+</tr>
+<tr>
+<td>浮空输入</td>
+<td>不接上拉/下拉电阻，电平悬而不定</td>
+<td>0~3.3V 之间任意值</td>
+</tr>
+<tr>
+<td>模拟输入</td>
+<td>读取连续时间连续值的模拟信号（经 ADC 转成离散数字量）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="GPIO 四种输入模式：上拉（无输入读高）、下拉（无输入读低）、浮空（电平未定）、模拟输入（读连续模拟信号）" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-02-p26.BaxnjGnR_SKoYi.webp"></nayuta-image></div>
 <p><strong>四种输出模式</strong>：</p>
-<p>| 模式 | 驱动能力 | 要点 |</p>
-<p>|---|---|---|</p>
-<p>| 推挽输出 | 高低电平驱动能力都强 | 「宁折不弯」，推挽高低电平相遇会烧坏 |</p>
-<p>| 开漏输出 | 低电平强、高电平弱 | 高电平靠外接上拉电阻实现；跳变速度取决于上拉电阻，电阻越小越快；「墙头草」，开漏高低相遇会变低 |</p>
-<p>| 复用推挽输出 | — | 把引脚绑定到 MCU 内某特定外设功能输出 |</p>
-<p>| 复用开漏输出 | — | 同上，开漏形式 |</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>驱动能力</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>推挽输出</td>
+<td>高低电平驱动能力都强</td>
+<td>「宁折不弯」，推挽高低电平相遇会烧坏</td>
+</tr>
+<tr>
+<td>开漏输出</td>
+<td>低电平强、高电平弱</td>
+<td>高电平靠外接上拉电阻实现；跳变速度取决于上拉电阻，电阻越小越快；「墙头草」，开漏高低相遇会变低</td>
+</tr>
+<tr>
+<td>复用推挽输出</td>
+<td>—</td>
+<td>把引脚绑定到 MCU 内某特定外设功能输出</td>
+</tr>
+<tr>
+<td>复用开漏输出</td>
+<td>—</td>
+<td>同上，开漏形式</td>
+</tr>
+</tbody>
+</table>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="GPIO 输出模式：推挽高低都强、相遇烧坏；开漏低强高弱靠外接上拉；复用推挽/开漏用于绑定外设功能" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-02-p27.CXoanBRW_Z1AytmV.webp"></nayuta-image></div>
 <h3 id="26-实操一点亮-ledgpio-输出">2.6 实操一：点亮 LED（GPIO 输出）</h3>
 <p>CubeMX 操作步骤：</p>
 <ol>
-<li>
-<p>新建工程，按开发板说明书/原理图选 MCU 型号；</p>
-</li>
-<li>
-<p>配置时钟树：高速时钟选外部晶振作为时钟源，低速时钟可以不管；</p>
-</li>
-<li>
-<p>进行引脚配置：查看开发板原理图，搜索引脚并配置；</p>
-</li>
-<li>
-<p>生成项目文件，Toolchain 选 CMake；</p>
-</li>
-<li>
-<p>添加必要文件，用 VSCode 打开项目；</p>
-</li>
-<li>
-<p>在 <code>main.c</code> 中编写代码；</p>
-</li>
-<li>
-<p>F7 编译，<code>Ctrl+Shift+B</code> 烧录。</p>
-</li>
+<li>新建工程，按开发板说明书/原理图选 MCU 型号；</li>
+<li>配置时钟树：高速时钟选外部晶振作为时钟源，低速时钟可以不管；</li>
+<li>进行引脚配置：查看开发板原理图，搜索引脚并配置；</li>
+<li>生成项目文件，Toolchain 选 CMake；</li>
+<li>添加必要文件，用 VSCode 打开项目；</li>
+<li>在 <code>main.c</code> 中编写代码；</li>
+<li>F7 编译，<code>Ctrl+Shift+B</code> 烧录。</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"></span>
-<span class="line"><span style="color:#B392F0">HAL_GPIO_TogglePin</span><span style="color:#E1E4E8">(GPIOH, GPIO_PIN_10);</span><span style="color:#6A737D">                 // 引脚电平翻转</span></span>
-<span class="line"><span style="color:#B392F0">HAL_GPIO_WritePin</span><span style="color:#E1E4E8">(GPIOH, GPIO_PIN_10, GPIO_PIN_RESET);</span><span style="color:#6A737D">  // 引脚电平设为低电平</span></span>
-<span class="line"><span style="color:#B392F0">HAL_GPIO_WritePin</span><span style="color:#E1E4E8">(GPIOH, GPIO_PIN_10, GPIO_PIN_SET);</span><span style="color:#6A737D">     // 引脚电平设为高电平</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#B392F0">HAL_GPIO_TogglePin</span><span style="color:#E1E4E8">(GPIOH, GPIO_PIN_10);</span><span style="color:#6A737D">                 // 引脚电平翻转</span></span>
+<span class="line"><span style="color:#B392F0">HAL_GPIO_WritePin</span><span style="color:#E1E4E8">(GPIOH, GPIO_PIN_10, GPIO_PIN_RESET);</span><span style="color:#6A737D">  // 引脚电平设为低电平</span></span>
+<span class="line"><span style="color:#B392F0">HAL_GPIO_WritePin</span><span style="color:#E1E4E8">(GPIOH, GPIO_PIN_10, GPIO_PIN_SET);</span><span style="color:#6A737D">     // 引脚电平设为高电平</span></span>
 <span class="line"><span style="color:#B392F0">HAL_Delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">                                        // 延时函数</span></span></code></pre>
 <blockquote>
 <p>注意：自己的代码必须写在 CubeMX 标记的 <code>USER CODE BEGIN</code> 和 <code>USER CODE END</code> 之间，否则之后用 CubeMX 修改项目时代码会被删除。</p>
@@ -261,57 +346,43 @@
 <p><strong>定时器（Timer）<strong>对时钟信号的脉冲计数，计到一定数字就触发动作（改变 GPIO 电平、读取电压等）。用途：定时中断、输入捕获、输出比较、编码器接口、主从触发；本课用</strong>输出比较</strong>功能输出 PWM，定时中断下节课讲。</p>
 <p>三个关键寄存器：</p>
 <ol>
-<li>
-<p><strong>预分频器 PSC（Prescaler）</strong>：对输入时钟分频，把频率降低；</p>
-</li>
-<li>
-<p><strong>计数器 CNT（Counter）</strong>：开启后自动对 PSC 输出计数，计到最大值自动清零；</p>
-</li>
-<li>
-<p><strong>自动重装器 ARR（Auto-Reload Register）</strong>：存一个阈值，CNT 数到它就清零，不必非数到最大值。</p>
-</li>
+<li><strong>预分频器 PSC（Prescaler）</strong>：对输入时钟分频，把频率降低；</li>
+<li><strong>计数器 CNT（Counter）</strong>：开启后自动对 PSC 输出计数，计到最大值自动清零；</li>
+<li><strong>自动重装器 ARR（Auto-Reload Register）</strong>：存一个阈值，CNT 数到它就清零，不必非数到最大值。</li>
 </ol>
 <blockquote>
 <p>C 板 MCU 中 PSC 是 16 位，CNT 和 ARR 是 32 位，CubeMX 会提醒最大值。</p>
 </blockquote>
 <p>由于寄存器从 0 开始计数：</p>
-<p>$$</p>
-<p>\text{计数频率}=\frac{\text{输入频率}}{PSC+1},\qquad</p>
-<p>\text{溢出频率}=\frac{\text{计数频率}}{ARR+1}=\frac{\text{输入频率}}{(PSC+1)(ARR+1)}</p>
-<p>$$</p>
+<p>$$
+\text{计数频率}=\frac{\text{输入频率}}{PSC+1},\qquad
+\text{溢出频率}=\frac{\text{计数频率}}{ARR+1}=\frac{\text{输入频率}}{(PSC+1)(ARR+1)}
+$$</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="定时器三寄存器 PSC/CNT/ARR 与计数频率、溢出频率公式，下方为 CNT 从 0 计到 ARR 自动清零的锯齿波" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-02-p45.DB-p5nGV_vDBjS.webp"></nayuta-image></div>
 <p><strong>PWM（Pulse Width Modulation，脉冲宽度调制）</strong>：用数字信号输出「代替」模拟信号输出（不是转换）。数字信号只有 0/1 离散值，自然界光照、声音、电流多为连续模拟信号；读模拟信号靠 ADC（模数转换器），输出模拟信号靠 DAC（数模转换器），而 PWM 走的是另一条路。</p>
 <p>呼吸灯思路：LED 亮度取决于功率（电压、电流），但 LED 只有通电 5V / 不通电 0V 两种状态；利用人眼<strong>视觉暂留</strong>，通断电足够快时，亮的时间越久看起来越亮——控制时断时续信号的接通时间比例即可调节亮度，这就是 PWM。</p>
 <p>输出 PWM 的方法：CNT 计数时，在 ARR 和 0 之间选一个数字比较，低于它 GPIO 输出高电平、高于它输出低电平，调整这个数字就改变高电平占比。</p>
 <ul>
-<li>
-<p><strong>CCR（Capture/Compare Register，捕获/比较寄存器）</strong>：存这个比较数字；输出用比较功能，读取信号用捕获功能。</p>
-</li>
-<li>
-<p><strong>占空比</strong>：高电平占一个周期的时间比例，<strong>占空比 = CCR / ARR</strong>。</p>
-</li>
-<li>
-<p><strong>分辨率</strong>：占空比变化的最小间隔，CCR 最小变化为 1，ARR 越大每步占空比变化越小、调节越精细。</p>
-</li>
+<li><strong>CCR（Capture/Compare Register，捕获/比较寄存器）</strong>：存这个比较数字；输出用比较功能，读取信号用捕获功能。</li>
+<li><strong>占空比</strong>：高电平占一个周期的时间比例，<strong>占空比 = CCR / ARR</strong>。</li>
+<li><strong>分辨率</strong>：占空比变化的最小间隔，CCR 最小变化为 1，ARR 越大每步占空比变化越小、调节越精细。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="PWM 输出原理：CCR 红线与 CNT 锯齿波比较决定高低电平，占空比=CCR/ARR，下方为对应 PWM 波形" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-02-p48.B9WRJY9F_Z1FHDQ6.webp"></nayuta-image></div>
 <h3 id="28-实操二呼吸灯定时器输出-pwm">2.8 实操二：呼吸灯（定时器输出 PWM）</h3>
 <p>CubeMX 配置：查找原理图确定 LED 对应哪个定时器哪个通道 → Timers 中找到 TIM5 → 选 Internal Clock → 开启三个 Channel 的 PWM 输出 → Parameter Settings 中设置 PSC 和 ARR。计数模式有向上计数（0 加到最大值，实际最常用）、向下计数（最大值减到 0）、中心计数（加到最大再减到 0 循环）。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="CubeMX 中 TIM5 配置：Internal Clock，Channel1/2/3 选 PWM Generation，Parameter Settings 填 PSC 与 ARR" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-02-p52.sD7_vYPh_Z1kpB9z.webp"></nayuta-image></div>
 <p>生成项目用 VSCode 打开后，先启动 PWM 再不断刷新比较值：</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"></span>
-<span class="line"><span style="color:#B392F0">HAL_TIM_PWM_Start</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">&#x26;</span><span style="color:#FFAB70">htim5</span><span style="color:#E1E4E8">, TIM_CHANNEL_1);</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#B392F0">HAL_TIM_PWM_Start</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">&#x26;</span><span style="color:#FFAB70">htim5</span><span style="color:#E1E4E8">, TIM_CHANNEL_1);</span></span>
 <span class="line"><span style="color:#B392F0">__HAL_TIM_SetCompare</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">&#x26;</span><span style="color:#FFAB70">htim5</span><span style="color:#E1E4E8">, TIM_CHANNEL_1, TIM3_pwmVal);</span></span></code></pre>
 <p>呼吸灯代码思路：维护 <code>TIM3_pwmVal</code> 与方向 <code>TIM3_direction</code>，每隔约 50ms 让占空比增减，到边界翻转方向，持续调用 <code>__HAL_TIM_SetCompare</code> 修改通道占空比。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="呼吸灯代码：HAL_TIM_PWM_Start 启动通道，__HAL_TIM_SetCompare 刷新占空比，占空比到边界后反转方向" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-02-p53.4TxF81y6_1nDMVy.webp"></nayuta-image></div>
 <p><strong>知识拓展</strong>：PWM 调光利用系统惯性让离散信号 Cosplay 模拟信号；若有人眼能识别高速闪烁，则改用 MOS 管——G 极给连续可调电压控制 D/S 间电流大小来调亮度（DC 调光），需要 MCU 的 DAC 功能，可避免频闪（对比 PWM 调光与 DC 调光）。</p>
 <h3 id="29-git-与课后作业">2.9 Git 与课后作业</h3>
 <p>用 Git 新建仓库上传 GitHub 远程仓库：</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"></span>
-<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> --global</span><span style="color:#9ECBFF"> user.name</span><span style="color:#9ECBFF"> "xxxxxxxx"</span></span>
-<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> --global</span><span style="color:#9ECBFF"> user.email</span><span style="color:#9ECBFF"> xxxxxxxx@xxxxx.com</span></span>
-<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> --list</span><span style="color:#6A737D">          # 查看配置</span></span>
-<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> init</span><span style="color:#6A737D">                   # 本地仓库初始化</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> --global</span><span style="color:#9ECBFF"> user.name</span><span style="color:#9ECBFF"> "xxxxxxxx"</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> --global</span><span style="color:#9ECBFF"> user.email</span><span style="color:#9ECBFF"> xxxxxxxx@xxxxx.com</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> --list</span><span style="color:#6A737D">          # 查看配置</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> init</span><span style="color:#6A737D">                   # 本地仓库初始化</span></span>
 <span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> clone</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">远程Git仓库地</span><span style="color:#E1E4E8">址</span><span style="color:#F97583">></span><span style="color:#6A737D"> # 克隆远程仓库</span></span></code></pre>
 <p>其余命令可用 VSCode 图形化插件完成，或下载 GitHub Desktop 方便管理。</p>
 <p><strong>课后作业</strong>：课堂只做了 GPIO 点 LED；思考如何让红黄蓝三色 LED 组合出多种颜色循环（涉及定时器与 PWM）；查清 C 板无源蜂鸣器的引脚并让它响起来。课外推荐：江协科技【STM32入门教程-2023版】、中科大【RM 电控合集·电控入门导论】。</p>
@@ -321,45 +392,52 @@
 </blockquote>
 <h3 id="41-通信方式简介三层模型">4.1 通信方式简介：三层模型</h3>
 <p>拿「打电话」类比通信，任何通信都分三层：</p>
-<p>| 层次 | 对应打电话 | 工程含义 |</p>
-<p>|---|---|---|</p>
-<p>| 物理信号层 | 电话线 | 硬件电路 |</p>
-<p>| 链路传输层 | 声到电、电到声 | 通信协议 |</p>
-<p>| 应用数据层 | 聊天内容 | 传输数据主体 |</p>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>对应打电话</th>
+<th>工程含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>物理信号层</td>
+<td>电话线</td>
+<td>硬件电路</td>
+</tr>
+<tr>
+<td>链路传输层</td>
+<td>声到电、电到声</td>
+<td>通信协议</td>
+</tr>
+<tr>
+<td>应用数据层</td>
+<td>聊天内容</td>
+<td>传输数据主体</td>
+</tr>
+</tbody>
+</table>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="通信三层模型：物理信号层=硬件电路（电话线），链路传输层=通信协议（声电转换），应用数据层=传输数据主体（聊天内容）" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-03-p06.BwuDealG_1RDQeN.webp"></nayuta-image></div>
 <h3 id="42-uart-通信">4.2 UART 通信</h3>
 <p>UART（串口）接线要点：</p>
 <ul>
-<li>
-<p><strong>GND</strong>：提供参考电平，消除噪声；</p>
-</li>
-<li>
-<p><strong>RX ↔ TX 交叉连接</strong>：设备1 的 RXD 接设备2 的 TXD，反之亦然；</p>
-</li>
-<li>
-<p><strong>5V</strong>：给外设供电。</p>
-</li>
+<li><strong>GND</strong>：提供参考电平，消除噪声；</li>
+<li><strong>RX ↔ TX 交叉连接</strong>：设备1 的 RXD 接设备2 的 TXD，反之亦然；</li>
+<li><strong>5V</strong>：给外设供电。</li>
 </ul>
 <p>以 C 板排针为例，UART1 引脚线序：1=RXD、2=TXD、3=GND、4=5V；UART6：1=GND、2=TXD、3=RXD（以原理图为准）。</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="UART 接线：设备间 RXD-TXD 交叉、GND 相连、5V 供电，并给出 C 板 UART1/UART6 引脚线序" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-03-p10.HIfezjVx_Z7rSnL.webp"></nayuta-image></div>
 <h3 id="43-dmadirect-memory-access直接内存访问">4.3 DMA（Direct Memory Access，直接内存访问）</h3>
 <ul>
-<li>
-<p><strong>普通串口通信</strong>：外设寄存器收到字节后，由 CPU 中断取出再写入内存，CPU 被搬运动作占用。</p>
-</li>
-<li>
-<p><strong>DMA 串口通信</strong>：数据搬运完全交由 DMA 硬件控制器完成，CPU 可以专注于内存数据的存取。</p>
-</li>
+<li><strong>普通串口通信</strong>：外设寄存器收到字节后，由 CPU 中断取出再写入内存，CPU 被搬运动作占用。</li>
+<li><strong>DMA 串口通信</strong>：数据搬运完全交由 DMA 硬件控制器完成，CPU 可以专注于内存数据的存取。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="DMA 对比：普通串口由 CPU 中断取出字节写入内存，DMA 串口由 DMA 控制器完成搬运，CPU 专注数据存取" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-03-p12.Drcze8DV_ZJK87K.webp"></nayuta-image></div>
 <p><strong>传输速率两个定义</strong>：</p>
 <ul>
-<li>
-<p><strong>比特率</strong>（bit/s，bps）：每秒钟传输的二进制码元数量；</p>
-</li>
-<li>
-<p><strong>波特率</strong>（symbol/s）：每秒钟传输的有效信息码元数量。</p>
-</li>
+<li><strong>比特率</strong>（bit/s，bps）：每秒钟传输的二进制码元数量；</li>
+<li><strong>波特率</strong>（symbol/s）：每秒钟传输的有效信息码元数量。</li>
 </ul>
 <p>举例：CAN 通信中比特率 = 波特率（有效信息码元 = 对应二进制码元）；十六进制字符编码中，一秒传输 1000 个字符，则比特率 = 4000 bps，波特率 = 1000 symbol/s。</p>
 <h3 id="44-can-通信引入与硬件接线">4.4 CAN 通信引入与硬件接线</h3>
@@ -368,49 +446,38 @@
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="实车接线照片：6020 电机、分电板、C 板（开发板）、电池，电机与 C 板之间以 CAN 线相连" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-03-p17.BXmOl5i0_1lYiR2.webp"></nayuta-image></div>
 <p>接线方式：</p>
 <ul>
-<li>
-<p><strong>电源</strong>：VCC 接电池正极，GND 接电池负极；</p>
-</li>
-<li>
-<p><strong>CAN 线</strong>：CAN_H（电机/电调）——CAN_H（单片机），CAN_L（电机/电调）——CAN_L（单片机）。以 GM6020 为例，背面有 CAN、24V、PWM 三组接口。</p>
-</li>
+<li><strong>电源</strong>：VCC 接电池正极，GND 接电池负极；</li>
+<li><strong>CAN 线</strong>：CAN_H（电机/电调）——CAN_H（单片机），CAN_L（电机/电调）——CAN_L（单片机）。以 GM6020 为例，背面有 CAN、24V、PWM 三组接口。</li>
 </ul>
 <h3 id="45-can-接线注意事项">4.5 CAN 接线注意事项</h3>
 <ol>
-<li>
-<p><strong>总线接法</strong>：CAN_H——CAN_H，CAN_L——CAN_L，不能交叉；</p>
-</li>
-<li>
-<p><strong>终端电阻</strong>：CAN_H 与 CAN_L 通过 60 欧终端电阻（2 个 120 欧并联）连接在一起，防止信号不稳定；</p>
-</li>
-<li>
-<p><strong>总线负载健康</strong>：经典 CAN 协议最高只有 1 Mbps 波特率，一条总线上单位时间要传的信息过多就容易丢包（可用社区 CAN 负载计算器评估）。</p>
-</li>
+<li><strong>总线接法</strong>：CAN_H——CAN_H，CAN_L——CAN_L，不能交叉；</li>
+<li><strong>终端电阻</strong>：CAN_H 与 CAN_L 通过 60 欧终端电阻（2 个 120 欧并联）连接在一起，防止信号不稳定；</li>
+<li><strong>总线负载健康</strong>：经典 CAN 协议最高只有 1 Mbps 波特率，一条总线上单位时间要传的信息过多就容易丢包（可用社区 CAN 负载计算器评估）。</li>
 </ol>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="CAN 接线注意事项：H-H/L-L 总线接法、60欧终端电阻（2×120欧并联）、经典 CAN 最高 1Mbps 防丢包" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-03-p21.BFgTEW8o_1AM86P.webp"></nayuta-image></div>
 <h3 id="46-can-软件流程与代码">4.6 CAN 软件流程与代码</h3>
 <p>发送侧闭环：CAN 初始化（配置滤波器 + 调用 HAL 库启动 CAN 模块）→ 将目标扭矩转换为发给电机的报文 → 把数据打包成 CAN 帧 → 发送 CAN 帧；接收侧在 CAN 中断回调函数中接收 CAN 帧，把反馈报文转换为电机温度、码盘值、转速等信息。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"></span>
-<span class="line"><span style="color:#F97583">extern</span><span style="color:#9ECBFF"> "C"</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> can_task</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#E1E4E8">    can1.</span><span style="color:#B392F0">config</span><span style="color:#E1E4E8">();</span><span style="color:#6A737D">          // CAN 初始化：配置滤波器</span></span>
-<span class="line"><span style="color:#E1E4E8">    can1.</span><span style="color:#B392F0">start</span><span style="color:#E1E4E8">();</span><span style="color:#6A737D">           // 调用 HAL 库启动 CAN 模块</span></span>
-<span class="line"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#E1E4E8">        motor6020.</span><span style="color:#B392F0">cmd</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0.1</span><span style="color:#F97583">f</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">            // 目标扭矩转换为发给电机的报文</span></span>
-<span class="line"><span style="color:#E1E4E8">        motor6020.</span><span style="color:#B392F0">write</span><span style="color:#E1E4E8">(can1.tx_data);</span><span style="color:#6A737D">  // 将数据打包成 CAN 帧</span></span>
-<span class="line"><span style="color:#E1E4E8">        can1.</span><span style="color:#B392F0">send</span><span style="color:#E1E4E8">(motor6020.tx_id);</span><span style="color:#6A737D">     // 发送 CAN 帧</span></span>
-<span class="line"><span style="color:#B392F0">        osDelay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"><span style="color:#E1E4E8"></span></span>
-<span class="line"><span style="color:#F97583">extern</span><span style="color:#9ECBFF"> "C"</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> HAL_CAN_RxFifo0MsgPendingCallback</span><span style="color:#E1E4E8">(CAN_HandleTypeDef </span><span style="color:#F97583">*</span><span style="color:#FFAB70">hcan</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#E1E4E8">    auto stamp_ms </span><span style="color:#F97583">=</span><span style="color:#B392F0"> osKernelSysTick</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">HAL_CAN_GetRxFifoFillLevel</span><span style="color:#E1E4E8">(hcan, CAN_RX_FIFO0) </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (hcan </span><span style="color:#F97583">==</span><span style="color:#F97583"> &#x26;</span><span style="color:#E1E4E8">hcan1) {</span></span>
-<span class="line"><span style="color:#E1E4E8">            can1.</span><span style="color:#B392F0">recv</span><span style="color:#E1E4E8">();</span><span style="color:#6A737D">                                   // 接收 CAN 帧</span></span>
-<span class="line"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> (can1.rx_id </span><span style="color:#F97583">==</span><span style="color:#E1E4E8"> motor6020.rx_id)</span></span>
-<span class="line"><span style="color:#E1E4E8">                motor6020.</span><span style="color:#B392F0">read</span><span style="color:#E1E4E8">(can1.rx_data, stamp_ms);</span><span style="color:#6A737D">    // 解包温度/码盘值/转速</span></span>
-<span class="line"><span style="color:#E1E4E8">        }</span></span>
-<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">extern</span><span style="color:#9ECBFF"> "C"</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> can_task</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">    can1.</span><span style="color:#B392F0">config</span><span style="color:#E1E4E8">();</span><span style="color:#6A737D">          // CAN 初始化：配置滤波器</span></span>
+<span class="line"><span style="color:#E1E4E8">    can1.</span><span style="color:#B392F0">start</span><span style="color:#E1E4E8">();</span><span style="color:#6A737D">           // 调用 HAL 库启动 CAN 模块</span></span>
+<span class="line"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#E1E4E8">        motor6020.</span><span style="color:#B392F0">cmd</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0.1</span><span style="color:#F97583">f</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">            // 目标扭矩转换为发给电机的报文</span></span>
+<span class="line"><span style="color:#E1E4E8">        motor6020.</span><span style="color:#B392F0">write</span><span style="color:#E1E4E8">(can1.tx_data);</span><span style="color:#6A737D">  // 将数据打包成 CAN 帧</span></span>
+<span class="line"><span style="color:#E1E4E8">        can1.</span><span style="color:#B392F0">send</span><span style="color:#E1E4E8">(motor6020.tx_id);</span><span style="color:#6A737D">     // 发送 CAN 帧</span></span>
+<span class="line"><span style="color:#B392F0">        osDelay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">extern</span><span style="color:#9ECBFF"> "C"</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> HAL_CAN_RxFifo0MsgPendingCallback</span><span style="color:#E1E4E8">(CAN_HandleTypeDef </span><span style="color:#F97583">*</span><span style="color:#FFAB70">hcan</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#E1E4E8">    auto stamp_ms </span><span style="color:#F97583">=</span><span style="color:#B392F0"> osKernelSysTick</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">HAL_CAN_GetRxFifoFillLevel</span><span style="color:#E1E4E8">(hcan, CAN_RX_FIFO0) </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (hcan </span><span style="color:#F97583">==</span><span style="color:#F97583"> &#x26;</span><span style="color:#E1E4E8">hcan1) {</span></span>
+<span class="line"><span style="color:#E1E4E8">            can1.</span><span style="color:#B392F0">recv</span><span style="color:#E1E4E8">();</span><span style="color:#6A737D">                                   // 接收 CAN 帧</span></span>
+<span class="line"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> (can1.rx_id </span><span style="color:#F97583">==</span><span style="color:#E1E4E8"> motor6020.rx_id)</span></span>
+<span class="line"><span style="color:#E1E4E8">                motor6020.</span><span style="color:#B392F0">read</span><span style="color:#E1E4E8">(can1.rx_data, stamp_ms);</span><span style="color:#6A737D">    // 解包温度/码盘值/转速</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="CAN 代码流程：发送侧 config/start→cmd→write→send；接收侧中断回调 recv→read，解包温度、码盘值、转速" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-03-p25.3OcfaegH_ZV2lLV.webp"></nayuta-image></div>
 <h3 id="47-can-链路传输层与-id-仲裁">4.7 CAN 链路传输层与 ID 仲裁</h3>
@@ -430,145 +497,181 @@
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="闭环控制框图：测量元件把输出反馈给控制装置；车上电机速度反馈回 C 板形成闭环" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-04-p05.Ds-5G5V0_4Jk9e.webp"></nayuta-image></div>
 <h3 id="52-离散-pid-公式与-p--i--d">5.2 离散 PID 公式与 P / I / D</h3>
 <p>位置式离散 PID 控制量：</p>
-<p>$$</p>
-<p>u(k)=K_P\cdot e(k)+K_I\cdot\sum_{i=0}e(i)+K_D\cdot[e(k)-e(k-1)]</p>
-<p>$$</p>
+<p>$$
+u(k)=K_P\cdot e(k)+K_I\cdot\sum_{i=0}e(i)+K_D\cdot[e(k)-e(k-1)]
+$$</p>
 <p>其中 $e(k)$ 是当前误差，$K_P$、$K_I$、$K_D$ 分别为比例、积分、微分增益；$dt$ 是循环周期，要分清离散与连续。</p>
-<p>| 环节 | 英文 | 功能 | 效果 |</p>
-<p>|---|---|---|---|</p>
-<p>| <strong>P 比例</strong> | Proportion | 基于<strong>当前误差</strong>计算控制输入，误差越大控制输入越大 | 快速减小误差，但通常留下一个稳态误差 |</p>
-<p>| <strong>I 积分/累加</strong> | Integrate | 基于<strong>误差累积值</strong>计算控制输入 | 消除长期稳态误差，但可能响应变慢、超调 |</p>
-<p>| <strong>D 微分/差分</strong> | Differential | 基于<strong>误差变化率</strong>计算输入，预测误差趋势提前调整 | 减小超调和振荡，但可能响应变慢 |</p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>英文</th>
+<th>功能</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P 比例</strong></td>
+<td>Proportion</td>
+<td>基于<strong>当前误差</strong>计算控制输入，误差越大控制输入越大</td>
+<td>快速减小误差，但通常留下一个稳态误差</td>
+</tr>
+<tr>
+<td><strong>I 积分/累加</strong></td>
+<td>Integrate</td>
+<td>基于<strong>误差累积值</strong>计算控制输入</td>
+<td>消除长期稳态误差，但可能响应变慢、超调</td>
+</tr>
+<tr>
+<td><strong>D 微分/差分</strong></td>
+<td>Differential</td>
+<td>基于<strong>误差变化率</strong>计算输入，预测误差趋势提前调整</td>
+<td>减小超调和振荡，但可能响应变慢</td>
+</tr>
+</tbody>
+</table>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="离散 PID 总公式与 P 比例：Kp·e(k) 基于当前误差，误差越大输出越大，可快速消差但留有稳态误差" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-04-p07.Dvq7vbLw_2nFfiv.webp"></nayuta-image></div>
 <h3 id="53-改进积分梯形积分与动态积分">5.3 改进积分：梯形积分与动态积分</h3>
 <p>积分环节的累积误差可能导致<strong>积分饱和</strong>，课件给出两种缓解办法。</p>
 <p><strong>梯形积分（Trapezoid）</strong>：用梯形面积代替矩形积分，减小饱和风险。$t_{now}$、$t_{last}$ 为当前/上一时刻，$e(t)$、$e(t-1)$ 为当前/上一时刻误差：</p>
-<p>$$</p>
-<p>I_{out}=\frac{1}{2}K_i(t_{now}-t_{last})\times(e(t)-e(t-1))</p>
-<p>$$</p>
+<p>$$
+I_{out}=\frac{1}{2}K_i(t_{now}-t_{last})\times(e(t)-e(t-1))
+$$</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="梯形积分公式与曲线下梯形分割示意，以梯形面积代替矩形积分减小积分饱和风险" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-04-p13.BkWOwv0I_Zm2jfP.webp"></nayuta-image></div>
 <p><strong>动态积分（Dynamic）</strong>：动态调节积分增益本身来减小饱和风险：</p>
-<p>$$</p>
-<p>K_i(t)=K_i\frac{1}{1+e(t)}</p>
-<p>$$</p>
+<p>$$
+K_i(t)=K_i\frac{1}{1+e(t)}
+$$</p>
 <h3 id="54-微分先行">5.4 微分先行</h3>
 <p>指令频繁升降的场合，直接对给定指令微分对结果影响很大。<strong>微分先行 PID</strong> 中只对输出量（测量值 $ref$）微分，不对给定指令 $set$ 微分。误差定义 $e(t)=set-ref$，微分输出：</p>
-<p>$$</p>
-<p>D_{out}=K_d\frac{de(t)}{dt}=K_d\frac{d(set)}{dt}+K_d\frac{d(ref)}{dt}</p>
-<p>$$</p>
+<p>$$
+D_{out}=K_d\frac{de(t)}{dt}=K_d\frac{d(set)}{dt}+K_d\frac{d(ref)}{dt}
+$$</p>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="微分先行：误差 e(t)=set-ref，只对测量输出量微分，附比例/积分/微分调节与测量元件的 PID 闭环框图" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-04-p15.DAmEvWkq_Z13QE91.webp"></nayuta-image></div>
 <h3 id="55-双环串级-pid">5.5 双环串级 PID</h3>
 <ul>
-<li>
-<p><strong>单速度环（单环位置环）</strong>：期望位置与当前位置比较得位置误差 → PID → 控制器输出 → 驱动器（电调）→ 电流 → 电机 → 转速 → 速度 → 位置，位置反馈回输入端。</p>
-</li>
-<li>
-<p><strong>双环（串级）</strong>：期望位置先进「合适的速度变化曲线」（结合当前位置）得到目标速度，再由速度环与当前速度比较 → PID → 电调；即<strong>外环位置环、内环速度环</strong>，实现从目标速度到目标位置的控制。</p>
-</li>
+<li><strong>单速度环（单环位置环）</strong>：期望位置与当前位置比较得位置误差 → PID → 控制器输出 → 驱动器（电调）→ 电流 → 电机 → 转速 → 速度 → 位置，位置反馈回输入端。</li>
+<li><strong>双环（串级）</strong>：期望位置先进「合适的速度变化曲线」（结合当前位置）得到目标速度，再由速度环与当前速度比较 → PID → 电调；即<strong>外环位置环、内环速度环</strong>，实现从目标速度到目标位置的控制。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:1440 / 810;--ny-image-width:1440px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="单速度环与双环串级对比：单环直接位置误差进 PID；双环先由期望位置生成合适速度曲线，速度环比较当前速度后再进 PID" loading="lazy" decoding="async" width="1440" height="810" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-04-p18.CzYM_ns7_Z1XUNaC.webp"></nayuta-image></div>
 <h3 id="56-现场调试经验">5.6 现场调试经验</h3>
 <ol>
-<li>
-<p>写代码先写 down（失能），确保任何时刻都能断电；</p>
-</li>
-<li>
-<p>固定好电机，不然会起飞；</p>
-</li>
-<li>
-<p>关注报错信息，学会用百度和 AI；</p>
-</li>
-<li>
-<p>使用 plot（SerialPlot）观察自己的代码曲线；</p>
-</li>
-<li>
-<p>debug 的时候不要烧录，并且要 down 之后再退出调试；</p>
-</li>
-<li>
-<p>注意注释、代码规范、commit 规范。</p>
-</li>
+<li>写代码先写 down（失能），确保任何时刻都能断电；</li>
+<li>固定好电机，不然会起飞；</li>
+<li>关注报错信息，学会用百度和 AI；</li>
+<li>使用 plot（SerialPlot）观察自己的代码曲线；</li>
+<li>debug 的时候不要烧录，并且要 down 之后再退出调试；</li>
+<li>注意注释、代码规范、commit 规范。</li>
 </ol>
 <h2 id="附电控组大作业">附：电控组大作业</h2>
 <h3 id="任务总览与实验室安排">任务总览与实验室安排</h3>
 <ul>
-<li>
-<p>地点：同济大学嘉定校区机械与能源学院（开物馆），找不到可私信 QQ 群内任意电控带路；国庆期间每天有值班电控，前一天 QQ 群接龙统计人数；<strong>10 月 3 日麦轮步兵另有活动暂不可用</strong>。</p>
-</li>
-<li>
-<p>纪律：实验后关闭遥控器和电池，每天试验结束、临时离开都要关电源，违规酌情扣分。</p>
-</li>
+<li>地点：同济大学嘉定校区机械与能源学院（开物馆），找不到可私信 QQ 群内任意电控带路；国庆期间每天有值班电控，前一天 QQ 群接龙统计人数；<strong>10 月 3 日麦轮步兵另有活动暂不可用</strong>。</li>
+<li>纪律：实验后关闭遥控器和电池，每天试验结束、临时离开都要关电源，违规酌情扣分。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:893 / 1262;--ny-image-width:893px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="大作业地点地图（嘉定机械与能源学院/开物馆）与任务一蜂鸣器要求" loading="lazy" decoding="async" width="893" height="1262" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-05-p01.I2cZMopt_Z2ilgJk.webp"></nayuta-image></div>
 <h3 id="五个任务与分值">五个任务与分值</h3>
-<p>| 任务 | 分值 | 要求要点 |</p>
-<p>|---|---|---|</p>
-<p>| 任务一 蜂鸣器 | 15 分 | 上电后用 PWM 控制蜂鸣器响一次，每次复位/烧录/上电都响（5 分）；设计两种不同报错音调（如不同歌曲），按音调质量给分（最高 10 分） |</p>
-<p>| 任务二 LED 流水灯 | 5 分 | 上电后 LED 以流水灯方式持续闪烁（顺序不限），用 PWM 驱动，LED 作为一个 FreeRTOS 任务 |</p>
-<p>| 任务三 舵机 | 10 分 | PWM 驱动舵机，上电后 1 秒转动 45°、从 0° 转到 180°（FreeRTOS 任务） |</p>
-<p>| 任务四 麦轮底盘 | 50 分 | 遥控器操控 + PID 走直线 + 功率控制 + 自定义电容策略（详见下） |</p>
-<p>| 任务五 GitHub 存储 | 5 分 | 代码存入自己 GitHub 仓库，按 commit 规范、按时间规律提交 |</p>
-<p>| 代码规范 | 5 分 | 简洁高效、命名规范、无报错可运行、架构清晰、缩进正确 |</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>分值</th>
+<th>要求要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>任务一 蜂鸣器</td>
+<td>15 分</td>
+<td>上电后用 PWM 控制蜂鸣器响一次，每次复位/烧录/上电都响（5 分）；设计两种不同报错音调（如不同歌曲），按音调质量给分（最高 10 分）</td>
+</tr>
+<tr>
+<td>任务二 LED 流水灯</td>
+<td>5 分</td>
+<td>上电后 LED 以流水灯方式持续闪烁（顺序不限），用 PWM 驱动，LED 作为一个 FreeRTOS 任务</td>
+</tr>
+<tr>
+<td>任务三 舵机</td>
+<td>10 分</td>
+<td>PWM 驱动舵机，上电后 1 秒转动 45°、从 0° 转到 180°（FreeRTOS 任务）</td>
+</tr>
+<tr>
+<td>任务四 麦轮底盘</td>
+<td>50 分</td>
+<td>遥控器操控 + PID 走直线 + 功率控制 + 自定义电容策略（详见下）</td>
+</tr>
+<tr>
+<td>任务五 GitHub 存储</td>
+<td>5 分</td>
+<td>代码存入自己 GitHub 仓库，按 commit 规范、按时间规律提交</td>
+</tr>
+<tr>
+<td>代码规范</td>
+<td>5 分</td>
+<td>简洁高效、命名规范、无报错可运行、架构清晰、缩进正确</td>
+</tr>
+</tbody>
+</table>
 <p>任务四遥控器挡位表（右拨杆下档 = 全部电机失能，安全位）：</p>
-<p>| 操作 | 右拨杆下档 | 右拨杆中档 |</p>
-<p>|---|---|---|</p>
-<p>| 左摇杆前后 | 全部电机失能 | 底盘前后移动 |</p>
-<p>| 左摇杆左右 | 全部电机失能 | 底盘左右移动 |</p>
-<p>| 右摇杆前后 | 全部电机失能 | 底盘向左转（2 rad/s） |</p>
-<p>| 右摇杆左右 | 全部电机失能 | 底盘向右转（2 rad/s） |</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>右拨杆下档</th>
+<th>右拨杆中档</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>左摇杆前后</td>
+<td>全部电机失能</td>
+<td>底盘前后移动</td>
+</tr>
+<tr>
+<td>左摇杆左右</td>
+<td>全部电机失能</td>
+<td>底盘左右移动</td>
+</tr>
+<tr>
+<td>右摇杆前后</td>
+<td>全部电机失能</td>
+<td>底盘向左转（2 rad/s）</td>
+</tr>
+<tr>
+<td>右摇杆左右</td>
+<td>全部电机失能</td>
+<td>底盘向右转（2 rad/s）</td>
+</tr>
+</tbody>
+</table>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:893 / 1262;--ny-image-width:893px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="任务二/三/四要求与遥控器挡位表：下档全失能，中档前后/左右平移、左右转 2rad/s" loading="lazy" decoding="async" width="893" height="1262" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-05-p02.CrfsicHn_Z2kLWv1.webp"></nayuta-image></div>
 <p>任务四评分细项：</p>
 <ul>
-<li>
-<p><strong>a. 基本运动 + 走直线（25 分）</strong>：底盘基本运动功能 10 分；移动需沿直线 10 分，走不直或震荡说明要调 PID；调 PID 时用 SerialPlot 打印电机数据，检查能否成功打印并调试（5 分）。</p>
-</li>
-<li>
-<p><strong>b. 功率控制（10 分）</strong>：比赛底盘功率受等级限制，需预测功率，在超功率之前限制电机电流，运动时所有状态均不超功率。</p>
-</li>
-<li>
-<p><strong>c. 自定义电容策略（最高 15 分）</strong>：可利用右拨杆上档与左右摇杆结合设计，写清遥控器挡位设计原则；电容使用时和用尽时无论怎么操作均不超功率。</p>
-</li>
-<li>
-<p>验收会提问：理解电机的<strong>转速、转矩、减速比的计算和单位转换</strong>。</p>
-</li>
+<li><strong>a. 基本运动 + 走直线（25 分）</strong>：底盘基本运动功能 10 分；移动需沿直线 10 分，走不直或震荡说明要调 PID；调 PID 时用 SerialPlot 打印电机数据，检查能否成功打印并调试（5 分）。</li>
+<li><strong>b. 功率控制（10 分）</strong>：比赛底盘功率受等级限制，需预测功率，在超功率之前限制电机电流，运动时所有状态均不超功率。</li>
+<li><strong>c. 自定义电容策略（最高 15 分）</strong>：可利用右拨杆上档与左右摇杆结合设计，写清遥控器挡位设计原则；电容使用时和用尽时无论怎么操作均不超功率。</li>
+<li>验收会提问：理解电机的<strong>转速、转矩、减速比的计算和单位转换</strong>。</li>
 </ul>
 <h3 id="底盘数据与注意事项">底盘数据与注意事项</h3>
 <ul>
-<li>
-<p>麦轮直径 154mm，麦轮横向间距 370mm，纵向间距 330mm；</p>
-</li>
-<li>
-<p>四个电机均为减速比 14.9 的 RM3508，电机 id 自行查看电调绿灯灯效，结合 C620 电调说明书与电机说明书查询；</p>
-</li>
-<li>
-<p>预测功率由自己编写公式得出，实际功率通过 <code>sp_middleware</code> 的超级电容模块类（<code>supercap</code>）获取，自行阅读类思考计算方式；</p>
-</li>
-<li>
-<p>电容作用：底盘功率高于裁判系统限制功率时补充额外功率，模式只用 AUTOMODE；</p>
-</li>
-<li>
-<p>调 PID 时给总输出和各项输出<strong>限幅</strong>，否则可能损坏机械结构；功率上限在 <code>pm02</code> 类中自行查询；</p>
-</li>
-<li>
-<p>控制电机前先确保遥控器下档能正常使电机失能，确保安全。</p>
-</li>
+<li>麦轮直径 154mm，麦轮横向间距 370mm，纵向间距 330mm；</li>
+<li>四个电机均为减速比 14.9 的 RM3508，电机 id 自行查看电调绿灯灯效，结合 C620 电调说明书与电机说明书查询；</li>
+<li>预测功率由自己编写公式得出，实际功率通过 <code>sp_middleware</code> 的超级电容模块类（<code>supercap</code>）获取，自行阅读类思考计算方式；</li>
+<li>电容作用：底盘功率高于裁判系统限制功率时补充额外功率，模式只用 AUTOMODE；</li>
+<li>调 PID 时给总输出和各项输出<strong>限幅</strong>，否则可能损坏机械结构；功率上限在 <code>pm02</code> 类中自行查询；</li>
+<li>控制电机前先确保遥控器下档能正常使电机失能，确保安全。</li>
 </ul>
 <div class="ny-image-block"><nayuta-image style="--ny-image-ratio:893 / 1262;--ny-image-width:893px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="麦轮底盘数据（154mm/370mm/330mm、RM3508 减速比14.9）、supercap 实际功率、AUTOMODE、PID 限幅等注意事项" loading="lazy" decoding="async" width="893" height="1262" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-05-p03.YEbb6kVr_1YRH5j.webp"></nayuta-image></div>
 <h3 id="github-commit-规范">GitHub commit 规范</h3>
 <p>格式：</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span></span></span>
-<span class="line"><span>&#x3C;type>: &#x3C;subject></span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>&#x3C;type>: &#x3C;subject></span></span></code></pre>
 <p><code>type</code> 只允许 7 个标识：<code>feat</code> 新功能、<code>fix</code> 修补 bug、<code>docs</code> 文档、<code>style</code> 格式（不影响运行）、<code>refactor</code> 重构、<code>test</code> 增加测试、<code>chore</code> 构建/辅助工具变动。<code>subject</code> 是简短描述，不超过 50 个字符，第一个字母小写，结尾不加句号。</p>
 <h3 id="提交要求与入队流程">提交要求与入队流程</h3>
 <ul>
-<li>
-<p>大作业最迟 <strong>2025 年 10 月 12 日 24:00</strong> 前完成；</p>
-</li>
-<li>
-<p>GitHub 仓库设为 public，网址发送到 <code>1835651172@qq.com</code>；</p>
-</li>
-<li>
-<p>需要在线下进行调试效果验收。</p>
-</li>
+<li>大作业最迟 <strong>2025 年 10 月 12 日 24:00</strong> 前完成；</li>
+<li>GitHub 仓库设为 public，网址发送到 <code>1835651172@qq.com</code>；</li>
+<li>需要在线下进行调试效果验收。</li>
 </ul>
 <p>入队流程：9.27 公布大作业题目 → 自行至实验室完成各项要求 → 10.12 24:00 程序提交 + 线下程序测试验收 → 淘汰判断（淘汰则遗憾出局）→ 进入面试环节（暂定 10.14 日下午，时间待通知）→ 再次判断 → 成功入队。</p>
-<div class="ny-image-block"><nayuta-image style="--ny-image-ratio:893 / 1262;--ny-image-width:893px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="入队流程图：公布题目→实验室完成→10.12 提交验收→淘汰判断→面试→成功入队" loading="lazy" decoding="async" width="893" height="1262" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-05-p05.Bhe1ylMf_Z2d5rob.webp"></nayuta-image></div></div><aside class="copyright-card" aria-label="Article copyright and license" data-astro-cid-v7t64ykl><p class="card-title" data-astro-cid-v7t64ykl>&copy; Copyright</p><dl data-astro-cid-v7t64ykl><dt data-astro-cid-v7t64ykl>Article</dt><dd data-astro-cid-v7t64ykl>同济大学 RoboMaster 招新培训笔记 · 电控组</dd><dt data-astro-cid-v7t64ykl>Author</dt><dd data-astro-cid-v7t64ykl>天钺 Solaris</dd><dt data-astro-cid-v7t64ykl>Link</dt><dd data-astro-cid-v7t64ykl><a href="https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic/" data-astro-cid-v7t64ykl>https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic/</a></dd><dt data-astro-cid-v7t64ykl>License</dt><dd data-astro-cid-v7t64ykl><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license" data-astro-cid-v7t64ykl>CC BY-NC-SA 4.0</a></dd></dl></aside></nayuta-prose><nav class="post-tags" aria-label="Post tags" data-astro-cid-ruv7hgo6><ul data-astro-cid-ruv7hgo6><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7%E7%BB%84" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">电控组</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/STM32" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">STM32</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/PID" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">PID</a></li></ul></nav><!-- Mobile Footer (Shown in normal flow only on mobile) --><footer class="mobile-footer"><p>Copyright &copy; 2026 天钺 Solaris.</p><p>Powered by <a href="https://github.com/yuanzui-cf/nayuta">Nayuta</a>. Designed by <a href="https://yzcf.top">Leo Jia</a>.</p></footer></main><aside class="right-region" id="right-sidebar" data-astro-cid-clhfnexa><div class="right-sidebar-content" data-astro-cid-clhfnexa><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Table of Contents</span></div><div class="widget-content-simple" data-astro-cid-6itfjkzp><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#培训大纲" class="toc-link" data-astro-cid-6itfjkzp>培训大纲</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第一讲-电控导论" class="toc-link" data-astro-cid-6itfjkzp>第一讲 电控导论</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#11-电控职责我们是谁" class="toc-link" data-astro-cid-6itfjkzp>1.1 电控职责：我们是谁</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#12-硬件介绍我们要和哪些物品打交道" class="toc-link" data-astro-cid-6itfjkzp>1.2 硬件介绍：我们要和哪些物品打交道</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#13-软件开发工作流" class="toc-link" data-astro-cid-6itfjkzp>1.3 软件开发工作流</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#14-工具链用什么工具完成工作" class="toc-link" data-astro-cid-6itfjkzp>1.4 工具链：用什么工具完成工作</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#15-学习方法搜集信息与学会提问" class="toc-link" data-astro-cid-6itfjkzp>1.5 学习方法：搜集信息与学会提问</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#16-安全规范" class="toc-link" data-astro-cid-6itfjkzp>1.6 安全规范</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#17-c-面向对象铺垫" class="toc-link" data-astro-cid-6itfjkzp>1.7 C++ 面向对象铺垫</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第二讲-stm32cubemx基础" class="toc-link" data-astro-cid-6itfjkzp>第二讲 STM32CubeMX基础</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#21-什么是单片机和-stm32" class="toc-link" data-astro-cid-6itfjkzp>2.1 什么是单片机和 STM32</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#22-编译烧录与开发流程" class="toc-link" data-astro-cid-6itfjkzp>2.2 编译、烧录与开发流程</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#23-stm32cubemx图形化配置并生成工程" class="toc-link" data-astro-cid-6itfjkzp>2.3 STM32CubeMX：图形化配置并生成工程</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#24-理论一时钟与时序" class="toc-link" data-astro-cid-6itfjkzp>2.4 理论一：时钟与时序</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#25-理论二gpio-八种模式" class="toc-link" data-astro-cid-6itfjkzp>2.5 理论二：GPIO 八种模式</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#26-实操一点亮-ledgpio-输出" class="toc-link" data-astro-cid-6itfjkzp>2.6 实操一：点亮 LED（GPIO 输出）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#27-理论三定时器与-pwm" class="toc-link" data-astro-cid-6itfjkzp>2.7 理论三：定时器与 PWM</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#28-实操二呼吸灯定时器输出-pwm" class="toc-link" data-astro-cid-6itfjkzp>2.8 实操二：呼吸灯（定时器输出 PWM）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#29-git-与课后作业" class="toc-link" data-astro-cid-6itfjkzp>2.9 Git 与课后作业</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第四讲-电机控制1uart-通信与-can-通信" class="toc-link" data-astro-cid-6itfjkzp>第四讲 电机控制（1）：UART 通信与 CAN 通信</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#41-通信方式简介三层模型" class="toc-link" data-astro-cid-6itfjkzp>4.1 通信方式简介：三层模型</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#42-uart-通信" class="toc-link" data-astro-cid-6itfjkzp>4.2 UART 通信</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#43-dmadirect-memory-access直接内存访问" class="toc-link" data-astro-cid-6itfjkzp>4.3 DMA（Direct Memory Access，直接内存访问）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#44-can-通信引入与硬件接线" class="toc-link" data-astro-cid-6itfjkzp>4.4 CAN 通信引入与硬件接线</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#45-can-接线注意事项" class="toc-link" data-astro-cid-6itfjkzp>4.5 CAN 接线注意事项</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#46-can-软件流程与代码" class="toc-link" data-astro-cid-6itfjkzp>4.6 CAN 软件流程与代码</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#47-can-链路传输层与-id-仲裁" class="toc-link" data-astro-cid-6itfjkzp>4.7 CAN 链路传输层与 ID 仲裁</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第五讲-pid控制电机" class="toc-link" data-astro-cid-6itfjkzp>第五讲 PID控制电机</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#51-开环控制-vs-闭环控制" class="toc-link" data-astro-cid-6itfjkzp>5.1 开环控制 vs 闭环控制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#52-离散-pid-公式与-p--i--d" class="toc-link" data-astro-cid-6itfjkzp>5.2 离散 PID 公式与 P / I / D</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#53-改进积分梯形积分与动态积分" class="toc-link" data-astro-cid-6itfjkzp>5.3 改进积分：梯形积分与动态积分</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#54-微分先行" class="toc-link" data-astro-cid-6itfjkzp>5.4 微分先行</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#55-双环串级-pid" class="toc-link" data-astro-cid-6itfjkzp>5.5 双环串级 PID</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#56-现场调试经验" class="toc-link" data-astro-cid-6itfjkzp>5.6 现场调试经验</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#附电控组大作业" class="toc-link" data-astro-cid-6itfjkzp>附：电控组大作业</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#任务总览与实验室安排" class="toc-link" data-astro-cid-6itfjkzp>任务总览与实验室安排</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#五个任务与分值" class="toc-link" data-astro-cid-6itfjkzp>五个任务与分值</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#底盘数据与注意事项" class="toc-link" data-astro-cid-6itfjkzp>底盘数据与注意事项</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#github-commit-规范" class="toc-link" data-astro-cid-6itfjkzp>GitHub commit 规范</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#提交要求与入队流程" class="toc-link" data-astro-cid-6itfjkzp>提交要求与入队流程</a></div></div></div></div></aside></div><!-- Mobile Drawer Elements --><div class="drawer-backdrop" id="drawer-backdrop" data-astro-cid-k2pnhk33></div><!-- Left Drawer (Widgets) --><div class="drawer" id="widgets-drawer" role="dialog" aria-modal="true" aria-label="Sidebar" aria-hidden="true" inert data-astro-cid-k2pnhk33><button class="drawer-close" id="close-widgets-btn" data-astro-cid-k2pnhk33>[Close]</button><div style="margin-top: 20px;" data-astro-cid-k2pnhk33><form class="search-form" role="search" action="/search" method="get" data-astro-cid-wveqnd57><label data-astro-cid-wveqnd57><span class="visually-hidden" data-astro-cid-wveqnd57>Search articles</span><input type="search" class="search-input" name="q" placeholder="Search articles..." data-astro-cid-wveqnd57="true" data-astro-cid-jhpiwqdc></label></form><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Recent Posts</span><a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-ptnqmahq>More &gt;</a></div><div class="post-list" data-astro-cid-aqbmadrt><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 电控组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-hardware" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 硬件组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-mechanical" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>同济大学 RoboMaster 招新培训笔记 · 机械组</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-10-17</span></div></a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Tags Cloud</span></div><div class="tag-cloud" data-astro-cid-uoks6iaa><a href="/solaris-blog-rm-seu-cxxy/tag/OpenCV" class="tag-item" data-astro-cid-v2grv5g5="true">OpenCV</a><a href="/solaris-blog-rm-seu-cxxy/tag/PID" class="tag-item" data-astro-cid-v2grv5g5="true">PID</a><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a><a href="/solaris-blog-rm-seu-cxxy/tag/STM32" class="tag-item" data-astro-cid-v2grv5g5="true">STM32</a><a href="/solaris-blog-rm-seu-cxxy/tag/SolidWorks" class="tag-item" data-astro-cid-v2grv5g5="true">SolidWorks</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2" class="tag-item" data-astro-cid-v2grv5g5="true">卡尔曼滤波</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84" class="tag-item" data-astro-cid-v2grv5g5="true">学习路径</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%9C%BA%E6%A2%B0%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">机械组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%84%8A%E6%8E%A5" class="tag-item" data-astro-cid-v2grv5g5="true">焊接</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">电控组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1" class="tag-item" data-astro-cid-v2grv5g5="true">电路设计</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A1%AC%E4%BB%B6%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">硬件组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A3%85%E9%85%8D%E5%87%BA%E5%9B%BE" class="tag-item" data-astro-cid-v2grv5g5="true">装配出图</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">视觉组</a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Website Status</span></div><div class="status-list" data-astro-cid-jrjqfdlr><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Posts</span><span class="status-value" data-astro-cid-jrjqfdlr>5</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Running</span><span class="status-value" data-website-status-running data-start-date="2026-10-01T00:00:00.000Z" data-format="days" data-astro-cid-jrjqfdlr>33 days</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Last Updated</span><span class="status-value" data-astro-cid-jrjqfdlr>2026-10-17</span></div></div></div></div></div><!-- Right Drawer (Context) --><div class="drawer drawer-right" id="context-drawer" role="dialog" aria-modal="true" aria-label="Table of Contents" aria-hidden="true" inert data-astro-cid-k2pnhk33><button class="drawer-close" id="close-context-btn" data-astro-cid-k2pnhk33>[Close]</button><div style="margin-top: 20px;" data-astro-cid-k2pnhk33><div class="right-sidebar-content right-sidebar-content-drawer" data-astro-cid-clhfnexa><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Table of Contents</span></div><div class="widget-content-simple" data-astro-cid-6itfjkzp><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#培训大纲" class="toc-link" data-astro-cid-6itfjkzp>培训大纲</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第一讲-电控导论" class="toc-link" data-astro-cid-6itfjkzp>第一讲 电控导论</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#11-电控职责我们是谁" class="toc-link" data-astro-cid-6itfjkzp>1.1 电控职责：我们是谁</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#12-硬件介绍我们要和哪些物品打交道" class="toc-link" data-astro-cid-6itfjkzp>1.2 硬件介绍：我们要和哪些物品打交道</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#13-软件开发工作流" class="toc-link" data-astro-cid-6itfjkzp>1.3 软件开发工作流</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#14-工具链用什么工具完成工作" class="toc-link" data-astro-cid-6itfjkzp>1.4 工具链：用什么工具完成工作</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#15-学习方法搜集信息与学会提问" class="toc-link" data-astro-cid-6itfjkzp>1.5 学习方法：搜集信息与学会提问</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#16-安全规范" class="toc-link" data-astro-cid-6itfjkzp>1.6 安全规范</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#17-c-面向对象铺垫" class="toc-link" data-astro-cid-6itfjkzp>1.7 C++ 面向对象铺垫</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第二讲-stm32cubemx基础" class="toc-link" data-astro-cid-6itfjkzp>第二讲 STM32CubeMX基础</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#21-什么是单片机和-stm32" class="toc-link" data-astro-cid-6itfjkzp>2.1 什么是单片机和 STM32</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#22-编译烧录与开发流程" class="toc-link" data-astro-cid-6itfjkzp>2.2 编译、烧录与开发流程</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#23-stm32cubemx图形化配置并生成工程" class="toc-link" data-astro-cid-6itfjkzp>2.3 STM32CubeMX：图形化配置并生成工程</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#24-理论一时钟与时序" class="toc-link" data-astro-cid-6itfjkzp>2.4 理论一：时钟与时序</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#25-理论二gpio-八种模式" class="toc-link" data-astro-cid-6itfjkzp>2.5 理论二：GPIO 八种模式</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#26-实操一点亮-ledgpio-输出" class="toc-link" data-astro-cid-6itfjkzp>2.6 实操一：点亮 LED（GPIO 输出）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#27-理论三定时器与-pwm" class="toc-link" data-astro-cid-6itfjkzp>2.7 理论三：定时器与 PWM</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#28-实操二呼吸灯定时器输出-pwm" class="toc-link" data-astro-cid-6itfjkzp>2.8 实操二：呼吸灯（定时器输出 PWM）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#29-git-与课后作业" class="toc-link" data-astro-cid-6itfjkzp>2.9 Git 与课后作业</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第四讲-电机控制1uart-通信与-can-通信" class="toc-link" data-astro-cid-6itfjkzp>第四讲 电机控制（1）：UART 通信与 CAN 通信</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#41-通信方式简介三层模型" class="toc-link" data-astro-cid-6itfjkzp>4.1 通信方式简介：三层模型</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#42-uart-通信" class="toc-link" data-astro-cid-6itfjkzp>4.2 UART 通信</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#43-dmadirect-memory-access直接内存访问" class="toc-link" data-astro-cid-6itfjkzp>4.3 DMA（Direct Memory Access，直接内存访问）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#44-can-通信引入与硬件接线" class="toc-link" data-astro-cid-6itfjkzp>4.4 CAN 通信引入与硬件接线</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#45-can-接线注意事项" class="toc-link" data-astro-cid-6itfjkzp>4.5 CAN 接线注意事项</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#46-can-软件流程与代码" class="toc-link" data-astro-cid-6itfjkzp>4.6 CAN 软件流程与代码</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#47-can-链路传输层与-id-仲裁" class="toc-link" data-astro-cid-6itfjkzp>4.7 CAN 链路传输层与 ID 仲裁</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第五讲-pid控制电机" class="toc-link" data-astro-cid-6itfjkzp>第五讲 PID控制电机</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#51-开环控制-vs-闭环控制" class="toc-link" data-astro-cid-6itfjkzp>5.1 开环控制 vs 闭环控制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#52-离散-pid-公式与-p--i--d" class="toc-link" data-astro-cid-6itfjkzp>5.2 离散 PID 公式与 P / I / D</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#53-改进积分梯形积分与动态积分" class="toc-link" data-astro-cid-6itfjkzp>5.3 改进积分：梯形积分与动态积分</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#54-微分先行" class="toc-link" data-astro-cid-6itfjkzp>5.4 微分先行</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#55-双环串级-pid" class="toc-link" data-astro-cid-6itfjkzp>5.5 双环串级 PID</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#56-现场调试经验" class="toc-link" data-astro-cid-6itfjkzp>5.6 现场调试经验</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#附电控组大作业" class="toc-link" data-astro-cid-6itfjkzp>附：电控组大作业</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#任务总览与实验室安排" class="toc-link" data-astro-cid-6itfjkzp>任务总览与实验室安排</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#五个任务与分值" class="toc-link" data-astro-cid-6itfjkzp>五个任务与分值</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#底盘数据与注意事项" class="toc-link" data-astro-cid-6itfjkzp>底盘数据与注意事项</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#github-commit-规范" class="toc-link" data-astro-cid-6itfjkzp>GitHub commit 规范</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#提交要求与入队流程" class="toc-link" data-astro-cid-6itfjkzp>提交要求与入队流程</a></div></div></div></div></div></div><!-- Mobile Floating Action Button for Right Sidebar (TOC / Context) --><button class="mobile-floating-btn" id="open-context-btn" aria-label="Open Table of Contents" aria-controls="context-drawer" aria-expanded="false" data-astro-cid-k2pnhk33><span class="btn-bracket" data-astro-cid-k2pnhk33>[</span><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" data-astro-cid-k2pnhk33><line x1="2" y1="3.5" x2="14" y2="3.5" data-astro-cid-k2pnhk33></line><line x1="2" y1="8" x2="10" y2="8" data-astro-cid-k2pnhk33></line><line x1="2" y1="12.5" x2="14" y2="12.5" data-astro-cid-k2pnhk33></line></svg><span class="btn-text" data-astro-cid-k2pnhk33>TOC</span><span class="btn-bracket" data-astro-cid-k2pnhk33>]</span></button><nayuta-lightbox hidden="true"></nayuta-lightbox><script type="module" src="/solaris-blog-rm-seu-cxxy/_astro/ImageLightbox.astro_astro_type_script_index_0_lang.JlxwWwBR.js"></script><!-- Pure JS for drawer transitions (Progressive Enhancement) --><script type="module">var e;function t(){e?.abort(),e=new AbortController;let{signal:t}=e,n=document.getElementById(`drawer-backdrop`),r=[[`open-widgets-btn`,`widgets-drawer`],[`open-context-btn`,`context-drawer`]].flatMap(([e,t])=>{let n=document.getElementById(e),r=document.getElementById(t);return n&&r?[{button:n,drawer:r}]:[]}),i,a=[document.querySelector(`.layout-container`),document.querySelector(`.mobile-sticky-header`),document.getElementById(`open-context-btn`)];function o(e=!0){if(!i)return;let{button:t,drawer:r}=i;r.classList.remove(`open`),r.inert=!0,r.setAttribute(`aria-hidden`,`true`),t.setAttribute(`aria-expanded`,`false`),n?.classList.remove(`open`),a.forEach(e=>{e&&(e.inert=!1)}),i=void 0,e&&t.focus()}for(let e of r)e.button.addEventListener(`click`,()=>{o(!1),i=e,e.drawer.inert=!1,e.drawer.setAttribute(`aria-hidden`,`false`),e.drawer.classList.add(`open`),e.button.setAttribute(`aria-expanded`,`true`),n?.classList.add(`open`),a.forEach(e=>{e&&(e.inert=!0)}),e.drawer.querySelector(`.drawer-close`)?.focus()},{signal:t}),e.drawer.querySelector(`.drawer-close`)?.addEventListener(`click`,()=>o(),{signal:t});n?.addEventListener(`click`,()=>o(),{signal:t}),document.addEventListener(`keydown`,e=>{if(i){if(e.key===`Escape`)e.preventDefault(),o();else if(e.key===`Tab`){let t=[...i.drawer.querySelectorAll(`a[href], button, input, select, textarea, [tabindex]`)].filter(e=>e.tabIndex>=0&&!e.matches(`:disabled`)&&e.getClientRects().length),n=t[0],r=t.at(-1);e.shiftKey&&document.activeElement===n?(e.preventDefault(),r?.focus()):!e.shiftKey&&document.activeElement===r&&(e.preventDefault(),n?.focus())}}},{signal:t}),window.addEventListener(`resize`,()=>{i&&!i.button.getClientRects().length&&o(!1)},{signal:t}),document.documentElement.dataset.drawersReady=``}t(),document.addEventListener(`astro:after-swap`,t);</script></body></html>
+<div class="ny-image-block"><nayuta-image style="--ny-image-ratio:893 / 1262;--ny-image-width:893px"><div class="ny-image-placeholder" aria-hidden="true"></div><img alt="入队流程图：公布题目→实验室完成→10.12 提交验收→淘汰判断→面试→成功入队" loading="lazy" decoding="async" width="893" height="1262" src="/solaris-blog-rm-seu-cxxy/_astro/ctrl-05-p05.Bhe1ylMf_Z2d5rob.webp"></nayuta-image></div></div><aside class="copyright-card" aria-label="Article copyright and license" data-astro-cid-v7t64ykl><p class="card-title" data-astro-cid-v7t64ykl>&copy; Copyright</p><dl data-astro-cid-v7t64ykl><dt data-astro-cid-v7t64ykl>Article</dt><dd data-astro-cid-v7t64ykl>同济大学 RoboMaster 招新培训笔记 · 电控组</dd><dt data-astro-cid-v7t64ykl>Author</dt><dd data-astro-cid-v7t64ykl>天钺 Solaris</dd><dt data-astro-cid-v7t64ykl>Link</dt><dd data-astro-cid-v7t64ykl><a href="https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic/" data-astro-cid-v7t64ykl>https://seu-cx-rm-solaris.github.io/solaris-blog-rm-seu-cxxy/posts/tongji-rm25-training-electronic/</a></dd><dt data-astro-cid-v7t64ykl>License</dt><dd data-astro-cid-v7t64ykl><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license" data-astro-cid-v7t64ykl>CC BY-NC-SA 4.0</a></dd></dl></aside></nayuta-prose><nav class="post-tags" aria-label="Post tags" data-astro-cid-ruv7hgo6><ul data-astro-cid-ruv7hgo6><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7%E7%BB%84" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">电控组</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/STM32" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">STM32</a></li><li data-astro-cid-ruv7hgo6><a href="/solaris-blog-rm-seu-cxxy/tag/PID" rel="tag" class="tag-item" data-astro-cid-v2grv5g5="true">PID</a></li></ul></nav><!-- Mobile Footer (Shown in normal flow only on mobile) --><footer class="mobile-footer"><p>Copyright &copy; 2026 天钺 Solaris.</p><p>Powered by <a href="https://github.com/yuanzui-cf/nayuta">Nayuta</a>. Designed by <a href="https://yzcf.top">Leo Jia</a>.</p></footer></main><aside class="right-region" id="right-sidebar" data-astro-cid-clhfnexa><div class="right-sidebar-content" data-astro-cid-clhfnexa><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Table of Contents</span></div><div class="widget-content-simple" data-astro-cid-6itfjkzp><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#培训大纲" class="toc-link" data-astro-cid-6itfjkzp>培训大纲</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第一讲-电控导论" class="toc-link" data-astro-cid-6itfjkzp>第一讲 电控导论</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#11-电控职责我们是谁" class="toc-link" data-astro-cid-6itfjkzp>1.1 电控职责：我们是谁</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#12-硬件介绍我们要和哪些物品打交道" class="toc-link" data-astro-cid-6itfjkzp>1.2 硬件介绍：我们要和哪些物品打交道</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#13-软件开发工作流" class="toc-link" data-astro-cid-6itfjkzp>1.3 软件开发工作流</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#14-工具链用什么工具完成工作" class="toc-link" data-astro-cid-6itfjkzp>1.4 工具链：用什么工具完成工作</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#15-学习方法搜集信息与学会提问" class="toc-link" data-astro-cid-6itfjkzp>1.5 学习方法：搜集信息与学会提问</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#16-安全规范" class="toc-link" data-astro-cid-6itfjkzp>1.6 安全规范</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#17-c-面向对象铺垫" class="toc-link" data-astro-cid-6itfjkzp>1.7 C++ 面向对象铺垫</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第二讲-stm32cubemx基础" class="toc-link" data-astro-cid-6itfjkzp>第二讲 STM32CubeMX基础</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#21-什么是单片机和-stm32" class="toc-link" data-astro-cid-6itfjkzp>2.1 什么是单片机和 STM32</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#22-编译烧录与开发流程" class="toc-link" data-astro-cid-6itfjkzp>2.2 编译、烧录与开发流程</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#23-stm32cubemx图形化配置并生成工程" class="toc-link" data-astro-cid-6itfjkzp>2.3 STM32CubeMX：图形化配置并生成工程</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#24-理论一时钟与时序" class="toc-link" data-astro-cid-6itfjkzp>2.4 理论一：时钟与时序</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#25-理论二gpio-八种模式" class="toc-link" data-astro-cid-6itfjkzp>2.5 理论二：GPIO 八种模式</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#26-实操一点亮-ledgpio-输出" class="toc-link" data-astro-cid-6itfjkzp>2.6 实操一：点亮 LED（GPIO 输出）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#27-理论三定时器与-pwm" class="toc-link" data-astro-cid-6itfjkzp>2.7 理论三：定时器与 PWM</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#28-实操二呼吸灯定时器输出-pwm" class="toc-link" data-astro-cid-6itfjkzp>2.8 实操二：呼吸灯（定时器输出 PWM）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#29-git-与课后作业" class="toc-link" data-astro-cid-6itfjkzp>2.9 Git 与课后作业</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第四讲-电机控制1uart-通信与-can-通信" class="toc-link" data-astro-cid-6itfjkzp>第四讲 电机控制（1）：UART 通信与 CAN 通信</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#41-通信方式简介三层模型" class="toc-link" data-astro-cid-6itfjkzp>4.1 通信方式简介：三层模型</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#42-uart-通信" class="toc-link" data-astro-cid-6itfjkzp>4.2 UART 通信</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#43-dmadirect-memory-access直接内存访问" class="toc-link" data-astro-cid-6itfjkzp>4.3 DMA（Direct Memory Access，直接内存访问）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#44-can-通信引入与硬件接线" class="toc-link" data-astro-cid-6itfjkzp>4.4 CAN 通信引入与硬件接线</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#45-can-接线注意事项" class="toc-link" data-astro-cid-6itfjkzp>4.5 CAN 接线注意事项</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#46-can-软件流程与代码" class="toc-link" data-astro-cid-6itfjkzp>4.6 CAN 软件流程与代码</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#47-can-链路传输层与-id-仲裁" class="toc-link" data-astro-cid-6itfjkzp>4.7 CAN 链路传输层与 ID 仲裁</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第五讲-pid控制电机" class="toc-link" data-astro-cid-6itfjkzp>第五讲 PID控制电机</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#51-开环控制-vs-闭环控制" class="toc-link" data-astro-cid-6itfjkzp>5.1 开环控制 vs 闭环控制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#52-离散-pid-公式与-p--i--d" class="toc-link" data-astro-cid-6itfjkzp>5.2 离散 PID 公式与 P / I / D</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#53-改进积分梯形积分与动态积分" class="toc-link" data-astro-cid-6itfjkzp>5.3 改进积分：梯形积分与动态积分</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#54-微分先行" class="toc-link" data-astro-cid-6itfjkzp>5.4 微分先行</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#55-双环串级-pid" class="toc-link" data-astro-cid-6itfjkzp>5.5 双环串级 PID</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#56-现场调试经验" class="toc-link" data-astro-cid-6itfjkzp>5.6 现场调试经验</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#附电控组大作业" class="toc-link" data-astro-cid-6itfjkzp>附：电控组大作业</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#任务总览与实验室安排" class="toc-link" data-astro-cid-6itfjkzp>任务总览与实验室安排</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#五个任务与分值" class="toc-link" data-astro-cid-6itfjkzp>五个任务与分值</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#底盘数据与注意事项" class="toc-link" data-astro-cid-6itfjkzp>底盘数据与注意事项</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#github-commit-规范" class="toc-link" data-astro-cid-6itfjkzp>GitHub commit 规范</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#提交要求与入队流程" class="toc-link" data-astro-cid-6itfjkzp>提交要求与入队流程</a></div></div></div></div></aside></div><!-- Mobile Drawer Elements --><div class="drawer-backdrop" id="drawer-backdrop" data-astro-cid-k2pnhk33></div><!-- Left Drawer (Widgets) --><div class="drawer" id="widgets-drawer" role="dialog" aria-modal="true" aria-label="Sidebar" aria-hidden="true" inert data-astro-cid-k2pnhk33><button class="drawer-close" id="close-widgets-btn" data-astro-cid-k2pnhk33>[Close]</button><div style="margin-top: 20px;" data-astro-cid-k2pnhk33><form class="search-form" role="search" action="/search" method="get" data-astro-cid-wveqnd57><label data-astro-cid-wveqnd57><span class="visually-hidden" data-astro-cid-wveqnd57>Search articles</span><input type="search" class="search-input" name="q" placeholder="Search articles..." data-astro-cid-wveqnd57="true" data-astro-cid-jhpiwqdc></label></form><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Recent Posts</span><a href="/solaris-blog-rm-seu-cxxy/posts" data-astro-cid-ptnqmahq>More &gt;</a></div><div class="post-list" data-astro-cid-aqbmadrt><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-00-overview" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>机甲大师步兵自瞄拆解 —— 基于同济 SuperPower sp_vision_25</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-01-perception-pipeline" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>视觉 01 —— 感知流水线总览</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a><a href="/solaris-blog-rm-seu-cxxy/posts/autoaim-02-traditional-detector" class="post-item" data-astro-cid-aqbmadrt><span class="post-title" data-astro-cid-aqbmadrt>视觉 02 —— 传统装甲板检测器 Detector</span><div class="post-meta" data-astro-cid-aqbmadrt><span data-astro-cid-aqbmadrt>2026-11-08</span></div></a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Tags Cloud</span></div><div class="tag-cloud" data-astro-cid-uoks6iaa><a href="/solaris-blog-rm-seu-cxxy/tag/ADC" class="tag-item" data-astro-cid-v2grv5g5="true">ADC</a><a href="/solaris-blog-rm-seu-cxxy/tag/API" class="tag-item" data-astro-cid-v2grv5g5="true">API</a><a href="/solaris-blog-rm-seu-cxxy/tag/C%20%E8%AF%AD%E8%A8%80" class="tag-item" data-astro-cid-v2grv5g5="true">C 语言</a><a href="/solaris-blog-rm-seu-cxxy/tag/C%2B%2B" class="tag-item" data-astro-cid-v2grv5g5="true">C++</a><a href="/solaris-blog-rm-seu-cxxy/tag/CAN" class="tag-item" data-astro-cid-v2grv5g5="true">CAN</a><a href="/solaris-blog-rm-seu-cxxy/tag/CMake" class="tag-item" data-astro-cid-v2grv5g5="true">CMake</a><a href="/solaris-blog-rm-seu-cxxy/tag/CubeMX" class="tag-item" data-astro-cid-v2grv5g5="true">CubeMX</a><a href="/solaris-blog-rm-seu-cxxy/tag/DMA" class="tag-item" data-astro-cid-v2grv5g5="true">DMA</a><a href="/solaris-blog-rm-seu-cxxy/tag/EKF" class="tag-item" data-astro-cid-v2grv5g5="true">EKF</a><a href="/solaris-blog-rm-seu-cxxy/tag/FreeRTOS" class="tag-item" data-astro-cid-v2grv5g5="true">FreeRTOS</a><a href="/solaris-blog-rm-seu-cxxy/tag/GPIO" class="tag-item" data-astro-cid-v2grv5g5="true">GPIO</a><a href="/solaris-blog-rm-seu-cxxy/tag/HAL" class="tag-item" data-astro-cid-v2grv5g5="true">HAL</a><a href="/solaris-blog-rm-seu-cxxy/tag/I2C" class="tag-item" data-astro-cid-v2grv5g5="true">I2C</a><a href="/solaris-blog-rm-seu-cxxy/tag/IMU" class="tag-item" data-astro-cid-v2grv5g5="true">IMU</a><a href="/solaris-blog-rm-seu-cxxy/tag/Linux" class="tag-item" data-astro-cid-v2grv5g5="true">Linux</a><a href="/solaris-blog-rm-seu-cxxy/tag/MPC" class="tag-item" data-astro-cid-v2grv5g5="true">MPC</a><a href="/solaris-blog-rm-seu-cxxy/tag/OpenCV" class="tag-item" data-astro-cid-v2grv5g5="true">OpenCV</a><a href="/solaris-blog-rm-seu-cxxy/tag/OpenVINO" class="tag-item" data-astro-cid-v2grv5g5="true">OpenVINO</a><a href="/solaris-blog-rm-seu-cxxy/tag/PID" class="tag-item" data-astro-cid-v2grv5g5="true">PID</a><a href="/solaris-blog-rm-seu-cxxy/tag/PWM" class="tag-item" data-astro-cid-v2grv5g5="true">PWM</a><a href="/solaris-blog-rm-seu-cxxy/tag/PnP" class="tag-item" data-astro-cid-v2grv5g5="true">PnP</a><a href="/solaris-blog-rm-seu-cxxy/tag/ROS2" class="tag-item" data-astro-cid-v2grv5g5="true">ROS2</a><a href="/solaris-blog-rm-seu-cxxy/tag/RTC" class="tag-item" data-astro-cid-v2grv5g5="true">RTC</a><a href="/solaris-blog-rm-seu-cxxy/tag/RoboMaster" class="tag-item" data-astro-cid-v2grv5g5="true">RoboMaster</a><a href="/solaris-blog-rm-seu-cxxy/tag/SPI" class="tag-item" data-astro-cid-v2grv5g5="true">SPI</a><a href="/solaris-blog-rm-seu-cxxy/tag/STM32" class="tag-item" data-astro-cid-v2grv5g5="true">STM32</a><a href="/solaris-blog-rm-seu-cxxy/tag/SolidWorks" class="tag-item" data-astro-cid-v2grv5g5="true">SolidWorks</a><a href="/solaris-blog-rm-seu-cxxy/tag/UART" class="tag-item" data-astro-cid-v2grv5g5="true">UART</a><a href="/solaris-blog-rm-seu-cxxy/tag/YOLO" class="tag-item" data-astro-cid-v2grv5g5="true">YOLO</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E4%B8%AD%E6%96%AD" class="tag-item" data-astro-cid-v2grv5g5="true">中断</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E4%B8%B2%E5%8F%A3" class="tag-item" data-astro-cid-v2grv5g5="true">串口</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%86%B3%E7%AD%96" class="tag-item" data-astro-cid-v2grv5g5="true">决策</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2" class="tag-item" data-astro-cid-v2grv5g5="true">卡尔曼滤波</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">同济大学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%90%8E%E5%A4%84%E7%90%86" class="tag-item" data-astro-cid-v2grv5g5="true">后处理</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%93%A8%E5%85%B5" class="tag-item" data-astro-cid-v2grv5g5="true">哨兵</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%9D%90%E6%A0%87%E7%B3%BB" class="tag-item" data-astro-cid-v2grv5g5="true">坐标系</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%A4%9A%E4%BB%BB%E5%8A%A1" class="tag-item" data-astro-cid-v2grv5g5="true">多任务</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%A4%9A%E7%BA%BF%E7%A8%8B" class="tag-item" data-astro-cid-v2grv5g5="true">多线程</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84" class="tag-item" data-astro-cid-v2grv5g5="true">学习路径</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF" class="tag-item" data-astro-cid-v2grv5g5="true">学习路线</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%AE%9A%E6%97%B6%E5%99%A8" class="tag-item" data-astro-cid-v2grv5g5="true">定时器</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%BC%80%E6%BA%90%E6%8B%86%E8%A7%A3" class="tag-item" data-astro-cid-v2grv5g5="true">开源拆解</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E5%BC%B9%E9%81%93" class="tag-item" data-astro-cid-v2grv5g5="true">弹道</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8B%9B%E6%96%B0%E5%9F%B9%E8%AE%AD" class="tag-item" data-astro-cid-v2grv5g5="true">招新培训</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%8E%A7%E5%88%B6" class="tag-item" data-astro-cid-v2grv5g5="true">控制</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%95%B0%E5%AD%A6" class="tag-item" data-astro-cid-v2grv5g5="true">数学</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%9C%BA%E6%A2%B0%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">机械组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E6%A0%87%E5%AE%9A" class="tag-item" data-astro-cid-v2grv5g5="true">标定</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%84%8A%E6%8E%A5" class="tag-item" data-astro-cid-v2grv5g5="true">焊接</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7" class="tag-item" data-astro-cid-v2grv5g5="true">电控</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E6%8E%A7%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">电控组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1" class="tag-item" data-astro-cid-v2grv5g5="true">电路设计</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B" class="tag-item" data-astro-cid-v2grv5g5="true">相机模型</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A1%AC%E4%BB%B6%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">硬件组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" class="tag-item" data-astro-cid-v2grv5g5="true">神经网络</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%87%AA%E7%9E%84" class="tag-item" data-astro-cid-v2grv5g5="true">自瞄</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A3%85%E9%85%8D%E5%87%BA%E5%9B%BE" class="tag-item" data-astro-cid-v2grv5g5="true">装配出图</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%AE%97%E6%B3%95" class="tag-item" data-astro-cid-v2grv5g5="true">视觉算法</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E8%A7%86%E8%A7%89%E7%BB%84" class="tag-item" data-astro-cid-v2grv5g5="true">视觉组</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E9%80%9F%E6%9F%A5" class="tag-item" data-astro-cid-v2grv5g5="true">速查</a><a href="/solaris-blog-rm-seu-cxxy/tag/%E9%83%A8%E7%BD%B2" class="tag-item" data-astro-cid-v2grv5g5="true">部署</a></div></div><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Website Status</span></div><div class="status-list" data-astro-cid-jrjqfdlr><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Posts</span><span class="status-value" data-astro-cid-jrjqfdlr>45</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Running</span><span class="status-value" data-website-status-running data-start-date="2026-10-01T00:00:00.000Z" data-format="days" data-astro-cid-jrjqfdlr>37 days</span></div><div class="status-row" data-astro-cid-jrjqfdlr><span class="status-label" data-astro-cid-jrjqfdlr>Last Updated</span><span class="status-value" data-astro-cid-jrjqfdlr>2026-11-08</span></div></div></div></div></div><!-- Right Drawer (Context) --><div class="drawer drawer-right" id="context-drawer" role="dialog" aria-modal="true" aria-label="Table of Contents" aria-hidden="true" inert data-astro-cid-k2pnhk33><button class="drawer-close" id="close-context-btn" data-astro-cid-k2pnhk33>[Close]</button><div style="margin-top: 20px;" data-astro-cid-k2pnhk33><div class="right-sidebar-content right-sidebar-content-drawer" data-astro-cid-clhfnexa><div class="widget" data-astro-cid-ptnqmahq><div class="widget-header" data-astro-cid-ptnqmahq><span data-astro-cid-ptnqmahq>Table of Contents</span></div><div class="widget-content-simple" data-astro-cid-6itfjkzp><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#培训大纲" class="toc-link" data-astro-cid-6itfjkzp>培训大纲</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第一讲-电控导论" class="toc-link" data-astro-cid-6itfjkzp>第一讲 电控导论</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#11-电控职责我们是谁" class="toc-link" data-astro-cid-6itfjkzp>1.1 电控职责：我们是谁</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#12-硬件介绍我们要和哪些物品打交道" class="toc-link" data-astro-cid-6itfjkzp>1.2 硬件介绍：我们要和哪些物品打交道</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#13-软件开发工作流" class="toc-link" data-astro-cid-6itfjkzp>1.3 软件开发工作流</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#14-工具链用什么工具完成工作" class="toc-link" data-astro-cid-6itfjkzp>1.4 工具链：用什么工具完成工作</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#15-学习方法搜集信息与学会提问" class="toc-link" data-astro-cid-6itfjkzp>1.5 学习方法：搜集信息与学会提问</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#16-安全规范" class="toc-link" data-astro-cid-6itfjkzp>1.6 安全规范</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#17-c-面向对象铺垫" class="toc-link" data-astro-cid-6itfjkzp>1.7 C++ 面向对象铺垫</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第二讲-stm32cubemx基础" class="toc-link" data-astro-cid-6itfjkzp>第二讲 STM32CubeMX基础</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#21-什么是单片机和-stm32" class="toc-link" data-astro-cid-6itfjkzp>2.1 什么是单片机和 STM32</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#22-编译烧录与开发流程" class="toc-link" data-astro-cid-6itfjkzp>2.2 编译、烧录与开发流程</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#23-stm32cubemx图形化配置并生成工程" class="toc-link" data-astro-cid-6itfjkzp>2.3 STM32CubeMX：图形化配置并生成工程</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#24-理论一时钟与时序" class="toc-link" data-astro-cid-6itfjkzp>2.4 理论一：时钟与时序</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#25-理论二gpio-八种模式" class="toc-link" data-astro-cid-6itfjkzp>2.5 理论二：GPIO 八种模式</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#26-实操一点亮-ledgpio-输出" class="toc-link" data-astro-cid-6itfjkzp>2.6 实操一：点亮 LED（GPIO 输出）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#27-理论三定时器与-pwm" class="toc-link" data-astro-cid-6itfjkzp>2.7 理论三：定时器与 PWM</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#28-实操二呼吸灯定时器输出-pwm" class="toc-link" data-astro-cid-6itfjkzp>2.8 实操二：呼吸灯（定时器输出 PWM）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#29-git-与课后作业" class="toc-link" data-astro-cid-6itfjkzp>2.9 Git 与课后作业</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第四讲-电机控制1uart-通信与-can-通信" class="toc-link" data-astro-cid-6itfjkzp>第四讲 电机控制（1）：UART 通信与 CAN 通信</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#41-通信方式简介三层模型" class="toc-link" data-astro-cid-6itfjkzp>4.1 通信方式简介：三层模型</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#42-uart-通信" class="toc-link" data-astro-cid-6itfjkzp>4.2 UART 通信</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#43-dmadirect-memory-access直接内存访问" class="toc-link" data-astro-cid-6itfjkzp>4.3 DMA（Direct Memory Access，直接内存访问）</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#44-can-通信引入与硬件接线" class="toc-link" data-astro-cid-6itfjkzp>4.4 CAN 通信引入与硬件接线</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#45-can-接线注意事项" class="toc-link" data-astro-cid-6itfjkzp>4.5 CAN 接线注意事项</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#46-can-软件流程与代码" class="toc-link" data-astro-cid-6itfjkzp>4.6 CAN 软件流程与代码</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#47-can-链路传输层与-id-仲裁" class="toc-link" data-astro-cid-6itfjkzp>4.7 CAN 链路传输层与 ID 仲裁</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#第五讲-pid控制电机" class="toc-link" data-astro-cid-6itfjkzp>第五讲 PID控制电机</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#51-开环控制-vs-闭环控制" class="toc-link" data-astro-cid-6itfjkzp>5.1 开环控制 vs 闭环控制</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#52-离散-pid-公式与-p--i--d" class="toc-link" data-astro-cid-6itfjkzp>5.2 离散 PID 公式与 P / I / D</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#53-改进积分梯形积分与动态积分" class="toc-link" data-astro-cid-6itfjkzp>5.3 改进积分：梯形积分与动态积分</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#54-微分先行" class="toc-link" data-astro-cid-6itfjkzp>5.4 微分先行</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#55-双环串级-pid" class="toc-link" data-astro-cid-6itfjkzp>5.5 双环串级 PID</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#56-现场调试经验" class="toc-link" data-astro-cid-6itfjkzp>5.6 现场调试经验</a></div><div style="padding-left: 0px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#附电控组大作业" class="toc-link" data-astro-cid-6itfjkzp>附：电控组大作业</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#任务总览与实验室安排" class="toc-link" data-astro-cid-6itfjkzp>任务总览与实验室安排</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#五个任务与分值" class="toc-link" data-astro-cid-6itfjkzp>五个任务与分值</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#底盘数据与注意事项" class="toc-link" data-astro-cid-6itfjkzp>底盘数据与注意事项</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#github-commit-规范" class="toc-link" data-astro-cid-6itfjkzp>GitHub commit 规范</a></div><div style="padding-left: 12px; margin-bottom: 6px;" data-astro-cid-6itfjkzp><a href="#提交要求与入队流程" class="toc-link" data-astro-cid-6itfjkzp>提交要求与入队流程</a></div></div></div></div></div></div><!-- Mobile Floating Action Button for Right Sidebar (TOC / Context) --><button class="mobile-floating-btn" id="open-context-btn" aria-label="Open Table of Contents" aria-controls="context-drawer" aria-expanded="false" data-astro-cid-k2pnhk33><span class="btn-bracket" data-astro-cid-k2pnhk33>[</span><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" data-astro-cid-k2pnhk33><line x1="2" y1="3.5" x2="14" y2="3.5" data-astro-cid-k2pnhk33></line><line x1="2" y1="8" x2="10" y2="8" data-astro-cid-k2pnhk33></line><line x1="2" y1="12.5" x2="14" y2="12.5" data-astro-cid-k2pnhk33></line></svg><span class="btn-text" data-astro-cid-k2pnhk33>TOC</span><span class="btn-bracket" data-astro-cid-k2pnhk33>]</span></button><nayuta-lightbox hidden="true"></nayuta-lightbox><script type="module" src="/solaris-blog-rm-seu-cxxy/_astro/ImageLightbox.astro_astro_type_script_index_0_lang.CA-MdnxW.js"></script><!-- Pure JS for drawer transitions (Progressive Enhancement) --><script type="module">var e;function t(){e?.abort(),e=new AbortController;let{signal:t}=e,n=document.getElementById(`drawer-backdrop`),r=[[`open-widgets-btn`,`widgets-drawer`],[`open-context-btn`,`context-drawer`]].flatMap(([e,t])=>{let n=document.getElementById(e),r=document.getElementById(t);return n&&r?[{button:n,drawer:r}]:[]}),i,a=[document.querySelector(`.layout-container`),document.querySelector(`.mobile-sticky-header`),document.getElementById(`open-context-btn`)];function o(e=!0){if(!i)return;let{button:t,drawer:r}=i;r.classList.remove(`open`),r.inert=!0,r.setAttribute(`aria-hidden`,`true`),t.setAttribute(`aria-expanded`,`false`),n?.classList.remove(`open`),a.forEach(e=>{e&&(e.inert=!1)}),i=void 0,e&&t.focus()}for(let e of r)e.button.addEventListener(`click`,()=>{o(!1),i=e,e.drawer.inert=!1,e.drawer.setAttribute(`aria-hidden`,`false`),e.drawer.classList.add(`open`),e.button.setAttribute(`aria-expanded`,`true`),n?.classList.add(`open`),a.forEach(e=>{e&&(e.inert=!0)}),e.drawer.querySelector(`.drawer-close`)?.focus()},{signal:t}),e.drawer.querySelector(`.drawer-close`)?.addEventListener(`click`,()=>o(),{signal:t});n?.addEventListener(`click`,()=>o(),{signal:t}),document.addEventListener(`keydown`,e=>{if(i){if(e.key===`Escape`)e.preventDefault(),o();else if(e.key===`Tab`){let t=[...i.drawer.querySelectorAll(`a[href], button, input, select, textarea, [tabindex]`)].filter(e=>e.tabIndex>=0&&!e.matches(`:disabled`)&&e.getClientRects().length),n=t[0],r=t.at(-1);e.shiftKey&&document.activeElement===n?(e.preventDefault(),r?.focus()):!e.shiftKey&&document.activeElement===r&&(e.preventDefault(),n?.focus())}}},{signal:t}),window.addEventListener(`resize`,()=>{i&&!i.button.getClientRects().length&&o(!1)},{signal:t}),document.documentElement.dataset.drawersReady=``}t(),document.addEventListener(`astro:after-swap`,t);</script></body></html>

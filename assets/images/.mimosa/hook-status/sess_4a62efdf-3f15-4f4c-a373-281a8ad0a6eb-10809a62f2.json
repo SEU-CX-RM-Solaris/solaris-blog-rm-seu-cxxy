@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "mimosa-hook-status/v1",
+  "recordedAt": "2026-11-07T17:02:45.160Z",
+  "sessionId": "sess_4a62efdf-3f15-4f4c-a373-281a8ad0a6eb",
+  "event": "PostToolUse",
+  "toolName": "Edit",
+  "file": "C:\\Users\\Wen34\\.zcode\\workspace\\draft-b7d02949-854f-4b91-8980-3076505dc430\\solaris-blog-rm-seu-cxxy\\src\\config.ts",
+  "outcome": "inconclusive",
+  "coverage": "partial",
+  "findingCount": 0,
+  "durationMs": 11,
+  "hostState": "hook_complete",
+  "reportHint": ".mimosa/reports/"
+}
